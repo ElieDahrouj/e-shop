@@ -137,8 +137,16 @@
     @media all and (max-width: 426px) {
         .product {
             .manyPicture {
+                height: auto;
+                width: 75vw;
+                flex-direction:row;
+                overflow-x:scroll;
+                overflow-y:unset;
                 div {
-                    width: 195px;
+                    flex: 1 0 240px;
+                    img{
+                        max-width: 70vw;
+                    }
                 }
             }
         }

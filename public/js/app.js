@@ -17198,7 +17198,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".product[data-v-fd550270] {\n  margin: 20px 0;\n  display: flex;\n  align-items: flex-start;\n}\n.product .manyPicture[data-v-fd550270] {\n  width: 50%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  height: 75vh;\n  overflow-y: scroll;\n  margin-right: 15px;\n}\n.product .manyPicture div[data-v-fd550270] {\n  width: 375px;\n  margin: 10px;\n}\n.product .manyPicture div img[data-v-fd550270] {\n  max-width: 100%;\n}\n.product .infoAboutSneaker[data-v-fd550270] {\n  width: 50%;\n}\n.product .infoAboutSneaker .fieldToFull[data-v-fd550270] {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n}\n.product .infoAboutSneaker .fieldToFull label[data-v-fd550270] {\n  margin: 5px 0;\n}\n.product .infoAboutSneaker .fieldToFull select[data-v-fd550270] {\n  padding: 5px;\n  border: 1px solid #e8e8e8;\n  border-radius: 3px;\n}\n.product .infoAboutSneaker button[data-v-fd550270] {\n  background-color: #111111;\n  border: 0.5px solid #111111;\n  padding: 10px;\n  border-radius: 3px;\n  color: whitesmoke;\n}\n.product .infoAboutSneaker ul[data-v-fd550270] {\n  margin-top: 5px;\n}\n[data-v-fd550270]::-webkit-scrollbar {\n  width: 8px;\n}\n[data-v-fd550270]::-webkit-scrollbar-track {\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n  border-radius: 10px;\n}\n[data-v-fd550270]::-webkit-scrollbar-thumb {\n  border-radius: 10px;\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);\n}\n@media all and (max-width: 769px) {\n.product[data-v-fd550270] {\n    flex-direction: column-reverse;\n}\n.product .infoAboutSneaker[data-v-fd550270] {\n    width: 95%;\n    margin: auto;\n}\n.product .manyPicture[data-v-fd550270] {\n    width: 95%;\n    margin: 15px auto;\n    height: 45vh;\n}\n}\n@media all and (max-width: 426px) {\n.product .manyPicture div[data-v-fd550270] {\n    width: 195px;\n}\n}", ""]);
+exports.push([module.i, ".product[data-v-fd550270] {\n  margin: 20px 0;\n  display: flex;\n  align-items: flex-start;\n}\n.product .manyPicture[data-v-fd550270] {\n  width: 50%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  height: 75vh;\n  overflow-y: scroll;\n  margin-right: 15px;\n}\n.product .manyPicture div[data-v-fd550270] {\n  width: 375px;\n  margin: 10px;\n}\n.product .manyPicture div img[data-v-fd550270] {\n  max-width: 100%;\n}\n.product .infoAboutSneaker[data-v-fd550270] {\n  width: 50%;\n}\n.product .infoAboutSneaker .fieldToFull[data-v-fd550270] {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n}\n.product .infoAboutSneaker .fieldToFull label[data-v-fd550270] {\n  margin: 5px 0;\n}\n.product .infoAboutSneaker .fieldToFull select[data-v-fd550270] {\n  padding: 5px;\n  border: 1px solid #e8e8e8;\n  border-radius: 3px;\n}\n.product .infoAboutSneaker button[data-v-fd550270] {\n  background-color: #111111;\n  border: 0.5px solid #111111;\n  padding: 10px;\n  border-radius: 3px;\n  color: whitesmoke;\n}\n.product .infoAboutSneaker ul[data-v-fd550270] {\n  margin-top: 5px;\n}\n[data-v-fd550270]::-webkit-scrollbar {\n  width: 8px;\n}\n[data-v-fd550270]::-webkit-scrollbar-track {\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n  border-radius: 10px;\n}\n[data-v-fd550270]::-webkit-scrollbar-thumb {\n  border-radius: 10px;\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);\n}\n@media all and (max-width: 769px) {\n.product[data-v-fd550270] {\n    flex-direction: column-reverse;\n}\n.product .infoAboutSneaker[data-v-fd550270] {\n    width: 95%;\n    margin: auto;\n}\n.product .manyPicture[data-v-fd550270] {\n    width: 95%;\n    margin: 15px auto;\n    height: 45vh;\n}\n}\n@media all and (max-width: 426px) {\n.product .manyPicture[data-v-fd550270] {\n    height: auto;\n    width: 75vw;\n    flex-direction: row;\n    overflow-x: scroll;\n    overflow-y: unset;\n}\n.product .manyPicture div[data-v-fd550270] {\n    flex: 1 0 240px;\n}\n.product .manyPicture div img[data-v-fd550270] {\n    max-width: 70vw;\n}\n}", ""]);
 
 // exports
 
@@ -50459,13 +50459,7 @@ var staticRenderFns = [
       _c("div", [
         _c("img", { attrs: { src: __webpack_require__(/*! ../assets/sport.jpg */ "./resources/js/assets/sport.jpg"), alt: "" } }),
         _vm._v(" "),
-        _c("img", {
-          attrs: {
-            src:
-              "https://getdolphins.com/wp-content/uploads/2019/02/891b4aa7-1b27-4979-8c21-b991ec2af153.png",
-            alt: ""
-          }
-        })
+        _c("img", { attrs: { src: __webpack_require__(/*! ../assets/mobile.png */ "./resources/js/assets/mobile.png"), alt: "" } })
       ])
     ])
   },
@@ -67315,6 +67309,17 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_4___default.a({
   router: router,
   store: _store__WEBPACK_IMPORTED_MODULE_6__["default"]
 });
+
+/***/ }),
+
+/***/ "./resources/js/assets/mobile.png":
+/*!****************************************!*\
+  !*** ./resources/js/assets/mobile.png ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/mobile.png?9dfa38606b31891162b48f914996c787";
 
 /***/ }),
 
