@@ -138,14 +138,14 @@
         .product {
             .manyPicture {
                 height: auto;
-                width: 75vw;
+                width: 100vw;
                 flex-direction:row;
                 overflow-x:scroll;
                 overflow-y:unset;
+                margin: 5px;
                 div {
-                    flex: 1 0 240px;
                     img{
-                        max-width: 60vw;
+                        max-width: 70vw;
                     }
                 }
             }
