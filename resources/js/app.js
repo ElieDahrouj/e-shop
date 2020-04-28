@@ -10,7 +10,7 @@ Vue.component('index', Index)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faBars, faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faSearch, faTimes, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from './store'
@@ -21,9 +21,10 @@ import Home from './pages/Home'
 import Catalogue from './pages/Catalogue'
 import Brand from './pages/Brand'
 import Sneaker from './pages/Sneaker'
+import ShoppingCart from './pages/ShoppingCart'
 import axios from 'axios'
 require('./store/subscriber')
-library.add(faBars,faSearch, faTimes)
+library.add(faBars,faSearch, faTimes, faShoppingCart)
 Vue.prototype.$http = axios
 Vue.use(VueRouter)
 const router = new VueRouter({
@@ -73,6 +74,11 @@ const router = new VueRouter({
             path: '/sneaker',
             name: 'sneaker',
             component: Sneaker,
+        },
+        {
+            path: '/shopping',
+            name: 'shoppingCart',
+            component: ShoppingCart,
         },
     ],
 

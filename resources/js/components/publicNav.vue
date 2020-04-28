@@ -16,7 +16,7 @@
                         <a href="contact">Contact</a>
                     </li>
                     <li>
-                        <a href="panier">Panier <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                        <router-link :to="{name:'shoppingCart'}">Panier</router-link>
                     </li>
                     <li class="research">
                         <font-awesome-icon class="search" :icon="['fas', 'search']" />
@@ -49,7 +49,7 @@
                         <a href="contact">Contact</a>
                     </li>
                     <li>
-                        <a href="panier">Panier <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                        <router-link :to="{name:'shoppingCart'}">Panier</router-link>
                     </li>
                     <li class="research">
                         <font-awesome-icon class="search" :icon="['fas', 'search']" />
