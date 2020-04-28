@@ -145,7 +145,7 @@
                 div {
                     flex: 1 0 240px;
                     img{
-                        max-width: 70vw;
+                        max-width: 60vw;
                     }
                 }
             }
