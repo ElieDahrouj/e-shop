@@ -190,6 +190,9 @@
         }
     }
     @media all and (max-width: 769px) {
+        h4{
+            width: 95%;
+        }
         .shoppingCart{
             flex-direction: column-reverse;
             .cart{

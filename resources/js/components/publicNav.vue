@@ -13,7 +13,7 @@
                         <a href="News">News</a>
                     </li>
                     <li>
-                        <a href="contact">Contact</a>
+                        <router-link :to="{name:'contact'}">Contact</router-link>
                     </li>
                     <li>
                         <router-link :to="{name:'shoppingCart'}">Panier</router-link>
@@ -46,7 +46,7 @@
                         <a href="News">News</a>
                     </li>
                     <li>
-                        <a href="contact">Contact</a>
+                        <router-link :to="{name:'contact'}">Contact</router-link>
                     </li>
                     <li>
                         <router-link :to="{name:'shoppingCart'}">Panier</router-link>
