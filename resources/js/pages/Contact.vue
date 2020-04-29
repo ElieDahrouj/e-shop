@@ -59,8 +59,10 @@
     .maps{
         width: 90%;
         margin: auto;
+        max-width: 1500px;
     }
     .formContact{
+        max-width: 1500px;
         width: 90%;
         display: flex;
         justify-content: space-between;
