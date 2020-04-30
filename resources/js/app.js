@@ -23,6 +23,7 @@ import Brand from './pages/Brand'
 import Sneaker from './pages/Sneaker'
 import ShoppingCart from './pages/ShoppingCart'
 import Contact from './pages/Contact'
+import New from './pages/New'
 import axios from 'axios'
 require('./store/subscriber')
 library.add(faBars,faSearch, faTimes, faShoppingCart)
@@ -85,6 +86,11 @@ const router = new VueRouter({
             path: '/contact',
             name: 'contact',
             component: Contact,
+        },
+        {
+            path: '/new',
+            name: 'new',
+            component: New,
         },
     ],
 
