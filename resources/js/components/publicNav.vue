@@ -10,7 +10,7 @@
                         <router-link :to="{ name: 'catalogue'}">Catalogue</router-link>
                     </li>
                     <li>
-                        <a href="News">News</a>
+                        <router-link :to="{name:'news'}">News</router-link>
                     </li>
                     <li>
                         <router-link :to="{name:'contact'}">Contact</router-link>
@@ -43,7 +43,7 @@
                         <router-link :to="{name:'catalogue'}">Catalogue</router-link>
                     </li>
                     <li>
-                        <a href="News">News</a>
+                        <router-link :to="{name:'news'}">News</router-link>
                     </li>
                     <li>
                         <router-link :to="{name:'contact'}">Contact</router-link>

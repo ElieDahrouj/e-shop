@@ -4,6 +4,7 @@
         <section class="new">
             <h1><b>Nike Court Vintage Premium</b></h1>
             <img src="https://cdn-media.rtl.fr/online/image/2019/0116/7796245819_la-nike-adapt-bb-utilise-un-petit-moteur-pour-ajuster-le-serrage-de-la-chaussure-en-fonction-de-la-forme-du-pied.jpg" alt="">
+            <p><em>Publié il y a 8 jours</em></p>
             <p><em>Résume de l'article</em></p>
             <p>
                 Décontractée et tendance, la Nike Court Vintage Premium incarne
