@@ -185,7 +185,7 @@
                 }
                 .search{
                     position: absolute;
-                    top: 15px;
+                    top: 16px;
                     left: 5px;
                 }
                 input{
