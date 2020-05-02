@@ -57,31 +57,40 @@
             <h2>Actualités</h2>
         </div>
         <section class="news">
-            <div>
-                <h3>Titre de l'actu</h3>
-                <span>publie le<b>22/01/2020</b></span>
-                <p>resume de lactu </p>
-            </div>
-            <div>
-                <h3>Titre de l'actu</h3>
-                <span>publie le <b>22/01/2020</b></span>
-                <p>resume de lactu </p>
-            </div>
-            <div>
-                <h3>Titre de l'actu</h3>
-                <span>publie le <b>22/01/2020</b></span>
-                <p>resume de lactu </p>
-            </div>
-            <div>
-                <h3>Titre de l'actu</h3>
-                <span>publie le <b>22/01/2020</b></span>
-                <p>resume de lactu </p>
-            </div>
-            <div>
-                <h3>Titre de l'actu</h3>
-                <span>publie le <b>22/01/2020</b></span>
-                <p>resume de lactu </p>
-            </div>
+            <article>
+                <div>
+                    <div>
+                        <h3>Nike Court Vintage Premium</h3>
+                        <span><em>Date de publication: 22/01/2020</em></span>
+                    </div>
+
+                    <p>
+                        Décontractée et tendance, la Nike Court Vintage Premium incarne l'âge d'or du tennis des années 80. L'empeigne en cuir souple et le petit logo affichent un style décontracté, tandis
+                        que l'amorti de la semelle de propreté offre un confort optimal à chaque pas...
+                    </p>
+                    <button>Lire l'article</button>
+                </div>
+                <div>
+                    <img src="https://www.lesitedelasneaker.com/wp-content/images/2019/12/nike-colin-kaepernick-air-force-1-low-1100x733.jpg" alt="">
+                </div>
+            </article>
+            <article>
+                <div>
+                    <div>
+                        <h3>Nike Court Vintage Premium</h3>
+                        <span><em>Date de publication: 22/01/2020</em></span>
+                    </div>
+
+                    <p>
+                        Décontractée et tendance, la Nike Court Vintage Premium incarne l'âge d'or du tennis des années 80. L'empeigne en cuir souple et le petit logo affichent un style décontracté, tandis
+                        que l'amorti de la semelle de propreté offre un confort optimal à chaque pas...
+                    </p>
+                    <button>Lire l'article</button>
+                </div>
+                <div>
+                    <img src="https://cdn-media.rtl.fr/online/image/2019/0116/7796245819_la-nike-adapt-bb-utilise-un-petit-moteur-pour-ajuster-le-serrage-de-la-chaussure-en-fonction-de-la-forme-du-pied.jpg" alt="">
+                </div>
+            </article>
         </section>
     </div>
 </template>
@@ -154,21 +163,77 @@
         justify-content: center;
         align-items: flex-start;
         flex-wrap: wrap;
-        div{
+        article{
+            display: flex;
+            width: 100%;
             padding: 10px;
-            margin: 0 15px 20px;
-            border-radius: 3px;
-            border: 1px solid black;
-            min-width: 300px;
-            p{
-                margin:0;
+            border-radius:6px;
+            background-color: #191919;
+            justify-content: space-evenly;
+            &:not(:last-child){
+                margin-bottom: 35px;
+            }
+            div:nth-child(1){
+                width: 400px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items:flex-start;
+                div:nth-child(1){
+                    h3{
+                        color: #60837f;
+                    }
+                    span{
+                        color: #60837f;
+                    }
+                }
+                p{
+                    color: #a4a6a5;
+                    padding-right: 15px;
+                }
+                button{
+                    border-radius: 3px;
+                    padding: 10px;
+                    border: 1px solid #ecedef;
+                    background: transparent;
+                    font-weight: bold;
+                    color: #ecedef;
+                    &:hover{
+                        background-color: #ecedef;
+                        color: #191919;
+                    }
+                }
+            }
+            div:nth-child(2){
+                width: 600px;
+                img{
+                    max-width: 100%;
+                    border-radius:6px
+                }
             }
         }
     }
     @media all and (max-width: 769px) {
         .news{
-            div{
-                width: 100%;
+            article{
+                flex-direction: column-reverse;
+                width: unset;
+                div:nth-child(1) {
+                    div:nth-child(1) {
+                        margin-top: 5px;
+                        h3 {
+                            color: #60837f;
+                            margin: 0;
+                        }
+                        span {
+                            color: #60837f;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+                div:nth-child(2){
+                    width:400px;
+                }
             }
         }
     }
@@ -188,6 +253,22 @@
                 img:nth-child(2){
                     width: 100%;
                     display: block;
+                }
+            }
+        }
+    }
+    @media all and (max-width: 426px) {
+        .news{
+            article{
+                width: 100%;
+                div:nth-child(1){
+                    width: 100%;
+                    p{
+                        padding-right:0;
+                    }
+                }
+                div:nth-child(2){
+                    width:100%;
                 }
             }
         }

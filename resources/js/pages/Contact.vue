@@ -103,8 +103,9 @@
                    border-radius: 3px;
                    border:1px solid #e5e5e5;
                    padding: 5px;
+                   outline: none;
                    &:focus{
-                       background-color: #333333;
+                       border:1px solid #333333;
                    }
                }
                .firstField{

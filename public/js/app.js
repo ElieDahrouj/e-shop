@@ -12398,6 +12398,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -17469,7 +17478,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".maps[data-v-01b3a6b2] {\n  width: 90%;\n  margin: auto;\n  max-width: 1500px;\n}\n.formContact[data-v-01b3a6b2] {\n  max-width: 1500px;\n  width: 90%;\n  display: flex;\n  justify-content: space-between;\n  margin: 20px auto;\n}\n.formContact .backgroundInfo[data-v-01b3a6b2] {\n  background: url(" + escape(__webpack_require__(/*! ../assets/shop.jpg */ "./resources/js/assets/shop.jpg")) + ") no-repeat;\n  width: 500px;\n  background-size: cover;\n}\n.formContact .backgroundInfo div[data-v-01b3a6b2]:nth-child(1) {\n  display: flex;\n  padding: 10px;\n  flex-direction: column;\n  height: 100%;\n  justify-content: space-evenly;\n  align-items: center;\n  background-color: RGBA(56, 74, 181, 0.8);\n  color: whitesmoke;\n}\n.formContact .backgroundInfo div:nth-child(1) p[data-v-01b3a6b2], .formContact .backgroundInfo div:nth-child(1) h3[data-v-01b3a6b2] {\n  text-align: center;\n  margin: 0;\n}\n.formContact .backgroundInfo div:nth-child(1) a[data-v-01b3a6b2] {\n  color: whitesmoke;\n  font-weight: bold;\n}\n.formContact .contact[data-v-01b3a6b2] {\n  margin: 0 10px;\n  width: 40%;\n}\n.formContact .contact .message[data-v-01b3a6b2] {\n  display: flex;\n  flex-direction: column;\n}\n.formContact .contact .message input[data-v-01b3a6b2] {\n  margin-bottom: 10px;\n}\n.formContact .contact .message input[data-v-01b3a6b2], .formContact .contact .message textarea[data-v-01b3a6b2] {\n  border-radius: 3px;\n  border: 1px solid #e5e5e5;\n  padding: 5px;\n}\n.formContact .contact .message input[data-v-01b3a6b2]:focus, .formContact .contact .message textarea[data-v-01b3a6b2]:focus {\n  background-color: #333333;\n}\n.formContact .contact .message .firstField[data-v-01b3a6b2] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap;\n}\n.formContact .contact .message .firstField div[data-v-01b3a6b2] {\n  display: flex;\n  flex-direction: column;\n}\n.formContact .contact .message .btnCustom[data-v-01b3a6b2] {\n  margin-top: 10px;\n}\n.formContact .contact .message .btnCustom button[data-v-01b3a6b2] {\n  padding: 8px 20px;\n  color: #376242;\n  background-color: #d4edda;\n  border: 1px solid #cae6d0;\n  outline: none;\n}\n.formContact .contact .message .btnCustom button[data-v-01b3a6b2]:hover {\n  color: #fff;\n  background-color: #218838;\n}\n@media all and (max-width: 985px) {\n.formContact .contact .message .firstField[data-v-01b3a6b2] {\n    display: block;\n}\n}\n@media all and (max-width: 769px) {\n.maps[data-v-01b3a6b2] {\n    width: 100%;\n}\n.formContact[data-v-01b3a6b2] {\n    width: 100%;\n    margin: 0;\n    flex-direction: column;\n    align-items: center;\n}\n.formContact .backgroundInfo[data-v-01b3a6b2] {\n    width: 100%;\n}\n.formContact .backgroundInfo div[data-v-01b3a6b2]:nth-child(1) {\n    height: 320px;\n}\n.formContact .contact[data-v-01b3a6b2] {\n    width: 75%;\n    margin: 20px 0;\n}\n}\n@media all and (max-width: 321px) {\n.backgroundInfo div:nth-child(1) h3[data-v-01b3a6b2] {\n    font-size: 20px;\n}\n}", ""]);
+exports.push([module.i, ".maps[data-v-01b3a6b2] {\n  width: 90%;\n  margin: auto;\n  max-width: 1500px;\n}\n.formContact[data-v-01b3a6b2] {\n  max-width: 1500px;\n  width: 90%;\n  display: flex;\n  justify-content: space-between;\n  margin: 20px auto;\n}\n.formContact .backgroundInfo[data-v-01b3a6b2] {\n  background: url(" + escape(__webpack_require__(/*! ../assets/shop.jpg */ "./resources/js/assets/shop.jpg")) + ") no-repeat;\n  width: 500px;\n  background-size: cover;\n}\n.formContact .backgroundInfo div[data-v-01b3a6b2]:nth-child(1) {\n  display: flex;\n  padding: 10px;\n  flex-direction: column;\n  height: 100%;\n  justify-content: space-evenly;\n  align-items: center;\n  background-color: RGBA(56, 74, 181, 0.8);\n  color: whitesmoke;\n}\n.formContact .backgroundInfo div:nth-child(1) p[data-v-01b3a6b2], .formContact .backgroundInfo div:nth-child(1) h3[data-v-01b3a6b2] {\n  text-align: center;\n  margin: 0;\n}\n.formContact .backgroundInfo div:nth-child(1) a[data-v-01b3a6b2] {\n  color: whitesmoke;\n  font-weight: bold;\n}\n.formContact .contact[data-v-01b3a6b2] {\n  margin: 0 10px;\n  width: 40%;\n}\n.formContact .contact .message[data-v-01b3a6b2] {\n  display: flex;\n  flex-direction: column;\n}\n.formContact .contact .message input[data-v-01b3a6b2] {\n  margin-bottom: 10px;\n}\n.formContact .contact .message input[data-v-01b3a6b2], .formContact .contact .message textarea[data-v-01b3a6b2] {\n  border-radius: 3px;\n  border: 1px solid #e5e5e5;\n  padding: 5px;\n  outline: none;\n}\n.formContact .contact .message input[data-v-01b3a6b2]:focus, .formContact .contact .message textarea[data-v-01b3a6b2]:focus {\n  border: 1px solid #333333;\n}\n.formContact .contact .message .firstField[data-v-01b3a6b2] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap;\n}\n.formContact .contact .message .firstField div[data-v-01b3a6b2] {\n  display: flex;\n  flex-direction: column;\n}\n.formContact .contact .message .btnCustom[data-v-01b3a6b2] {\n  margin-top: 10px;\n}\n.formContact .contact .message .btnCustom button[data-v-01b3a6b2] {\n  padding: 8px 20px;\n  color: #376242;\n  background-color: #d4edda;\n  border: 1px solid #cae6d0;\n  outline: none;\n}\n.formContact .contact .message .btnCustom button[data-v-01b3a6b2]:hover {\n  color: #fff;\n  background-color: #218838;\n}\n@media all and (max-width: 985px) {\n.formContact .contact .message .firstField[data-v-01b3a6b2] {\n    display: block;\n}\n}\n@media all and (max-width: 769px) {\n.maps[data-v-01b3a6b2] {\n    width: 100%;\n}\n.formContact[data-v-01b3a6b2] {\n    width: 100%;\n    margin: 0;\n    flex-direction: column;\n    align-items: center;\n}\n.formContact .backgroundInfo[data-v-01b3a6b2] {\n    width: 100%;\n}\n.formContact .backgroundInfo div[data-v-01b3a6b2]:nth-child(1) {\n    height: 320px;\n}\n.formContact .contact[data-v-01b3a6b2] {\n    width: 75%;\n    margin: 20px 0;\n}\n}\n@media all and (max-width: 321px) {\n.backgroundInfo div:nth-child(1) h3[data-v-01b3a6b2] {\n    font-size: 20px;\n}\n}", ""]);
 
 // exports
 
@@ -17488,7 +17497,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".allProduct {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  width: 95%;\n  margin: 20px auto;\n}\n.allProduct .product {\n  background-color: #eaeeef;\n  min-width: 100px;\n  max-width: 250px;\n  padding: 10px;\n  border-radius: 3px;\n  margin-right: 10px;\n  margin-top: 10px;\n}\n.allProduct .product a {\n  text-decoration: none;\n  color: #041f54;\n}\n.allProduct .product a div:nth-child(1) img {\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  max-width: 100%;\n  height: auto;\n}\n.allProduct .product a div:nth-child(2) {\n  display: flex;\n  justify-content: space-between;\n}\n.allProduct .product a div:nth-child(2) p {\n  margin-top: 10px;\n  margin-bottom: 0;\n}\n.preview div img:nth-child(1) {\n  width: 100%;\n  display: block;\n}\n.preview div img:nth-child(2) {\n  display: none;\n  width: 100%;\n}\n.newSection {\n  text-align: center;\n  font-weight: bold;\n  text-decoration: underline;\n}\n.news {\n  width: 95%;\n  margin: 15px auto;\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n  flex-wrap: wrap;\n}\n.news div {\n  padding: 10px;\n  margin: 0 15px 20px;\n  border-radius: 3px;\n  border: 1px solid black;\n  min-width: 300px;\n}\n.news div p {\n  margin: 0;\n}\n@media all and (max-width: 769px) {\n.news div {\n    width: 100%;\n}\n}\n@media all and (max-width: 545px) {\n.allProduct .product {\n    max-width: 320px;\n    margin-right: 0;\n}\n.preview div img:nth-child(1) {\n    width: 100%;\n    display: none;\n}\n.preview div img:nth-child(2) {\n    width: 100%;\n    display: block;\n}\n}", ""]);
+exports.push([module.i, ".allProduct {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: center;\n  width: 95%;\n  margin: 20px auto;\n}\n.allProduct .product {\n  background-color: #eaeeef;\n  min-width: 100px;\n  max-width: 250px;\n  padding: 10px;\n  border-radius: 3px;\n  margin-right: 10px;\n  margin-top: 10px;\n}\n.allProduct .product a {\n  text-decoration: none;\n  color: #041f54;\n}\n.allProduct .product a div:nth-child(1) img {\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  max-width: 100%;\n  height: auto;\n}\n.allProduct .product a div:nth-child(2) {\n  display: flex;\n  justify-content: space-between;\n}\n.allProduct .product a div:nth-child(2) p {\n  margin-top: 10px;\n  margin-bottom: 0;\n}\n.preview div img:nth-child(1) {\n  width: 100%;\n  display: block;\n}\n.preview div img:nth-child(2) {\n  display: none;\n  width: 100%;\n}\n.newSection {\n  text-align: center;\n  font-weight: bold;\n  text-decoration: underline;\n}\n.news {\n  width: 95%;\n  margin: 15px auto;\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n  flex-wrap: wrap;\n}\n.news article {\n  display: flex;\n  width: 100%;\n  padding: 10px;\n  border-radius: 6px;\n  background-color: #191919;\n  justify-content: space-evenly;\n}\n.news article:not(:last-child) {\n  margin-bottom: 35px;\n}\n.news article div:nth-child(1) {\n  width: 400px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: flex-start;\n}\n.news article div:nth-child(1) div:nth-child(1) h3 {\n  color: #60837f;\n}\n.news article div:nth-child(1) div:nth-child(1) span {\n  color: #60837f;\n}\n.news article div:nth-child(1) p {\n  color: #a4a6a5;\n  padding-right: 15px;\n}\n.news article div:nth-child(1) button {\n  border-radius: 3px;\n  padding: 10px;\n  border: 1px solid #ecedef;\n  background: transparent;\n  font-weight: bold;\n  color: #ecedef;\n}\n.news article div:nth-child(1) button:hover {\n  background-color: #ecedef;\n  color: #191919;\n}\n.news article div:nth-child(2) {\n  width: 600px;\n}\n.news article div:nth-child(2) img {\n  max-width: 100%;\n  border-radius: 6px;\n}\n@media all and (max-width: 769px) {\n.news article {\n    flex-direction: column-reverse;\n    width: unset;\n}\n.news article div:nth-child(1) div:nth-child(1) {\n    margin-top: 5px;\n}\n.news article div:nth-child(1) div:nth-child(1) h3 {\n    color: #60837f;\n    margin: 0;\n}\n.news article div:nth-child(1) div:nth-child(1) span {\n    color: #60837f;\n    margin-bottom: 10px;\n}\n.news article div:nth-child(2) {\n    width: 400px;\n}\n}\n@media all and (max-width: 545px) {\n.allProduct .product {\n    max-width: 320px;\n    margin-right: 0;\n}\n.preview div img:nth-child(1) {\n    width: 100%;\n    display: none;\n}\n.preview div img:nth-child(2) {\n    width: 100%;\n    display: block;\n}\n}\n@media all and (max-width: 426px) {\n.news article {\n    width: 100%;\n}\n.news article div:nth-child(1) {\n    width: 100%;\n}\n.news article div:nth-child(1) p {\n    padding-right: 0;\n}\n.news article div:nth-child(2) {\n    width: 100%;\n}\n}", ""]);
 
 // exports
 
@@ -50503,7 +50512,7 @@ var render = function() {
           [
             _c("router-link", { attrs: { to: { name: "home" } } }, [
               _c("img", {
-                attrs: { src: __webpack_require__(/*! ../assets/sneaker.png */ "./resources/js/assets/sneaker.png"), alt: "" }
+                attrs: { src: __webpack_require__(/*! ../assets/test.png */ "./resources/js/assets/test.png"), alt: "" }
               })
             ])
           ],
@@ -50597,10 +50606,7 @@ var render = function() {
                   [
                     _c("router-link", { attrs: { to: { name: "home" } } }, [
                       _c("img", {
-                        attrs: {
-                          src: __webpack_require__(/*! ../assets/sneakerMobile.png */ "./resources/js/assets/sneakerMobile.png"),
-                          alt: ""
-                        }
+                        attrs: { src: __webpack_require__(/*! ../assets/test2.png */ "./resources/js/assets/test2.png"), alt: "" }
                       })
                     ])
                   ],
@@ -51223,44 +51229,60 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("section", { staticClass: "news" }, [
-      _c("div", [
-        _c("h3", [_vm._v("Titre de l'actu")]),
+      _c("article", [
+        _c("div", [
+          _c("div", [
+            _c("h3", [_vm._v("Nike Court Vintage Premium")]),
+            _vm._v(" "),
+            _c("span", [_c("em", [_vm._v("Date de publication: 22/01/2020")])])
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "\n                    Décontractée et tendance, la Nike Court Vintage Premium incarne l'âge d'or du tennis des années 80. L'empeigne en cuir souple et le petit logo affichent un style décontracté, tandis\n                    que l'amorti de la semelle de propreté offre un confort optimal à chaque pas...\n                "
+            )
+          ]),
+          _vm._v(" "),
+          _c("button", [_vm._v("Lire l'article")])
+        ]),
         _vm._v(" "),
-        _c("span", [_vm._v("publie le"), _c("b", [_vm._v("22/01/2020")])]),
-        _vm._v(" "),
-        _c("p", [_vm._v("resume de lactu ")])
+        _c("div", [
+          _c("img", {
+            attrs: {
+              src:
+                "https://www.lesitedelasneaker.com/wp-content/images/2019/12/nike-colin-kaepernick-air-force-1-low-1100x733.jpg",
+              alt: ""
+            }
+          })
+        ])
       ]),
       _vm._v(" "),
-      _c("div", [
-        _c("h3", [_vm._v("Titre de l'actu")]),
+      _c("article", [
+        _c("div", [
+          _c("div", [
+            _c("h3", [_vm._v("Nike Court Vintage Premium")]),
+            _vm._v(" "),
+            _c("span", [_c("em", [_vm._v("Date de publication: 22/01/2020")])])
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _vm._v(
+              "\n                    Décontractée et tendance, la Nike Court Vintage Premium incarne l'âge d'or du tennis des années 80. L'empeigne en cuir souple et le petit logo affichent un style décontracté, tandis\n                    que l'amorti de la semelle de propreté offre un confort optimal à chaque pas...\n                "
+            )
+          ]),
+          _vm._v(" "),
+          _c("button", [_vm._v("Lire l'article")])
+        ]),
         _vm._v(" "),
-        _c("span", [_vm._v("publie le "), _c("b", [_vm._v("22/01/2020")])]),
-        _vm._v(" "),
-        _c("p", [_vm._v("resume de lactu ")])
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("h3", [_vm._v("Titre de l'actu")]),
-        _vm._v(" "),
-        _c("span", [_vm._v("publie le "), _c("b", [_vm._v("22/01/2020")])]),
-        _vm._v(" "),
-        _c("p", [_vm._v("resume de lactu ")])
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("h3", [_vm._v("Titre de l'actu")]),
-        _vm._v(" "),
-        _c("span", [_vm._v("publie le "), _c("b", [_vm._v("22/01/2020")])]),
-        _vm._v(" "),
-        _c("p", [_vm._v("resume de lactu ")])
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("h3", [_vm._v("Titre de l'actu")]),
-        _vm._v(" "),
-        _c("span", [_vm._v("publie le "), _c("b", [_vm._v("22/01/2020")])]),
-        _vm._v(" "),
-        _c("p", [_vm._v("resume de lactu ")])
+        _c("div", [
+          _c("img", {
+            attrs: {
+              src:
+                "https://cdn-media.rtl.fr/online/image/2019/0116/7796245819_la-nike-adapt-bb-utilise-un-petit-moteur-pour-ajuster-le-serrage-de-la-chaussure-en-fonction-de-la-forme-du-pied.jpg",
+              alt: ""
+            }
+          })
+        ])
       ])
     ])
   }
@@ -68520,17 +68542,6 @@ module.exports = "/images/sneaker.png?35133aac164d0b90027601e00542847b";
 
 /***/ }),
 
-/***/ "./resources/js/assets/sneakerMobile.png":
-/*!***********************************************!*\
-  !*** ./resources/js/assets/sneakerMobile.png ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/sneakerMobile.png?481e866f3fe9c3a7b4fb0d114044ce20";
-
-/***/ }),
-
 /***/ "./resources/js/assets/sport.jpg":
 /*!***************************************!*\
   !*** ./resources/js/assets/sport.jpg ***!
@@ -68539,6 +68550,28 @@ module.exports = "/images/sneakerMobile.png?481e866f3fe9c3a7b4fb0d114044ce20";
 /***/ (function(module, exports) {
 
 module.exports = "/images/sport.jpg?685e4826cba8c8f50877bdaa763cc369";
+
+/***/ }),
+
+/***/ "./resources/js/assets/test.png":
+/*!**************************************!*\
+  !*** ./resources/js/assets/test.png ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/test.png?34dc7f43f9c225985eda5a17fdda7a74";
+
+/***/ }),
+
+/***/ "./resources/js/assets/test2.png":
+/*!***************************************!*\
+  !*** ./resources/js/assets/test2.png ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/test2.png?747810df9332f87d94abcee8b14df973";
 
 /***/ }),
 

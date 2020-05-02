@@ -2,7 +2,7 @@
     <div class="changePosition">
         <nav class="navBar">
             <div>
-               <router-link :to="{name:'home'}"><img src="../assets/sneaker.png" alt=""></router-link>
+               <router-link :to="{name:'home'}"><img src="../assets/test.png" alt=""></router-link>
             </div>
             <div>
                 <ul>
@@ -37,7 +37,7 @@
                         <font-awesome-icon @click="leaveModal" :icon="['fas', 'times']" />
                     </li>
                     <li>
-                        <router-link :to="{name:'home'}"><img src="../assets/sneakerMobile.png" alt=""></router-link>
+                        <router-link :to="{name:'home'}"><img src="../assets/test2.png" alt=""></router-link>
                     </li>
                     <li>
                         <router-link :to="{name:'catalogue'}">Catalogue</router-link>
