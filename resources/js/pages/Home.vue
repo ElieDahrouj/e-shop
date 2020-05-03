@@ -166,6 +166,7 @@
         article{
             display: flex;
             width: 100%;
+            max-width: 1200px;
             padding: 10px;
             border-radius:6px;
             background-color: #191919;
