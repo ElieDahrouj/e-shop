@@ -17420,7 +17420,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".mobile[data-v-9ec03182] {\n  display: none;\n  background-color: #e2e2e2;\n}\n.mobile div[data-v-9ec03182] {\n  margin: 10px;\n  font-size: 25px;\n}\n.navBar[data-v-9ec03182] {\n  width: 95%;\n  margin: 5px auto;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.navBar div[data-v-9ec03182]:nth-child(1) {\n  width: 110px;\n}\n.navBar div:nth-child(1) a img[data-v-9ec03182] {\n  max-width: 100%;\n  height: auto;\n}\n.navBar div:nth-child(2) ul[data-v-9ec03182] {\n  list-style: none;\n  padding: 0;\n  display: flex;\n  margin: 0;\n  justify-content: flex-start;\n}\n.navBar div:nth-child(2) ul li[data-v-9ec03182] {\n  margin: 0 10px;\n  position: relative;\n  padding-bottom: 5px;\n}\n.navBar div:nth-child(2) ul li a[data-v-9ec03182] {\n  color: #07060b;\n  text-decoration: none;\n}\n.navBar div:nth-child(2) ul li .search[data-v-9ec03182] {\n  position: absolute;\n  top: 5px;\n  left: 5px;\n}\n.navBar div:nth-child(2) ul li input[data-v-9ec03182] {\n  border: 1px solid black;\n  padding-left: 25px;\n  border-radius: 3px;\n}\n.navBar div:nth-child(2) ul li[data-v-9ec03182]:hover:not(:last-child) {\n  border-bottom: 1px solid red;\n}\n.navMobile[data-v-9ec03182] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  height: 100vh;\n  width: 100vw;\n  background-color: RGBA(236, 237, 239, 0.6);\n  display: flex;\n  justify-content: flex-end;\n}\n.navMobile ul[data-v-9ec03182] {\n  list-style: none;\n  display: flex;\n  flex-direction: column;\n  margin: 0;\n  height: 100vh;\n  justify-content: flex-start;\n  align-items: center;\n  width: 50%;\n  padding: 5px;\n  background-color: #05286d;\n}\n.navMobile ul li[data-v-9ec03182]:nth-child(1) {\n  text-align: right;\n  font-size: 28px;\n  padding: 3px;\n  width: 95%;\n  color: whitesmoke;\n}\n.navMobile ul li[data-v-9ec03182]:nth-child(2) {\n  text-align: center;\n  padding-bottom: 20px;\n}\n.navMobile ul li:nth-child(2) img[data-v-9ec03182] {\n  width: 65%;\n}\n.navMobile ul li[data-v-9ec03182] {\n  padding: 10px 0;\n  position: relative;\n}\n.navMobile ul li a[data-v-9ec03182] {\n  color: whitesmoke;\n  text-decoration: none;\n  padding: 5px;\n  font-size: 15px;\n  font-weight: bold;\n}\n.navMobile ul li a[data-v-9ec03182]:hover {\n  color: #60837f;\n}\n.navMobile ul li .search[data-v-9ec03182] {\n  position: absolute;\n  top: 15px;\n  left: 5px;\n}\n.navMobile ul li input[data-v-9ec03182] {\n  border: 1px solid black;\n  padding-left: 25px;\n  border-radius: 3px;\n  width: 100%;\n}\n.slide-fade-enter-active[data-v-9ec03182] {\n  transition: all 0.3s ease;\n}\n.slide-fade-leave-active[data-v-9ec03182] {\n  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter[data-v-9ec03182], .slide-fade-leave-to[data-v-9ec03182] {\n  transform: translateX(10px);\n  opacity: 0;\n}\n@media all and (max-width: 769px) {\n.navBar[data-v-9ec03182] {\n    display: none;\n}\n.mobile[data-v-9ec03182] {\n    display: flex;\n    justify-content: flex-end;\n    align-items: center;\n}\n.changePosition[data-v-9ec03182] {\n    position: -webkit-sticky;\n    position: sticky;\n    top: 0;\n}\n}", ""]);
+exports.push([module.i, ".mobile[data-v-9ec03182] {\n  display: none;\n  background-color: #e2e2e2;\n}\n.mobile div[data-v-9ec03182] {\n  margin: 10px;\n  font-size: 25px;\n}\n.navBar[data-v-9ec03182] {\n  width: 95%;\n  margin: 5px auto;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.navBar div[data-v-9ec03182]:nth-child(1) {\n  width: 110px;\n}\n.navBar div:nth-child(1) a img[data-v-9ec03182] {\n  max-width: 100%;\n  height: auto;\n}\n.navBar div:nth-child(2) ul[data-v-9ec03182] {\n  list-style: none;\n  padding: 0;\n  display: flex;\n  margin: 0;\n  justify-content: flex-start;\n}\n.navBar div:nth-child(2) ul li[data-v-9ec03182] {\n  margin: 0 10px;\n  position: relative;\n  padding-bottom: 5px;\n}\n.navBar div:nth-child(2) ul li a[data-v-9ec03182] {\n  color: #07060b;\n  text-decoration: none;\n}\n.navBar div:nth-child(2) ul li .search[data-v-9ec03182] {\n  position: absolute;\n  top: 5px;\n  left: 5px;\n}\n.navBar div:nth-child(2) ul li input[data-v-9ec03182] {\n  border: 1px solid black;\n  padding-left: 25px;\n  border-radius: 3px;\n}\n.navBar div:nth-child(2) ul li[data-v-9ec03182]:hover:not(:last-child) {\n  border-bottom: 1px solid red;\n}\n.navMobile[data-v-9ec03182] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  height: 100vh;\n  width: 100vw;\n  background-color: RGBA(236, 237, 239, 0.6);\n  display: flex;\n  justify-content: flex-end;\n}\n.navMobile ul[data-v-9ec03182] {\n  list-style: none;\n  display: flex;\n  flex-direction: column;\n  margin: 0;\n  height: 100vh;\n  justify-content: flex-start;\n  align-items: center;\n  width: 50%;\n  padding: 5px;\n  background-color: #05286d;\n}\n.navMobile ul li[data-v-9ec03182]:nth-child(1) {\n  text-align: right;\n  font-size: 28px;\n  padding: 3px;\n  width: 95%;\n  color: whitesmoke;\n}\n.navMobile ul li[data-v-9ec03182]:nth-child(2) {\n  text-align: center;\n  padding-bottom: 20px;\n}\n.navMobile ul li:nth-child(2) img[data-v-9ec03182] {\n  width: 65%;\n}\n.navMobile ul li[data-v-9ec03182] {\n  padding: 10px 0;\n  position: relative;\n}\n.navMobile ul li a[data-v-9ec03182] {\n  color: whitesmoke;\n  text-decoration: none;\n  padding: 5px;\n  font-size: 15px;\n  font-weight: bold;\n}\n.navMobile ul li a[data-v-9ec03182]:hover {\n  color: #60837f;\n}\n.navMobile ul li .search[data-v-9ec03182] {\n  position: absolute;\n  top: 16px;\n  left: 5px;\n}\n.navMobile ul li input[data-v-9ec03182] {\n  border: 1px solid black;\n  padding-left: 25px;\n  border-radius: 3px;\n  width: 100%;\n}\n.slide-fade-enter-active[data-v-9ec03182] {\n  transition: all 0.3s ease;\n}\n.slide-fade-leave-active[data-v-9ec03182] {\n  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);\n}\n.slide-fade-enter[data-v-9ec03182], .slide-fade-leave-to[data-v-9ec03182] {\n  transform: translateX(10px);\n  opacity: 0;\n}\n@media all and (max-width: 769px) {\n.navBar[data-v-9ec03182] {\n    display: none;\n}\n.mobile[data-v-9ec03182] {\n    display: flex;\n    justify-content: flex-end;\n    align-items: center;\n}\n.changePosition[data-v-9ec03182] {\n    position: -webkit-sticky;\n    position: sticky;\n    top: 0;\n}\n}", ""]);
 
 // exports
 
@@ -51046,11 +51046,14 @@ var staticRenderFns = [
           _vm._v(" "),
           _c("label", { attrs: { for: "message" } }, [_vm._v("Message")]),
           _vm._v(" "),
-          _c(
-            "textarea",
-            { attrs: { rows: "4", required: "", id: "message" } },
-            [_vm._v("Votre message")]
-          ),
+          _c("textarea", {
+            attrs: {
+              rows: "4",
+              required: "",
+              id: "message",
+              placeholder: "Votre message"
+            }
+          }),
           _vm._v(" "),
           _c("div", { staticClass: "btnCustom" }, [
             _c("button", { staticClass: "rounded" }, [_vm._v("Envoyer")])
@@ -51990,7 +51993,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "picture" }, [
           _c("img", {
             staticClass: "card-img-top",
-            attrs: { src: __webpack_require__(/*! ../../assets/sneaker.png */ "./resources/js/assets/sneaker.png"), alt: "..." }
+            attrs: { src: __webpack_require__(/*! ../../assets/test.png */ "./resources/js/assets/test.png"), alt: "..." }
           })
         ]),
         _vm._v(" "),
@@ -68528,17 +68531,6 @@ module.exports = "/images/mobile.png?9dfa38606b31891162b48f914996c787";
 /***/ (function(module, exports) {
 
 module.exports = "/images/shop.jpg?887ec1b009cf9215ccdd8c7efdc28bbc";
-
-/***/ }),
-
-/***/ "./resources/js/assets/sneaker.png":
-/*!*****************************************!*\
-  !*** ./resources/js/assets/sneaker.png ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/sneaker.png?35133aac164d0b90027601e00542847b";
 
 /***/ }),
 

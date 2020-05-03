@@ -6,7 +6,7 @@
         <div class="container mt-4 mb-2">
             <div class="card card-default">
                 <div class="card-header"><b>Bienvenue</b></div>
-                <div class="picture"><img src="../../assets/sneaker.png" class="card-img-top" alt="..."></div>
+                <div class="picture"><img src="../../assets/test.png" class="card-img-top" alt="..."></div>
                 <div class="card-body text-center">
                     <p>Bienvenue sur la page d'administration du site THE HEAVENS</p>
                     <p>

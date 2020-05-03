@@ -32,7 +32,7 @@
                     <input type="text" id="subject" placeholder="Subject" required>
 
                     <label for="message">Message</label>
-                    <textarea rows="4" required id="message">Votre message</textarea>
+                    <textarea rows="4" required id="message" placeholder="Votre message"></textarea>
                     <div class="btnCustom">
                         <button class="rounded">Envoyer</button>
                     </div>
