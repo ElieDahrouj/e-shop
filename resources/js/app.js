@@ -5,8 +5,7 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 import Index from './Index'
-Vue.component('Navigation', require('./components/Navigation.vue').default);
-Vue.component('index', Index)
+Vue.component('app', Index)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -25,6 +24,7 @@ import ShoppingCart from './pages/ShoppingCart'
 import Contact from './pages/Contact'
 import New from './pages/New'
 import News from './pages/News'
+import Payment from './pages/Payment'
 import axios from 'axios'
 require('./store/subscriber')
 library.add(faBars,faSearch, faTimes, faShoppingCart)
@@ -97,6 +97,11 @@ const router = new VueRouter({
             path: '/news',
             name: 'news',
             component: News,
+        },
+        {
+            path: '/payment',
+            name: 'payment',
+            component: Payment,
         },
     ],
 

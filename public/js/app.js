@@ -12543,6 +12543,82 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Payment.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Payment.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_publicNav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/publicNav */ "./resources/js/components/publicNav.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'payment',
+  components: {
+    publicNav: _components_publicNav__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/ShoppingCart.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/ShoppingCart.vue?vue&type=script&lang=js& ***!
@@ -17542,6 +17618,25 @@ exports.push([module.i, ".allNews[data-v-163b945c] {\n  display: flex;\n  justif
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Payment.vue?vue&type=style&index=0&id=be3450e6&scoped=true&lang=scss&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Payment.vue?vue&type=style&index=0&id=be3450e6&scoped=true&lang=scss& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".payement[data-v-be3450e6] {\n  width: 95%;\n  margin: 20px auto;\n}\n.payement .fullField[data-v-be3450e6] {\n  width: 70%;\n  margin: auto;\n}\n.payement .fullField .shipping[data-v-be3450e6] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  background-color: #222222;\n  padding: 5px;\n  margin-bottom: 10px;\n}\n.payement .fullField .shipping h3[data-v-be3450e6] {\n  margin: 0;\n  color: whitesmoke;\n  font-size: 20px;\n}\n.payement .fullField .shipping button[data-v-be3450e6] {\n  border: none;\n  color: whitesmoke;\n  background-color: transparent;\n  outline: none;\n  text-decoration: underline;\n}\n.payement .fullField .firstInformations .firstField[data-v-be3450e6], .payement .fullField .firstInformations .secondField[data-v-be3450e6], .payement .fullField .firstInformations .thirdField[data-v-be3450e6] {\n  display: flex;\n  justify-content: space-between;\n}\n.payement .fullField .firstInformations input[data-v-be3450e6] {\n  padding: 10px;\n  border: 1px solid #dedfe4;\n  margin-bottom: 15px;\n  outline: none;\n  border-radius: 3px;\n}\n.payement .fullField .firstInformations input[data-v-be3450e6]:focus {\n  border: 1px solid #222222;\n}\n.payement .fullField .firstInformations input.field[data-v-be3450e6] {\n  width: 48%;\n}\n.payement .fullField .firstInformations input.address[data-v-be3450e6] {\n  width: 100%;\n}\n.payement .fullField .firstInformations .validInformations[data-v-be3450e6] {\n  text-align: right;\n}\n.payement .fullField .firstInformations .validInformations button[data-v-be3450e6] {\n  padding: 8px 20px;\n  color: #fff5e9;\n  background-color: #fa5400;\n  border: 1px solid #e3834f;\n  outline: none;\n  margin-bottom: 15px;\n  border-radius: 3px;\n}\n.payement .fullField .firstInformations .validInformations button[data-v-be3450e6]:hover {\n  background: rgba(250, 84, 0, 0.75);\n}\n.payement .fullField .informationAboutPayement .informationsCB[data-v-be3450e6] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n.payement .fullField .informationAboutPayement .informationsCB .numberCart[data-v-be3450e6], .payement .fullField .informationAboutPayement .informationsCB .expireDate[data-v-be3450e6], .payement .fullField .informationAboutPayement .informationsCB .secureCode[data-v-be3450e6] {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.payement .fullField .informationAboutPayement .informationsCB .numberCart label[data-v-be3450e6], .payement .fullField .informationAboutPayement .informationsCB .expireDate label[data-v-be3450e6], .payement .fullField .informationAboutPayement .informationsCB .secureCode label[data-v-be3450e6] {\n  width: 90%;\n}\n.payement .fullField .informationAboutPayement .informationsCB .numberCart input[data-v-be3450e6], .payement .fullField .informationAboutPayement .informationsCB .expireDate input[data-v-be3450e6], .payement .fullField .informationAboutPayement .informationsCB .secureCode input[data-v-be3450e6] {\n  padding: 10px;\n  border: 1px solid #dedfe4;\n  margin-bottom: 15px;\n  outline: none;\n  border-radius: 3px;\n  width: 90%;\n}\n.payement .fullField .informationAboutPayement .informationsCB .numberCart input[data-v-be3450e6]:focus, .payement .fullField .informationAboutPayement .informationsCB .expireDate input[data-v-be3450e6]:focus, .payement .fullField .informationAboutPayement .informationsCB .secureCode input[data-v-be3450e6]:focus {\n  border: 1px solid #222222;\n}\n.payement .fullField .informationAboutPayement .validCommand[data-v-be3450e6] {\n  text-align: right;\n  padding: 10px;\n}\n.payement .fullField .informationAboutPayement .validCommand button[data-v-be3450e6] {\n  padding: 8px 20px;\n  color: #376242;\n  background-color: #d4edda;\n  border: 1px solid #cae6d0;\n  outline: none;\n}\n.payement .fullField .informationAboutPayement .validCommand button[data-v-be3450e6]:hover {\n  color: #fff;\n  background-color: #218838;\n}\n@media all and (max-width: 426px) {\n.payement .fullField .shipping h3[data-v-be3450e6] {\n    font-size: 15px;\n}\n.payement .fullField .firstInformations .firstField[data-v-be3450e6], .payement .fullField .firstInformations .secondField[data-v-be3450e6], .payement .fullField .firstInformations .thirdField[data-v-be3450e6] {\n    flex-direction: column;\n}\n.payement .fullField .firstInformations .firstField input[data-v-be3450e6], .payement .fullField .firstInformations .secondField input[data-v-be3450e6], .payement .fullField .firstInformations .thirdField input[data-v-be3450e6] {\n    width: 100%;\n}\n.payement .fullField .informationAboutPayement .informationsCB[data-v-be3450e6] {\n    align-items: flex-start;\n    flex-direction: column;\n}\n.payement .fullField .informationAboutPayement .informationsCB .numberCart[data-v-be3450e6], .payement .fullField .informationAboutPayement .informationsCB .expireDate[data-v-be3450e6], .payement .fullField .informationAboutPayement .informationsCB .secureCode[data-v-be3450e6] {\n    align-items: flex-start;\n    width: 100%;\n}\n.payement .fullField .informationAboutPayement .informationsCB .numberCart input[data-v-be3450e6], .payement .fullField .informationAboutPayement .informationsCB .expireDate input[data-v-be3450e6], .payement .fullField .informationAboutPayement .informationsCB .secureCode input[data-v-be3450e6] {\n    width: 100%;\n}\n.payement .fullField .informationAboutPayement .informationsCB .numberCart label[data-v-be3450e6], .payement .fullField .informationAboutPayement .informationsCB .expireDate label[data-v-be3450e6], .payement .fullField .informationAboutPayement .informationsCB .secureCode label[data-v-be3450e6] {\n    width: 100%;\n}\n.payement .fullField .informationAboutPayement .validCommand[data-v-be3450e6] {\n    padding: 0;\n}\n.payement .fullField .informationAboutPayement .validCommand button[data-v-be3450e6] {\n    width: 100%;\n}\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/ShoppingCart.vue?vue&type=style&index=0&id=09d702b1&scoped=true&lang=scss&":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/ShoppingCart.vue?vue&type=style&index=0&id=09d702b1&scoped=true&lang=scss& ***!
@@ -17573,7 +17668,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".product[data-v-fd550270] {\n  margin: 20px 0;\n  display: flex;\n  align-items: flex-start;\n}\n.product .manyPicture[data-v-fd550270] {\n  width: 50%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  height: 75vh;\n  overflow-y: scroll;\n  margin-right: 15px;\n}\n.product .manyPicture div[data-v-fd550270] {\n  width: 375px;\n  margin: 10px;\n}\n.product .manyPicture div img[data-v-fd550270] {\n  max-width: 100%;\n}\n.product .infoAboutSneaker[data-v-fd550270] {\n  width: 50%;\n}\n.product .infoAboutSneaker .fieldToFull[data-v-fd550270] {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n}\n.product .infoAboutSneaker .fieldToFull label[data-v-fd550270] {\n  margin: 5px 0;\n}\n.product .infoAboutSneaker .fieldToFull select[data-v-fd550270] {\n  padding: 5px;\n  border: 1px solid #e8e8e8;\n  border-radius: 3px;\n}\n.product .infoAboutSneaker button[data-v-fd550270] {\n  background-color: #111111;\n  border: 0.5px solid #111111;\n  padding: 10px;\n  border-radius: 3px;\n  color: whitesmoke;\n}\n.product .infoAboutSneaker ul[data-v-fd550270] {\n  margin-top: 5px;\n}\n[data-v-fd550270]::-webkit-scrollbar {\n  width: 8px;\n}\n[data-v-fd550270]::-webkit-scrollbar-track {\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n  border-radius: 10px;\n}\n[data-v-fd550270]::-webkit-scrollbar-thumb {\n  border-radius: 10px;\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);\n}\n@media all and (max-width: 769px) {\n.product[data-v-fd550270] {\n    flex-direction: column-reverse;\n}\n.product .infoAboutSneaker[data-v-fd550270] {\n    width: 95%;\n    margin: auto;\n}\n.product .manyPicture[data-v-fd550270] {\n    width: 95%;\n    margin: 15px auto;\n    height: 45vh;\n}\n}\n@media all and (max-width: 426px) {\n.product .manyPicture[data-v-fd550270] {\n    height: auto;\n    width: 95vw;\n    flex-direction: row;\n    overflow-x: scroll;\n    overflow-y: unset;\n    margin: 5px;\n}\n.product .manyPicture div img[data-v-fd550270] {\n    max-width: 80vw;\n}\n}", ""]);
+exports.push([module.i, ".product[data-v-fd550270] {\n  margin: 20px 0;\n  display: flex;\n  align-items: flex-start;\n}\n.product .manyPicture[data-v-fd550270] {\n  width: 50%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  height: 436px;\n  overflow-y: scroll;\n  margin-right: 15px;\n}\n.product .manyPicture div[data-v-fd550270] {\n  width: 375px;\n  margin: 10px;\n}\n.product .manyPicture div img[data-v-fd550270] {\n  max-width: 100%;\n}\n.product .infoAboutSneaker[data-v-fd550270] {\n  width: 50%;\n  padding-right: 8px;\n}\n.product .infoAboutSneaker .fieldToFull[data-v-fd550270] {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n}\n.product .infoAboutSneaker .fieldToFull label[data-v-fd550270] {\n  margin: 5px 0;\n}\n.product .infoAboutSneaker .fieldToFull select[data-v-fd550270] {\n  padding: 5px;\n  border: 1px solid #e8e8e8;\n  border-radius: 3px;\n}\n.product .infoAboutSneaker button[data-v-fd550270] {\n  background-color: #111111;\n  border: 0.5px solid #111111;\n  padding: 10px;\n  border-radius: 3px;\n  color: whitesmoke;\n}\n.product .infoAboutSneaker ul[data-v-fd550270] {\n  margin-top: 5px;\n}\n[data-v-fd550270]::-webkit-scrollbar {\n  width: 6px;\n}\n[data-v-fd550270]::-webkit-scrollbar-track {\n  -webkit-box-shadow: none;\n}\n[data-v-fd550270]::-webkit-scrollbar-thumb {\n  border-radius: 6px;\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);\n}\n@media all and (max-width: 769px) {\n.product[data-v-fd550270] {\n    flex-direction: column-reverse;\n}\n.product .infoAboutSneaker[data-v-fd550270] {\n    width: 95%;\n    margin: auto;\n}\n.product .manyPicture[data-v-fd550270] {\n    width: 95%;\n    margin: 15px auto;\n    height: 45vh;\n}\n}\n@media all and (max-width: 426px) {\n.product .manyPicture[data-v-fd550270] {\n    height: auto;\n    width: 95vw;\n    flex-direction: row;\n    overflow-x: scroll;\n    overflow-y: unset;\n    margin: 5px;\n}\n.product .manyPicture div img[data-v-fd550270] {\n    max-width: 80vw;\n}\n}", ""]);
 
 // exports
 
@@ -49716,6 +49811,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Payment.vue?vue&type=style&index=0&id=be3450e6&scoped=true&lang=scss&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Payment.vue?vue&type=style&index=0&id=be3450e6&scoped=true&lang=scss& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./Payment.vue?vue&type=style&index=0&id=be3450e6&scoped=true&lang=scss& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Payment.vue?vue&type=style&index=0&id=be3450e6&scoped=true&lang=scss&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/ShoppingCart.vue?vue&type=style&index=0&id=09d702b1&scoped=true&lang=scss&":
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/ShoppingCart.vue?vue&type=style&index=0&id=09d702b1&scoped=true&lang=scss& ***!
@@ -51531,6 +51656,153 @@ var staticRenderFns = [
             _vm._v(
               "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda beatae consequatur cupiditate deserunt ea explicabo incidunt labore perferendis quam quo saepe sapiente, sint sit sunt, temporibus unde velit, voluptas."
             )
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Payment.vue?vue&type=template&id=be3450e6&scoped=true&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/Payment.vue?vue&type=template&id=be3450e6&scoped=true& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_c("publicNav"), _vm._v(" "), _vm._m(0)], 1)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "payement" }, [
+      _c("div", { staticClass: "fullField" }, [
+        _c("div", { staticClass: "shipping" }, [
+          _c("h3", [_vm._v("1. Shipping")]),
+          _vm._v(" "),
+          _c("button", [_vm._v("Edit")])
+        ]),
+        _vm._v(" "),
+        _c("form", { staticClass: "firstInformations" }, [
+          _c("div", { staticClass: "firstField" }, [
+            _c("input", {
+              staticClass: "field",
+              attrs: { type: "text", placeholder: "Nom" }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "field",
+              attrs: { type: "text", placeholder: "Prénom" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            staticClass: "address",
+            attrs: { type: "text", placeholder: "Adresse" }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "secondField" }, [
+            _c("input", {
+              staticClass: "field",
+              attrs: { type: "text", placeholder: "Code Postal" }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "field",
+              attrs: { type: "text", placeholder: "Ville" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "thirdField" }, [
+            _c("input", {
+              staticClass: "field",
+              attrs: { type: "email", placeholder: "E-mail" }
+            }),
+            _vm._v(" "),
+            _c("input", {
+              staticClass: "field",
+              attrs: { type: "tel", placeholder: "Numéro de téléphone" }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "validInformations" }, [
+            _c("button", [_vm._v("Continuer")])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "fullField" }, [
+        _c("div", { staticClass: "shipping" }, [
+          _c("h3", [_vm._v("2. Paiement")]),
+          _vm._v(" "),
+          _c("button", [_vm._v("Edit")])
+        ]),
+        _vm._v(" "),
+        _c("form", { staticClass: "informationAboutPayement" }, [
+          _c("div", { staticClass: "informationsCB" }, [
+            _c("div", { staticClass: "numberCart" }, [
+              _c("label", { attrs: { for: "cart" } }, [
+                _vm._v("Numéro de carte")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                attrs: {
+                  id: "cart",
+                  type: "tel",
+                  maxlength: "11",
+                  placeholder: "Numéro de la carte"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "expireDate" }, [
+              _c("label", { attrs: { for: "expireDate" } }, [
+                _vm._v("Date d'expiration")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                attrs: {
+                  id: "expireDate",
+                  type: "tel",
+                  maxlength: "4",
+                  placeholder: "MM/YY"
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "secureCode" }, [
+              _c("label", { attrs: { for: "secureCode" } }, [
+                _vm._v("Code de sécurité")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                attrs: {
+                  type: "tel",
+                  id: "secureCode",
+                  maxlength: "3",
+                  placeholder: "XXX"
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "validCommand" }, [
+            _c("button", [_vm._v("Valider la commande")])
           ])
         ])
       ])
@@ -68397,17 +68669,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_Contact__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/Contact */ "./resources/js/pages/Contact.vue");
 /* harmony import */ var _pages_New__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pages/New */ "./resources/js/pages/New.vue");
 /* harmony import */ var _pages_News__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./pages/News */ "./resources/js/pages/News.vue");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var _pages_Payment__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./pages/Payment */ "./resources/js/pages/Payment.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_19__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"); // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 
-vue__WEBPACK_IMPORTED_MODULE_4___default.a.component('Navigation', __webpack_require__(/*! ./components/Navigation.vue */ "./resources/js/components/Navigation.vue")["default"]);
-vue__WEBPACK_IMPORTED_MODULE_4___default.a.component('index', _Index__WEBPACK_IMPORTED_MODULE_0__["default"]);
+vue__WEBPACK_IMPORTED_MODULE_4___default.a.component('app', _Index__WEBPACK_IMPORTED_MODULE_0__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_4___default.a.component('font-awesome-icon', _fortawesome_vue_fontawesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesomeIcon"]);
+
 
 
 
@@ -68430,7 +68703,7 @@ vue__WEBPACK_IMPORTED_MODULE_4___default.a.component('font-awesome-icon', _forta
 __webpack_require__(/*! ./store/subscriber */ "./resources/js/store/subscriber.js");
 
 _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_2__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faSearch"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTimes"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faShoppingCart"]);
-vue__WEBPACK_IMPORTED_MODULE_4___default.a.prototype.$http = axios__WEBPACK_IMPORTED_MODULE_18___default.a;
+vue__WEBPACK_IMPORTED_MODULE_4___default.a.prototype.$http = axios__WEBPACK_IMPORTED_MODULE_19___default.a;
 vue__WEBPACK_IMPORTED_MODULE_4___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_5__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_5__["default"]({
   mode: 'history',
@@ -68487,6 +68760,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_5__["default"]({
     path: '/news',
     name: 'news',
     component: _pages_News__WEBPACK_IMPORTED_MODULE_17__["default"]
+  }, {
+    path: '/payment',
+    name: 'payment',
+    component: _pages_Payment__WEBPACK_IMPORTED_MODULE_18__["default"]
   }]
 });
 router.beforeEach(function (to, from, next) {
@@ -69303,6 +69580,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_News_vue_vue_type_template_id_163b945c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_News_vue_vue_type_template_id_163b945c_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/Payment.vue":
+/*!****************************************!*\
+  !*** ./resources/js/pages/Payment.vue ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Payment_vue_vue_type_template_id_be3450e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Payment.vue?vue&type=template&id=be3450e6&scoped=true& */ "./resources/js/pages/Payment.vue?vue&type=template&id=be3450e6&scoped=true&");
+/* harmony import */ var _Payment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Payment.vue?vue&type=script&lang=js& */ "./resources/js/pages/Payment.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Payment_vue_vue_type_style_index_0_id_be3450e6_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Payment.vue?vue&type=style&index=0&id=be3450e6&scoped=true&lang=scss& */ "./resources/js/pages/Payment.vue?vue&type=style&index=0&id=be3450e6&scoped=true&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _Payment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Payment_vue_vue_type_template_id_be3450e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Payment_vue_vue_type_template_id_be3450e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "be3450e6",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/Payment.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/Payment.vue?vue&type=script&lang=js&":
+/*!*****************************************************************!*\
+  !*** ./resources/js/pages/Payment.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Payment.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Payment.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/Payment.vue?vue&type=style&index=0&id=be3450e6&scoped=true&lang=scss&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/pages/Payment.vue?vue&type=style&index=0&id=be3450e6&scoped=true&lang=scss& ***!
+  \**************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_style_index_0_id_be3450e6_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./Payment.vue?vue&type=style&index=0&id=be3450e6&scoped=true&lang=scss& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Payment.vue?vue&type=style&index=0&id=be3450e6&scoped=true&lang=scss&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_style_index_0_id_be3450e6_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_style_index_0_id_be3450e6_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_style_index_0_id_be3450e6_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_style_index_0_id_be3450e6_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_style_index_0_id_be3450e6_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/Payment.vue?vue&type=template&id=be3450e6&scoped=true&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/pages/Payment.vue?vue&type=template&id=be3450e6&scoped=true& ***!
+  \***********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_template_id_be3450e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Payment.vue?vue&type=template&id=be3450e6&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/Payment.vue?vue&type=template&id=be3450e6&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_template_id_be3450e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Payment_vue_vue_type_template_id_be3450e6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

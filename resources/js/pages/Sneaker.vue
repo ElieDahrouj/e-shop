@@ -68,7 +68,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            height: 75vh;
+            height: 436px;
             overflow-y: scroll;
             margin-right: 15px;
 
@@ -82,6 +82,7 @@
         }
         .infoAboutSneaker{
             width: 50%;
+            padding-right: 8px;
             .fieldToFull{
                 display: flex;
                 flex-direction: column;
@@ -108,16 +109,15 @@
         }
     }
     ::-webkit-scrollbar {
-        width: 8px;
+        width: 6px;
     }
 
     ::-webkit-scrollbar-track {
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-        border-radius: 10px;
+        -webkit-box-shadow: none;
     }
 
     ::-webkit-scrollbar-thumb {
-        border-radius: 10px;
+        border-radius: 6px;
         -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
     }
     @media all and (max-width: 769px) {
