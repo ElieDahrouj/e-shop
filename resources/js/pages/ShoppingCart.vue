@@ -89,6 +89,7 @@
         border-bottom:1px solid black;
     }
     .shoppingCart {
+        max-width: 1200px;
         width:95%;
         margin: 5px auto 20px;
         display: flex;
