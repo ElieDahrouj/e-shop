@@ -67,16 +67,14 @@
         margin: 10px;
     }
     .allMarque{
-        width: 95%;
-        margin: 20px auto;
-        display: flex;
+        margin: 20px 0;
+        display: grid;
         justify-content: center;
-        align-items: flex-start;
-        flex-wrap: wrap;
+        grid-gap: 50px;
+        grid-template-columns: repeat(auto-fit, 250px);
     }
     .trend{
         margin:8px;
-        width: 20%;
         a {
             text-decoration: none;
             color: #660000;
@@ -99,13 +97,13 @@
         }
     }
     @media all and (max-width: 769px) {
-        .trend{
-            width: 45%;
+        .allMarque{
+            grid-template-columns: repeat(auto-fit, 150px);
         }
     }
     @media all and (max-width: 426px) {
-        .trend{
-            width: 100%;
+        .allMarque{
+            grid-template-columns: repeat(auto-fit, 95%);
         }
     }
 </style>
