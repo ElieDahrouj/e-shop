@@ -79,14 +79,12 @@
 </script>
 <style scoped lang="scss">
     .allNews{
-        display: flex;
-        justify-content: space-around;
-        align-items: flex-start;
-        flex-wrap:wrap;
-        width: 95%;
-        margin: 20px auto;
+        display: grid;
+        grid-gap: 46px;
+        justify-content: center;
+        grid-template-columns: repeat(auto-fit, 300px);
+        margin: 20px 0;
         .oneNew{
-            max-width: 200px;
             border-radius:3px ;
             margin: 5px;
             top: 0;
@@ -174,7 +172,6 @@
             flex-direction: column;
             align-items: center;
             .oneNew{
-                max-width: 75%;
                 &:not(:last-child){
                     margin-bottom: 25px;
                     border-radius: 3px 3px 0 0;
