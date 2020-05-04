@@ -104,19 +104,15 @@
 </script>
 <style lang="scss">
     .allProduct{
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
         justify-content: center;
-        width: 95%;
-        margin: 20px auto;
+        grid-gap: 50px;
+        grid-template-columns: repeat(auto-fit, 250px);
+        margin: 20px 0;
         .product{
             background-color: #eaeeef;
-            min-width: 100px;
-            max-width: 250px;
             padding: 10px;
             border-radius: 3px;
-            margin-right: 10px;
-            margin-top: 10px;
             a {
                 text-decoration: none;
                 color: #041f54;
@@ -157,23 +153,16 @@
         text-decoration:underline;
     }
     .news{
-        width: 95%;
         margin: 15px auto;
-        display: flex;
+        display: grid;
         justify-content: center;
-        align-items: flex-start;
-        flex-wrap: wrap;
+        grid-gap: 50px;
+        grid-template-columns: repeat(auto-fit, 750px);
         article{
             display: flex;
-            width: 100%;
-            max-width: 1200px;
             padding: 10px;
             border-radius:6px;
             background-color: #191919;
-            justify-content: space-evenly;
-            &:not(:last-child){
-                margin-bottom: 35px;
-            }
             div:nth-child(1){
                 width: 400px;
                 display: flex;
@@ -189,7 +178,7 @@
                     }
                 }
                 p{
-                    color: #a4a6a5;
+                    color: #d4d6d5;
                     padding-right: 15px;
                 }
                 button{
@@ -216,18 +205,16 @@
     }
     @media all and (max-width: 769px) {
         .news{
+            grid-template-columns: none;
             article{
                 flex-direction: column-reverse;
-                width: unset;
                 div:nth-child(1) {
                     div:nth-child(1) {
                         margin-top: 5px;
                         h3 {
-                            color: #60837f;
                             margin: 0;
                         }
                         span {
-                            color: #60837f;
                             margin-bottom: 10px;
                         }
                     }
@@ -240,10 +227,7 @@
     }
     @media all and (max-width: 545px) {
         .allProduct {
-            .product {
-                max-width: 320px;
-                margin-right: 0;
-            }
+            grid-template-columns: repeat(auto-fit, 320px);
         }
         .preview{
             div{
@@ -260,8 +244,8 @@
     }
     @media all and (max-width: 426px) {
         .news{
+            grid-template-columns: repeat(auto-fit, 95%);
             article{
-                width: 100%;
                 div:nth-child(1){
                     width: 100%;
                     p{
