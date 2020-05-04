@@ -160,6 +160,7 @@
         grid-template-columns: repeat(auto-fit, 750px);
         article{
             display: flex;
+            align-items: center;
             padding: 10px;
             border-radius:6px;
             background-color: #191919;
