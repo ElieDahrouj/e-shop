@@ -73,6 +73,7 @@
 </script>
 <style scoped lang="scss">
     .brand{
+        margin-top: 20px;
         div:nth-child(1){
             img{
                 width: 100%;
