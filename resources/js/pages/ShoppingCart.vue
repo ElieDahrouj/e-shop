@@ -95,7 +95,7 @@
         justify-content: space-evenly;
         align-items: flex-start;
         .cart {
-            width: 75%;
+            width: 60%;
             .product {
                 background-color: #eaeeef;
                 padding: 10px;
@@ -199,7 +199,7 @@
                 width: 100%;
                 .product{
                     .picture{
-                        max-width: 600px;
+                        max-width: 100%;
                     }
                     .infoProduct{
                         div:nth-child(1){
@@ -228,9 +228,6 @@
                     .infoProduct{
                         margin-left:0;
                         margin-top:10px;
-                    }
-                    .picture{
-                        max-width: 100%;
                     }
                 }
             }
