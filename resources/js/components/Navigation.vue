@@ -67,6 +67,13 @@ ul{
         background-color: #dc3546;
         color: whitesmoke;
         padding: 3px;
+        outline:none;
+        transition: 0.3s;
+        &:hover{
+            background-color:#f7d7da;
+            color: #7d3f46;
+            border: 1px solid #f7d7da;
+        }
     }
 }
 </style>

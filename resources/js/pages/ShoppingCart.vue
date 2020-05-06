@@ -104,9 +104,9 @@
                 justify-content: flex-start;
                 border-radius: 3px;
                 margin-top: 10px;
-                align-items: flex-start;
+                align-items: center;
                 .picture {
-                    max-width:250px;
+                    max-width:350px;
                     img {
                         object-fit: cover;
                         max-width: 100%;

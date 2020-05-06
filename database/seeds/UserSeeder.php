@@ -3,7 +3,6 @@
 use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-
 class UserSeeder extends Seeder
 {
     /**
@@ -16,8 +15,8 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Admin',
             'email' => 'admin@test.com',
-            'password' => bycript::make('admin'),
-            'role' => 2
+            'password' => Hash::make('admin'),
+            'role' => 1
         ]);
 
         User::create([
