@@ -3,25 +3,16 @@
         <publicNav></publicNav>
         <section class="product">
             <div class="manyPicture">
-                <div>
-                    <img src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/b5caf032-fd90-4baa-bd11-75e2c97e39e2/chaussure-air-max-2090-pour-cLlWqx.jpg" alt="">
-                </div>
-                <div>
-                    <img src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/a3b3d811-483d-4ade-8a1a-101b75b127a3/chaussure-air-max-2090-pour-cLlWqx.jpg" alt="">
-                </div>
-                <div>
-                    <img src="https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5,q_80/fce5eec6-22d6-4c28-b93f-41e532656cd9/chaussure-air-max-2090-pour-cLlWqx.jpg" alt="">
+                <div v-for="manyPicture in pictureDataProduct" :key="manyPicture.id">
+                    <img :src="manyPicture.image" alt="">
                 </div>
             </div>
             <div class="infoAboutSneaker">
-                <h2>Nike Air Max 2090</h2>
-                <span><b>Prix :</b> 150 €</span>
+                <h2>{{oneDataProduct.name}}</h2>
+                <span><b>Marque :</b> {{oneDataProduct.brand}}</span><br>
+                <span><b>Prix :</b> {{oneDataProduct.price}} €</span>
                 <p>
-                    Faites le lien entre le passé et l'avenir avec la Nike Air Max 2090,
-                    un modèle audacieux inspiré de l'ADN de l'emblématique Air Max 90.
-                    Le tout nouvel amorti Nike Air sous le pied procure une sensation de confort inégalée,
-                    tandis que le tissu transparent de l'empeigne est associé à des éléments intemporels de
-                    l'OG pour un look stylé et moderne.
+                    {{oneDataProduct.description}}
                 </p>
                 <div class="fieldToFull">
                     <label for="size">Sélectionner la taille</label>
@@ -41,8 +32,8 @@
                     </select>
                 </div>
                 <ul>
-                    <li>Couleur disponible : Bleu glacé/Orange laser/Blanc/Noir</li>
-                    <li>Date de sortie : 10/08/2019</li>
+                    <li>Couleur : {{oneDataProduct.color}}</li>
+                    <li>Date de sortie : {{dateOneProduct}}</li>
                 </ul>
                 <button>Ajouter au panier </button>
             </div>
@@ -52,9 +43,19 @@
 </template>
 <script>
     import publicNav from '../components/publicNav'
+    import {mapActions, mapGetters} from 'vuex'
     export default {
         components:{
             publicNav
+        },
+        computed:{
+            ...mapGetters(['oneDataProduct','pictureDataProduct','dateOneProduct'])
+        },
+        methods:{
+            ...mapActions(['sneaker'])
+        },
+        beforeMount(){
+            this.sneaker(this.$route.params.id)
         }
     }
 </script>

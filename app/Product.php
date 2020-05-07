@@ -15,7 +15,7 @@ class Product extends Model
         return $this->hasOne('App\Brand');
     }
 
-    public function image()
+    public function images()
     {
         return $this->hasMany('App\Image');
     }

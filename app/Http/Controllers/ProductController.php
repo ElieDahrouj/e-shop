@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
+use App\Image;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -66,9 +67,11 @@ class ProductController extends Controller
         $data = (object)[
             'error' => null,
             'product' => [],
+            'images' =>[]
         ];
         try{
             $data->product = Product::where('actif', 1)->where('id',$id)->firstOrFail();
+            $data->images = Image::where('sneaker_id',$id)->get();
             return response()->json($data);
         }
         catch (\Exception $e){

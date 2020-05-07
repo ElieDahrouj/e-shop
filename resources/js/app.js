@@ -74,7 +74,7 @@ const router = new VueRouter({
             component: Brand,
         },
         {
-            path: '/sneaker',
+            path: '/products/:id',
             name: 'sneaker',
             component: Sneaker,
         },
