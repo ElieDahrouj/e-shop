@@ -54,7 +54,7 @@
         methods:{
             ...mapActions(['sneaker'])
         },
-        beforeMount(){
+        mounted(){
             this.sneaker(this.$route.params.id)
         }
     }
