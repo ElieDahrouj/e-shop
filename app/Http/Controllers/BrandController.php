@@ -49,7 +49,7 @@ class BrandController extends Controller
     {
         $data = (object)[
             'error' => null,
-            'product' => [],
+            'products' => [],
             'brand' =>[]
         ];
         try{
