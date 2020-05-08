@@ -1,26 +1,37 @@
 <template>
     <div>
         <publicNav></publicNav>
-        <section class="new">
-            <h1><b>Nike Court Vintage Premium</b></h1>
-            <img src="https://cdn-media.rtl.fr/online/image/2019/0116/7796245819_la-nike-adapt-bb-utilise-un-petit-moteur-pour-ajuster-le-serrage-de-la-chaussure-en-fonction-de-la-forme-du-pied.jpg" alt="">
-            <p><em>Publié il y a 8 jours</em></p>
-            <p><em>Résume de l'article</em></p>
-            <p>
-                Décontractée et tendance, la Nike Court Vintage Premium incarne
-                l'âge d'or du tennis des années 80. L'empeigne en cuir souple et
-                le petit logo affichent un style décontracté, tandis que l'amorti de
-                la semelle de propreté offre un confort optimal à chaque pas.
-            </p>
+        <section v-if="Object.keys(oneDataProduct).length !== 0" class="new">
+            <h1><b>{{oneDataProduct.title}}</b></h1>
+            <img :src="oneDataProduct.image" alt="">
+            <p><em>Publié {{configDateTime(oneDataProduct.release_date)}} par {{oneDataProduct.user.name}}</em></p>
+            <p><em>{{oneDataProduct.summary}}</em></p>
+            <p>{{oneDataProduct.content}}</p>
         </section>
+        <div v-else class="alert alert-danger mt-5 container"  role="alert">
+            Cet article n'existe pas, nous sommes désolé !
+        </div>
     </div>
 </template>
 <script>
     import publicNav from '../components/publicNav'
+    import {mapActions, mapGetters} from 'vuex'
     export default {
         name:'new',
         components:{
             publicNav
+        },
+        computed:{
+            ...mapGetters(['oneDataProduct'])
+        },
+        methods:{
+            ...mapActions(['oneNew']),
+            configDateTime(date) {
+                return this.$moment(date).startOf('day').locale('fr').fromNow();
+            },
+        },
+        beforeMount(){
+          this.oneNew(this.$route.params.id)
         }
     }
 </script>

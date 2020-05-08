@@ -20,6 +20,7 @@ class CreateNewsTable extends Migration
             $table->string('image');
             $table->text('summary');
             $table->text('content');
+            $table->date('release_date');
             $table->integer('actif');
             $table->integer('user_id');
         });

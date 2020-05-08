@@ -65,7 +65,7 @@
         name:'publicNav',
         data(){
             return{
-                status:false
+                status:false,
             }
         },
         methods:{

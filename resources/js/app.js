@@ -25,11 +25,11 @@ import Contact from './pages/Contact'
 import New from './pages/New'
 import News from './pages/News'
 import Payment from './pages/Payment'
-import axios from 'axios'
 require('./store/subscriber')
 library.add(faBars,faSearch, faTimes, faShoppingCart)
-Vue.prototype.$http = axios
 Vue.use(VueRouter)
+import moment from 'moment'
+Vue.prototype.$moment = moment
 const router = new VueRouter({
     mode: 'history',
     routes: [
@@ -89,7 +89,7 @@ const router = new VueRouter({
             component: Contact,
         },
         {
-            path: '/new',
+            path: '/news/:id',
             name: 'new',
             component: New,
         },

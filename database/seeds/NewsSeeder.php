@@ -25,6 +25,7 @@ class NewsSeeder extends Seeder
             $news->image = $image['secure_url'];
             $news->actif = $data->is_published;
             $news->user_id = $data->author;
+            $news->release_date = "2020-02-18";
             $news->save();
         }
     }

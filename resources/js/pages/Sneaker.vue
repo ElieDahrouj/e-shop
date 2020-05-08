@@ -1,9 +1,9 @@
 <template>
     <div>
         <publicNav></publicNav>
-        <section class="product">
+        <section v-if="Object.keys(oneDataProduct).length !== 0" class="product">
             <div class="manyPicture">
-                <div v-for="manyPicture in pictureDataProduct" :key="manyPicture.id">
+                <div v-for="manyPicture in oneDataProduct.images" :key="manyPicture.id">
                     <img :src="manyPicture.image" alt="">
                 </div>
             </div>
@@ -19,16 +19,16 @@
                     <select id="size">
                         <option disabled value="">Choisissez</option>
                         <option>EU 38</option>
+                        <option>EU 39</option>
                         <option>EU 40</option>
+                        <option>EU 42</option>
                         <option>EU 44</option>
                     </select>
 
                     <label for="quandtity">Quantité</label>
                     <select id="quandtity">
                         <option disabled value="">Choisissez</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
+                        <option v-for="i in 10" :key="i">{{i}}</option>
                     </select>
                 </div>
                 <ul>
@@ -37,8 +37,10 @@
                 </ul>
                 <button>Ajouter au panier </button>
             </div>
-
         </section>
+        <div v-else class="alert alert-danger mt-5 container"  role="alert">
+            Cette paire n'existe pas, nous sommes désolé !
+        </div>
     </div>
 </template>
 <script>
@@ -54,7 +56,7 @@
         methods:{
             ...mapActions(['sneaker'])
         },
-        mounted(){
+        beforeMount(){
             this.sneaker(this.$route.params.id)
         }
     }

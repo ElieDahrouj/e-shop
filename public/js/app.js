@@ -12362,15 +12362,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     publicNav: _components_publicNav__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(['fiveDataNews', 'tenDataRandom'])),
-  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['homePage', 'configDateTime'])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(['getterNews', 'tenDataRandom'])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['homePage']), {
+    configDateTime: function configDateTime(date) {
+      return this.$moment(date).locale('fr').format('L');
+    }
+  }),
   beforeMount: function beforeMount() {
     this.homePage();
   }
@@ -12388,8 +12391,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_publicNav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/publicNav */ "./resources/js/components/publicNav.vue");
-//
-//
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -12406,10 +12414,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'new',
   components: {
     publicNav: _components_publicNav__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(['oneDataProduct'])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['oneNew']), {
+    configDateTime: function configDateTime(date) {
+      return this.$moment(date).startOf('day').locale('fr').fromNow();
+    }
+  }),
+  beforeMount: function beforeMount() {
+    this.oneNew(this.$route.params.id);
   }
 });
 
@@ -12425,54 +12443,13 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_publicNav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/publicNav */ "./resources/js/components/publicNav.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -12496,10 +12473,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'news',
   components: {
     publicNav: _components_publicNav__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapGetters"])(['getterNews'])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapActions"])(['allNews']), {
+    configDateTime: function configDateTime(date) {
+      return this.$moment(date).locale('fr').format('L');
+    }
+  }),
+  beforeMount: function beforeMount() {
+    this.allNews();
   }
 });
 
@@ -12692,6 +12679,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
 //
 //
 //
@@ -17539,7 +17528,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".allProduct {\n  display: grid;\n  justify-content: center;\n  grid-gap: 50px;\n  grid-template-columns: repeat(auto-fit, 250px);\n  margin: 20px 0;\n}\n.allProduct .product {\n  background-color: #eaeeef;\n  padding: 10px;\n  border-radius: 3px;\n  transition: transform 0.2s;\n}\n.allProduct .product:hover {\n  transform: scale(1.1);\n}\n.allProduct .product a {\n  text-decoration: none;\n  color: #041f54;\n}\n.allProduct .product a div:nth-child(1) img {\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  max-width: 100%;\n  height: auto;\n}\n.allProduct .product a div:nth-child(2) {\n  display: flex;\n  justify-content: space-between;\n}\n.allProduct .product a div:nth-child(2) p {\n  margin-top: 10px;\n  margin-bottom: 0;\n}\n.preview div img:nth-child(1) {\n  width: 100%;\n  display: block;\n}\n.preview div img:nth-child(2) {\n  display: none;\n  width: 100%;\n}\n.newSection {\n  text-align: center;\n  font-weight: bold;\n  text-decoration: underline;\n}\n.news {\n  margin: 15px auto;\n  display: grid;\n  justify-content: center;\n  grid-gap: 50px;\n  grid-template-columns: repeat(auto-fit, 750px);\n}\n.news article {\n  display: flex;\n  padding: 10px;\n  border-radius: 6px;\n  background-color: #191919;\n}\n.news article div:nth-child(1) {\n  width: 400px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: flex-start;\n}\n.news article div:nth-child(1) div:nth-child(1) h3 {\n  color: #60837f;\n}\n.news article div:nth-child(1) div:nth-child(1) span {\n  color: #60837f;\n}\n.news article div:nth-child(1) p {\n  color: #d4d6d5;\n  padding-right: 15px;\n}\n.news article div:nth-child(1) button {\n  border-radius: 3px;\n  padding: 10px;\n  border: 1px solid #ecedef;\n  background: transparent;\n  font-weight: bold;\n  color: #ecedef;\n}\n.news article div:nth-child(1) button:hover {\n  background-color: #ecedef;\n  color: #191919;\n}\n.news article div:nth-child(2) {\n  width: 600px;\n  text-align: center;\n}\n.news article div:nth-child(2) img {\n  max-width: 100%;\n  border-radius: 6px;\n}\n@media all and (max-width: 769px) {\n.news {\n    grid-template-columns: none;\n}\n.news article {\n    flex-direction: column-reverse;\n}\n.news article div:nth-child(1) div:nth-child(1) {\n    margin-top: 5px;\n}\n.news article div:nth-child(1) div:nth-child(1) h3 {\n    margin: 0;\n}\n.news article div:nth-child(1) div:nth-child(1) span {\n    margin-bottom: 10px;\n}\n.news article div:nth-child(2) {\n    width: 400px;\n}\n}\n@media all and (max-width: 545px) {\n.allProduct {\n    grid-template-columns: repeat(auto-fit, 320px);\n}\n.preview div img:nth-child(1) {\n    width: 100%;\n    display: none;\n}\n.preview div img:nth-child(2) {\n    width: 100%;\n    display: block;\n}\n}\n@media all and (max-width: 426px) {\n.news {\n    grid-template-columns: repeat(auto-fit, 95%);\n}\n.news article div:nth-child(1) {\n    width: 100%;\n}\n.news article div:nth-child(1) p {\n    padding-right: 0;\n}\n.news article div:nth-child(2) {\n    width: 100%;\n}\n}", ""]);
+exports.push([module.i, ".allProduct {\n  display: grid;\n  justify-content: center;\n  grid-gap: 50px;\n  grid-template-columns: repeat(auto-fit, 250px);\n  margin: 20px 0;\n}\n.allProduct .product {\n  background-color: #eaeeef;\n  padding: 10px;\n  border-radius: 3px;\n  transition: transform 0.2s;\n}\n.allProduct .product:hover {\n  transform: scale(1.1);\n}\n.allProduct .product a {\n  text-decoration: none;\n  color: #041f54;\n}\n.allProduct .product a div:nth-child(1) img {\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  max-width: 100%;\n  height: auto;\n}\n.allProduct .product a div:nth-child(2) {\n  display: flex;\n  justify-content: space-between;\n}\n.allProduct .product a div:nth-child(2) p {\n  margin-top: 10px;\n  margin-bottom: 0;\n}\n.preview div img:nth-child(1) {\n  width: 100%;\n  display: block;\n}\n.preview div img:nth-child(2) {\n  display: none;\n  width: 100%;\n}\n.newSection {\n  text-align: center;\n  font-weight: bold;\n  text-decoration: underline;\n}\n.news {\n  margin: 15px auto;\n  display: grid;\n  justify-content: center;\n  grid-gap: 50px;\n  grid-template-columns: repeat(auto-fit, 750px);\n}\n.news article {\n  display: flex;\n  padding: 10px;\n  border-radius: 6px;\n  background-color: #191919;\n}\n.news article div:nth-child(1) {\n  width: 400px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: flex-start;\n}\n.news article div:nth-child(1) div:nth-child(1) h3 {\n  color: #60837f;\n}\n.news article div:nth-child(1) div:nth-child(1) span {\n  color: #60837f;\n}\n.news article div:nth-child(1) p {\n  color: #d4d6d5;\n  padding-right: 15px;\n}\n.news article div:nth-child(1) button {\n  border-radius: 3px;\n  padding: 10px;\n  border: 1px solid #ecedef;\n  outline: none;\n  background: transparent;\n  font-weight: bold;\n  color: #ecedef;\n}\n.news article div:nth-child(1) button:hover {\n  background-color: #ecedef;\n  color: #191919;\n}\n.news article div:nth-child(2) {\n  width: 600px;\n  text-align: center;\n}\n.news article div:nth-child(2) img {\n  max-width: 100%;\n  border-radius: 6px;\n}\n@media all and (max-width: 769px) {\n.news {\n    grid-template-columns: none;\n}\n.news article {\n    flex-direction: column-reverse;\n}\n.news article div:nth-child(1) div:nth-child(1) {\n    margin-top: 5px;\n}\n.news article div:nth-child(1) div:nth-child(1) h3 {\n    margin: 0;\n}\n.news article div:nth-child(1) div:nth-child(1) span {\n    margin-bottom: 10px;\n}\n.news article div:nth-child(2) {\n    width: 400px;\n}\n}\n@media all and (max-width: 545px) {\n.allProduct {\n    grid-template-columns: repeat(auto-fit, 320px);\n}\n.preview div img:nth-child(1) {\n    width: 100%;\n    display: none;\n}\n.preview div img:nth-child(2) {\n    width: 100%;\n    display: block;\n}\n}\n@media all and (max-width: 426px) {\n.news {\n    grid-template-columns: repeat(auto-fit, 95%);\n}\n.news article div:nth-child(1) {\n    width: 100%;\n}\n.news article div:nth-child(1) p {\n    padding-right: 0;\n}\n.news article div:nth-child(2) {\n    width: 100%;\n}\n}", ""]);
 
 // exports
 
@@ -72102,34 +72091,42 @@ var render = function() {
       _c(
         "section",
         { staticClass: "news" },
-        _vm._l(_vm.fiveDataNews, function(fiveNews) {
+        _vm._l(_vm.getterNews, function(fiveNews) {
           return _c("article", { key: fiveNews.id }, [
-            _c("div", [
-              _c("div", [
-                _c("h3", [_vm._v(_vm._s(fiveNews.title))]),
-                _vm._v(" "),
-                _c("span", [
-                  _c("em", [
-                    _vm._v(
-                      "Date de publication: " +
-                        _vm._s(_vm.configDateTime(fiveNews.created_at))
-                    )
+            _c(
+              "div",
+              [
+                _c("div", [
+                  _c("h3", [_vm._v(_vm._s(fiveNews.title))]),
+                  _vm._v(" "),
+                  _c("span", [
+                    _c("em", [
+                      _vm._v(
+                        "Date de publication: " +
+                          _vm._s(_vm.configDateTime(fiveNews.release_date))
+                      )
+                    ])
                   ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("p", [
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(fiveNews.summary) +
-                    "\n                "
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(fiveNews.summary) +
+                      "\n                "
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "router-link",
+                  {
+                    attrs: { to: { name: "new", params: { id: fiveNews.id } } }
+                  },
+                  [_c("button", [_vm._v("Lire l'article")])]
                 )
-              ]),
-              _vm._v(" "),
-              _c("button", { attrs: { value: fiveNews.id } }, [
-                _vm._v("Lire l'article")
-              ])
-            ]),
+              ],
+              1
+            ),
             _vm._v(" "),
             _c("div", [_c("img", { attrs: { src: fiveNews.image, alt: "" } })])
           ])
@@ -72183,36 +72180,51 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("publicNav"), _vm._v(" "), _vm._m(0)], 1)
+  return _c(
+    "div",
+    [
+      _c("publicNav"),
+      _vm._v(" "),
+      Object.keys(_vm.oneDataProduct).length !== 0
+        ? _c("section", { staticClass: "new" }, [
+            _c("h1", [_c("b", [_vm._v(_vm._s(_vm.oneDataProduct.title))])]),
+            _vm._v(" "),
+            _c("img", { attrs: { src: _vm.oneDataProduct.image, alt: "" } }),
+            _vm._v(" "),
+            _c("p", [
+              _c("em", [
+                _vm._v(
+                  "Publié " +
+                    _vm._s(
+                      _vm.configDateTime(_vm.oneDataProduct.release_date)
+                    ) +
+                    " par " +
+                    _vm._s(_vm.oneDataProduct.user.name)
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("p", [_c("em", [_vm._v(_vm._s(_vm.oneDataProduct.summary))])]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.oneDataProduct.content))])
+          ])
+        : _c(
+            "div",
+            {
+              staticClass: "alert alert-danger mt-5 container",
+              attrs: { role: "alert" }
+            },
+            [
+              _vm._v(
+                "\n        Cet article n'existe pas, nous sommes désolé !\n    "
+              )
+            ]
+          )
+    ],
+    1
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "new" }, [
-      _c("h1", [_c("b", [_vm._v("Nike Court Vintage Premium")])]),
-      _vm._v(" "),
-      _c("img", {
-        attrs: {
-          src:
-            "https://cdn-media.rtl.fr/online/image/2019/0116/7796245819_la-nike-adapt-bb-utilise-un-petit-moteur-pour-ajuster-le-serrage-de-la-chaussure-en-fonction-de-la-forme-du-pied.jpg",
-          alt: ""
-        }
-      }),
-      _vm._v(" "),
-      _c("p", [_c("em", [_vm._v("Publié il y a 8 jours")])]),
-      _vm._v(" "),
-      _c("p", [_c("em", [_vm._v("Résume de l'article")])]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v(
-          "\n            Décontractée et tendance, la Nike Court Vintage Premium incarne\n            l'âge d'or du tennis des années 80. L'empeigne en cuir souple et\n            le petit logo affichent un style décontracté, tandis que l'amorti de\n            la semelle de propreté offre un confort optimal à chaque pas.\n        "
-        )
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -72239,176 +72251,52 @@ var render = function() {
     [
       _c("publicNav"),
       _vm._v(" "),
-      _c("section", { staticClass: "allNews" }, [
-        _c(
-          "div",
-          { staticClass: "oneNew" },
-          [
-            _c("router-link", { attrs: { to: "#" } }, [
-              _c("div", [
-                _c("img", {
-                  attrs: {
-                    src:
-                      "https://cdn-media.rtl.fr/online/image/2019/0116/7796245819_la-nike-adapt-bb-utilise-un-petit-moteur-pour-ajuster-le-serrage-de-la-chaussure-en-fonction-de-la-forme-du-pied.jpg",
-                    alt: ""
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", [
-                _c("h2", [_vm._v("Nike adapt BB")]),
-                _vm._v(" "),
-                _c("p", [_c("em", [_vm._v("Auteur D.Ace")])]),
-                _vm._v(" "),
-                _c("p", { staticClass: "summary" }, [
-                  _vm._v(
-                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda beatae consequatur cupiditate deserunt ea explicabo incidunt labore perferendis quam quo saepe sapiente, sint sit sunt, temporibus unde velit, voluptas."
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "moreDetail" }, [
-                _c("button", [_vm._v("Lire la suite")])
-              ])
-            ])
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._m(1),
-        _vm._v(" "),
-        _vm._m(2),
-        _vm._v(" "),
-        _vm._m(3)
-      ])
+      _c(
+        "section",
+        { staticClass: "allNews" },
+        _vm._l(_vm.getterNews, function(eachNew) {
+          return _c(
+            "div",
+            { key: eachNew.id, staticClass: "oneNew" },
+            [
+              _c(
+                "router-link",
+                { attrs: { to: { name: "new", params: { id: eachNew.id } } } },
+                [
+                  _c("div", [
+                    _c("img", { attrs: { src: eachNew.image, alt: "" } })
+                  ]),
+                  _vm._v(" "),
+                  _c("div", [
+                    _c("h2", [_vm._v(_vm._s(eachNew.title))]),
+                    _vm._v(" "),
+                    _c("p", [
+                      _c("em", [
+                        _vm._v(_vm._s(_vm.configDateTime(eachNew.release_date)))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "summary" }, [
+                      _vm._v(_vm._s(eachNew.summary))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "moreDetail" }, [
+                    _c("button", [_vm._v("Lire la suite")])
+                  ])
+                ]
+              )
+            ],
+            1
+          )
+        }),
+        0
+      )
     ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "oneNew" }, [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("div", [
-          _c("img", {
-            attrs: {
-              src:
-                "https://www.lesitedelasneaker.com/wp-content/images/2019/12/nike-colin-kaepernick-air-force-1-low-1100x733.jpg",
-              alt: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("h2", [_vm._v("Nike adapt BB")]),
-          _vm._v(" "),
-          _c("p", [_c("em", [_vm._v("Auteur D.Ace")])]),
-          _vm._v(" "),
-          _c("p", { staticClass: "summary" }, [
-            _vm._v(
-              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda beatae consequatur cupiditate deserunt ea explicabo incidunt labore perferendis quam quo saepe sapiente, sint sit sunt, temporibus unde velit, voluptas."
-            )
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "oneNew" }, [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("div", [
-          _c("img", {
-            attrs: {
-              src:
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRPYbwFboGy6LpRXUdcyqP-L8fCQREs3Jute6B4lMoQt9p6T1Kb&usqp=CAU",
-              alt: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("h2", [_vm._v("Nike adapt BB")]),
-          _vm._v(" "),
-          _c("p", [_c("em", [_vm._v("Auteur D.Ace")])]),
-          _vm._v(" "),
-          _c("p", { staticClass: "summary" }, [
-            _vm._v(
-              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda beatae consequatur cupiditate deserunt ea explicabo incidunt labore perferendis quam quo saepe sapiente, sint sit sunt, temporibus unde velit, voluptas."
-            )
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "oneNew" }, [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("div", [
-          _c("img", {
-            attrs: {
-              src:
-                "https://www.lesitedelasneaker.com/wp-content/images/2019/12/nike-colin-kaepernick-air-force-1-low-1100x733.jpg",
-              alt: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("h2", [_vm._v("Nike adapt BB")]),
-          _vm._v(" "),
-          _c("p", [_c("em", [_vm._v("Auteur D.Ace")])]),
-          _vm._v(" "),
-          _c("p", { staticClass: "summary" }, [
-            _vm._v(
-              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda beatae consequatur cupiditate deserunt ea explicabo incidunt labore perferendis quam quo saepe sapiente, sint sit sunt, temporibus unde velit, voluptas."
-            )
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "oneNew" }, [
-      _c("a", { attrs: { href: "#" } }, [
-        _c("div", [
-          _c("img", {
-            attrs: {
-              src:
-                "https://cdn-media.rtl.fr/online/image/2019/0116/7796245819_la-nike-adapt-bb-utilise-un-petit-moteur-pour-ajuster-le-serrage-de-la-chaussure-en-fonction-de-la-forme-du-pied.jpg",
-              alt: ""
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("h2", [_vm._v("Nike adapt BB")]),
-          _vm._v(" "),
-          _c("p", [_c("em", [_vm._v("Auteur D.Ace")])]),
-          _vm._v(" "),
-          _c("p", { staticClass: "summary" }, [
-            _vm._v(
-              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda beatae consequatur cupiditate deserunt ea explicabo incidunt labore perferendis quam quo saepe sapiente, sint sit sunt, temporibus unde velit, voluptas."
-            )
-          ])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -72825,51 +72713,93 @@ var render = function() {
     [
       _c("publicNav"),
       _vm._v(" "),
-      _c("section", { staticClass: "product" }, [
-        _c(
-          "div",
-          { staticClass: "manyPicture" },
-          _vm._l(_vm.pictureDataProduct, function(manyPicture) {
-            return _c("div", { key: manyPicture.id }, [
-              _c("img", { attrs: { src: manyPicture.image, alt: "" } })
-            ])
-          }),
-          0
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "infoAboutSneaker" }, [
-          _c("h2", [_vm._v(_vm._s(_vm.oneDataProduct.name))]),
-          _vm._v(" "),
-          _c("span", [
-            _c("b", [_vm._v("Marque :")]),
-            _vm._v(" " + _vm._s(_vm.oneDataProduct.brand))
-          ]),
-          _c("br"),
-          _vm._v(" "),
-          _c("span", [
-            _c("b", [_vm._v("Prix :")]),
-            _vm._v(" " + _vm._s(_vm.oneDataProduct.price) + " €")
-          ]),
-          _vm._v(" "),
-          _c("p", [
-            _vm._v(
-              "\n                " +
-                _vm._s(_vm.oneDataProduct.description) +
-                "\n            "
-            )
-          ]),
-          _vm._v(" "),
-          _vm._m(0),
-          _vm._v(" "),
-          _c("ul", [
-            _c("li", [_vm._v("Couleur : " + _vm._s(_vm.oneDataProduct.color))]),
+      Object.keys(_vm.oneDataProduct).length !== 0
+        ? _c("section", { staticClass: "product" }, [
+            _c(
+              "div",
+              { staticClass: "manyPicture" },
+              _vm._l(_vm.oneDataProduct.images, function(manyPicture) {
+                return _c("div", { key: manyPicture.id }, [
+                  _c("img", { attrs: { src: manyPicture.image, alt: "" } })
+                ])
+              }),
+              0
+            ),
             _vm._v(" "),
-            _c("li", [_vm._v("Date de sortie : " + _vm._s(_vm.dateOneProduct))])
-          ]),
-          _vm._v(" "),
-          _c("button", [_vm._v("Ajouter au panier ")])
-        ])
-      ])
+            _c("div", { staticClass: "infoAboutSneaker" }, [
+              _c("h2", [_vm._v(_vm._s(_vm.oneDataProduct.name))]),
+              _vm._v(" "),
+              _c("span", [
+                _c("b", [_vm._v("Marque :")]),
+                _vm._v(" " + _vm._s(_vm.oneDataProduct.brand))
+              ]),
+              _c("br"),
+              _vm._v(" "),
+              _c("span", [
+                _c("b", [_vm._v("Prix :")]),
+                _vm._v(" " + _vm._s(_vm.oneDataProduct.price) + " €")
+              ]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.oneDataProduct.description) +
+                    "\n            "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "fieldToFull" }, [
+                _c("label", { attrs: { for: "size" } }, [
+                  _vm._v("Sélectionner la taille")
+                ]),
+                _vm._v(" "),
+                _vm._m(0),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "quandtity" } }, [
+                  _vm._v("Quantité")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  { attrs: { id: "quandtity" } },
+                  [
+                    _c("option", { attrs: { disabled: "", value: "" } }, [
+                      _vm._v("Choisissez")
+                    ]),
+                    _vm._v(" "),
+                    _vm._l(10, function(i) {
+                      return _c("option", { key: i }, [_vm._v(_vm._s(i))])
+                    })
+                  ],
+                  2
+                )
+              ]),
+              _vm._v(" "),
+              _c("ul", [
+                _c("li", [
+                  _vm._v("Couleur : " + _vm._s(_vm.oneDataProduct.color))
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _vm._v("Date de sortie : " + _vm._s(_vm.dateOneProduct))
+                ])
+              ]),
+              _vm._v(" "),
+              _c("button", [_vm._v("Ajouter au panier ")])
+            ])
+          ])
+        : _c(
+            "div",
+            {
+              staticClass: "alert alert-danger mt-5 container",
+              attrs: { role: "alert" }
+            },
+            [
+              _vm._v(
+                "\n        Cette paire n'existe pas, nous sommes désolé !\n    "
+              )
+            ]
+          )
     ],
     1
   )
@@ -72879,36 +72809,20 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "fieldToFull" }, [
-      _c("label", { attrs: { for: "size" } }, [
-        _vm._v("Sélectionner la taille")
+    return _c("select", { attrs: { id: "size" } }, [
+      _c("option", { attrs: { disabled: "", value: "" } }, [
+        _vm._v("Choisissez")
       ]),
       _vm._v(" "),
-      _c("select", { attrs: { id: "size" } }, [
-        _c("option", { attrs: { disabled: "", value: "" } }, [
-          _vm._v("Choisissez")
-        ]),
-        _vm._v(" "),
-        _c("option", [_vm._v("EU 38")]),
-        _vm._v(" "),
-        _c("option", [_vm._v("EU 40")]),
-        _vm._v(" "),
-        _c("option", [_vm._v("EU 44")])
-      ]),
+      _c("option", [_vm._v("EU 38")]),
       _vm._v(" "),
-      _c("label", { attrs: { for: "quandtity" } }, [_vm._v("Quantité")]),
+      _c("option", [_vm._v("EU 39")]),
       _vm._v(" "),
-      _c("select", { attrs: { id: "quandtity" } }, [
-        _c("option", { attrs: { disabled: "", value: "" } }, [
-          _vm._v("Choisissez")
-        ]),
-        _vm._v(" "),
-        _c("option", [_vm._v("1")]),
-        _vm._v(" "),
-        _c("option", [_vm._v("2")]),
-        _vm._v(" "),
-        _c("option", [_vm._v("3")])
-      ])
+      _c("option", [_vm._v("EU 40")]),
+      _vm._v(" "),
+      _c("option", [_vm._v("EU 42")]),
+      _vm._v(" "),
+      _c("option", [_vm._v("EU 44")])
     ])
   }
 ]
@@ -89413,8 +89327,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_New__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./pages/New */ "./resources/js/pages/New.vue");
 /* harmony import */ var _pages_News__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./pages/News */ "./resources/js/pages/News.vue");
 /* harmony import */ var _pages_Payment__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./pages/Payment */ "./resources/js/pages/Payment.vue");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_19__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"); // const files = require.context('./', true, /\.vue$/i)
@@ -89442,12 +89356,12 @@ vue__WEBPACK_IMPORTED_MODULE_4___default.a.component('font-awesome-icon', _forta
 
 
 
-
 __webpack_require__(/*! ./store/subscriber */ "./resources/js/store/subscriber.js");
 
 _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_2__["library"].add(_fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faBars"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faSearch"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faTimes"], _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_3__["faShoppingCart"]);
-vue__WEBPACK_IMPORTED_MODULE_4___default.a.prototype.$http = axios__WEBPACK_IMPORTED_MODULE_19___default.a;
 vue__WEBPACK_IMPORTED_MODULE_4___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_5__["default"]);
+
+vue__WEBPACK_IMPORTED_MODULE_4___default.a.prototype.$moment = moment__WEBPACK_IMPORTED_MODULE_19___default.a;
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_5__["default"]({
   mode: 'history',
   routes: [{
@@ -89496,7 +89410,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_5__["default"]({
     name: 'contact',
     component: _pages_Contact__WEBPACK_IMPORTED_MODULE_15__["default"]
   }, {
-    path: '/new',
+    path: '/news/:id',
     name: 'new',
     component: _pages_New__WEBPACK_IMPORTED_MODULE_16__["default"]
   }, {
@@ -90957,47 +90871,42 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
-    fiveNews: [],
+    arrayNews: [],
     tenProductRandom: [],
-    oneProduct: {},
-    dateTimeProduct: null,
-    pictureOneProduct: []
+    oneObject: {},
+    dateTimeProduct: null
   },
   getters: {
-    fiveDataNews: function fiveDataNews(state) {
-      return state.fiveNews;
-    },
     tenDataRandom: function tenDataRandom(state) {
       return state.tenProductRandom;
     },
     oneDataProduct: function oneDataProduct(state) {
-      return state.oneProduct;
+      return state.oneObject;
     },
     dateOneProduct: function dateOneProduct(state) {
       return state.dateTimeProduct;
     },
-    pictureDataProduct: function pictureDataProduct(state) {
-      return state.pictureOneProduct;
+    getterNews: function getterNews(state) {
+      return state.arrayNews;
     }
   },
   mutations: {
     dataHomePage: function dataHomePage(state, data) {
-      state.fiveNews = data.news;
+      state.arrayNews = data.news;
       state.tenProductRandom = data.products;
     },
     dataOneProduct: function dataOneProduct(state, data) {
-      state.oneProduct = data.product;
-      state.pictureOneProduct = data.images;
+      state.oneObject = data;
     },
     dateOneProduct: function dateOneProduct(state, data) {
-      state.dateTimeProduct = moment__WEBPACK_IMPORTED_MODULE_4___default()(data).format('L');
+      state.dateTimeProduct = moment__WEBPACK_IMPORTED_MODULE_4___default()(data).locale('fr').format('L');
+    },
+    displayAllNews: function displayAllNews(state, data) {
+      state.arrayNews = data.news;
     }
   },
   actions: {
-    configDateTime: function configDateTime(date) {
-      return moment__WEBPACK_IMPORTED_MODULE_4___default()(date).format('L');
-    },
-    configDateOneProduct: function configDateOneProduct(_ref, date) {
+    configDate: function configDate(_ref, date) {
       var commit = _ref.commit;
       commit('dateOneProduct', date);
     },
@@ -91011,8 +90920,22 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
       var commit = _ref3.commit,
           dispatch = _ref3.dispatch;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api/" + id + "/product").then(function (response) {
-        commit('dataOneProduct', response.data);
-        dispatch('configDateOneProduct', response.data.product.release_date);
+        commit('dataOneProduct', response.data.product);
+        dispatch('configDate', response.data.product.release_date);
+      });
+    },
+    allNews: function allNews(_ref4) {
+      var commit = _ref4.commit;
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api/news").then(function (response) {
+        console.log(response.data);
+        commit('displayAllNews', response.data);
+      });
+    },
+    oneNew: function oneNew(_ref5, id) {
+      var commit = _ref5.commit;
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api/news/" + id).then(function (response) {
+        console.log(response.data);
+        commit('dataOneProduct', response.data["new"]);
       });
     }
   },

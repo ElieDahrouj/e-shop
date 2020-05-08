@@ -24,17 +24,16 @@
             <h2>Actualités</h2>
         </div>
         <section class="news">
-            <article v-for="fiveNews in fiveDataNews" :key="fiveNews.id">
+            <article v-for="fiveNews in getterNews" :key="fiveNews.id">
                 <div>
                     <div>
                         <h3>{{fiveNews.title}}</h3>
-                        <span><em>Date de publication: {{configDateTime(fiveNews.created_at)}}</em></span>
+                        <span><em>Date de publication: {{configDateTime(fiveNews.release_date)}}</em></span>
                     </div>
-
                     <p>
                         {{fiveNews.summary}}
                     </p>
-                    <button :value="fiveNews.id">Lire l'article</button>
+                    <router-link :to="{ name: 'new', params: { id: fiveNews.id }}"><button>Lire l'article</button></router-link>
                 </div>
                 <div>
                     <img :src="fiveNews.image" alt="">
@@ -51,11 +50,13 @@
             publicNav
         },
         computed:{
-            ...mapGetters(['fiveDataNews','tenDataRandom']),
+            ...mapGetters(['getterNews','tenDataRandom']),
         },
         methods:{
-            ...mapActions(['homePage','configDateTime']),
-
+            ...mapActions(['homePage']),
+            configDateTime(date) {
+                return this.$moment(date).locale('fr').format('L')
+            },
         },
         beforeMount(){
             this.homePage()
@@ -150,6 +151,7 @@
                     border-radius: 3px;
                     padding: 10px;
                     border: 1px solid #ecedef;
+                    outline: none;
                     background: transparent;
                     font-weight: bold;
                     color: #ecedef;

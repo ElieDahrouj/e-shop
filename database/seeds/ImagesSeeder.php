@@ -20,7 +20,7 @@ class ImagesSeeder extends Seeder
             $image = Cloudder::getResult();
             $img = new Image();
             $img->image = $image['secure_url'];
-            $img->sneaker_id = $data->sneaker_id;
+            $img->product_id = $data->sneaker_id;
             $img->save();
         }
     }

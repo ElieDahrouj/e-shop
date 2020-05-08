@@ -17,7 +17,7 @@ class CreateImagesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('image');
-            $table->integer('sneaker_id');
+            $table->integer('product_id');
         });
     }
 

@@ -2,78 +2,44 @@
     <div>
         <publicNav></publicNav>
         <section class="allNews">
-            <div class="oneNew">
-                <router-link to="#">
+            <div v-for="eachNew in getterNews" :key="eachNew.id" class="oneNew">
+                <router-link :to="{ name: 'new', params: { id: eachNew.id }}">
                     <div>
-                        <img src="https://cdn-media.rtl.fr/online/image/2019/0116/7796245819_la-nike-adapt-bb-utilise-un-petit-moteur-pour-ajuster-le-serrage-de-la-chaussure-en-fonction-de-la-forme-du-pied.jpg" alt="">
+                        <img :src="eachNew.image" alt="">
                     </div>
                     <div>
-                        <h2>Nike adapt BB</h2>
-                        <p><em>Auteur D.Ace</em></p>
-                        <p class="summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda beatae consequatur cupiditate deserunt ea explicabo incidunt labore perferendis quam quo saepe sapiente, sint sit sunt, temporibus unde velit, voluptas.</p>
+                        <h2>{{eachNew.title}}</h2>
+                        <p><em>{{configDateTime(eachNew.release_date)}}</em></p>
+                        <p class="summary">{{eachNew.summary}}</p>
                     </div>
                     <div class="moreDetail">
                         <button>Lire la suite</button>
                     </div>
                 </router-link>
             </div>
-            <div class="oneNew">
-                <a href="#">
-                    <div>
-                        <img src="https://www.lesitedelasneaker.com/wp-content/images/2019/12/nike-colin-kaepernick-air-force-1-low-1100x733.jpg" alt="">
-                    </div>
-                    <div>
-                        <h2>Nike adapt BB</h2>
-                        <p><em>Auteur D.Ace</em></p>
-                        <p class="summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda beatae consequatur cupiditate deserunt ea explicabo incidunt labore perferendis quam quo saepe sapiente, sint sit sunt, temporibus unde velit, voluptas.</p>
-                    </div>
-                </a>
-            </div>
-            <div class="oneNew">
-                <a href="#">
-                    <div>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRPYbwFboGy6LpRXUdcyqP-L8fCQREs3Jute6B4lMoQt9p6T1Kb&usqp=CAU" alt="">
-                    </div>
-                    <div>
-                        <h2>Nike adapt BB</h2>
-                        <p><em>Auteur D.Ace</em></p>
-                        <p class="summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda beatae consequatur cupiditate deserunt ea explicabo incidunt labore perferendis quam quo saepe sapiente, sint sit sunt, temporibus unde velit, voluptas.</p>
-                    </div>
-                </a>
-            </div>
-            <div class="oneNew">
-                <a href="#">
-                    <div>
-                        <img src="https://www.lesitedelasneaker.com/wp-content/images/2019/12/nike-colin-kaepernick-air-force-1-low-1100x733.jpg" alt="">
-                    </div>
-                    <div>
-                        <h2>Nike adapt BB</h2>
-                        <p><em>Auteur D.Ace</em></p>
-                        <p class="summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda beatae consequatur cupiditate deserunt ea explicabo incidunt labore perferendis quam quo saepe sapiente, sint sit sunt, temporibus unde velit, voluptas.</p>
-                    </div>
-                </a>
-            </div>
-            <div class="oneNew">
-                <a href="#">
-                    <div>
-                        <img src="https://cdn-media.rtl.fr/online/image/2019/0116/7796245819_la-nike-adapt-bb-utilise-un-petit-moteur-pour-ajuster-le-serrage-de-la-chaussure-en-fonction-de-la-forme-du-pied.jpg" alt="">
-                    </div>
-                    <div>
-                        <h2>Nike adapt BB</h2>
-                        <p><em>Auteur D.Ace</em></p>
-                        <p class="summary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda beatae consequatur cupiditate deserunt ea explicabo incidunt labore perferendis quam quo saepe sapiente, sint sit sunt, temporibus unde velit, voluptas.</p>
-                    </div>
-                </a>
-            </div>
         </section>
     </div>
 </template>
 <script>
     import publicNav from '../components/publicNav'
+    import {mapActions, mapGetters} from 'vuex'
     export default {
         name:'news',
         components:{
             publicNav
+        },
+        computed:{
+            ...mapGetters(['getterNews']),
+
+        },
+        methods:{
+            ...mapActions(['allNews']),
+            configDateTime(date) {
+                return this.$moment(date).locale('fr').format('L')
+            },
+        },
+        beforeMount(){
+            this.allNews()
         }
     }
 </script>

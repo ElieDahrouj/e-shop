@@ -6,6 +6,7 @@ use App\Brand;
 use App\Image;
 use App\Product;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 class ProductController extends Controller
 {
@@ -23,8 +24,10 @@ class ProductController extends Controller
         ];
 
         try{
-            $data->products =Product::orderBy('id','DESC')->where('actif',1)->get();
-            $data->brands =Brand::all();
+            $data->products =Product::orderBy('id','DESC')
+                ->whereDate('release_date', '<=', Carbon::today()->toDateString())
+                ->where('actif',1)->get();
+            $data->brands = Brand::all();
             return response()->json($data);
         }
         catch (ModelNotFoundException $e){
@@ -67,11 +70,13 @@ class ProductController extends Controller
         $data = (object)[
             'error' => null,
             'product' => [],
-            'images' =>[]
         ];
         try{
-            $data->product = Product::where('actif', 1)->where('id',$id)->firstOrFail();
-            $data->images = Image::where('sneaker_id',$id)->get();
+            $data->product = Product::where('actif', 1)->where('id',$id)
+                ->whereDate('release_date', '<=', Carbon::today()->toDateString())
+                ->firstOrFail();
+            $data->product->images;
+
             return response()->json($data);
         }
         catch (\Exception $e){

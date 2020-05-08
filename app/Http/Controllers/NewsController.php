@@ -5,6 +5,7 @@ use App\News;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Carbon\Carbon;
 class NewsController extends Controller
 {
     /**
@@ -20,7 +21,10 @@ class NewsController extends Controller
         ];
 
         try{
-            $data->news =News::orderBy('id','DESC')->where('actif',1)->get();
+            $data->news =News::orderBy('release_date','DESC')
+                ->where('actif',1)
+                ->whereDate('release_date', '<=', Carbon::today()->toDateString())
+                ->get();
             return response()->json($data);
         }
         catch (ModelNotFoundException $e){
@@ -39,8 +43,13 @@ class NewsController extends Controller
         ];
 
         try{
-            $data->news =News::orderBy('id','DESC')->take(5)->where('actif',1)->get();
-            $data->products =Product::all()->random(10)->where('actif',1);
+            $data->news =News::orderBy('release_date','DESC')->take(5)
+                ->where('actif',1)
+                ->whereDate('release_date', '<=', Carbon::today()->toDateString())
+                ->get();
+            $data->products =Product::all()->random(10)
+                ->where('actif',1)
+                ->where('release_date', '<=', Carbon::today()->toDateString());
             return response()->json($data);
         }
         catch (ModelNotFoundException $e){
@@ -85,7 +94,10 @@ class NewsController extends Controller
             'new' => [],
         ];
         try{
-            $data->news =News::where('actif',1)->findOrFail($id);
+            $data->new =News::where('actif',1)
+                ->whereDate('release_date', '<=', Carbon::today()->toDateString())
+                ->findOrFail($id);
+            $data->new->user->name;
             return response()->json($data);
         }
         catch (ModelNotFoundException $e){
