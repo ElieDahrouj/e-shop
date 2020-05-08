@@ -86,8 +86,14 @@ export default new Vuex.Store({
                     commit('allProducts',response.data.products)
                     commit('allBrands',response.data.brands)
                 })
+        },
+        allProductsByBrand({commit},id){
+            axios.get("/api/brand/"+id)
+                .then(response =>{
+                    console.log(response.data)
+                    commit('allBrands',response.data.brand)
+                })
         }
-
     },
     modules:{
         auth

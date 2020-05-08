@@ -49,17 +49,15 @@ class BrandController extends Controller
     {
         $data = (object)[
             'error' => null,
-            'products' => [],
             'brand' =>[]
         ];
         try{
-            $data->product = Product::where('actif',1)->where('brand_id',$id)->get();
             $data->brand = Brand::findOrFail($id);
+            $data->brand->products;
             return response()->json($data);
         }
         catch (\Exception $e){
             $data->error = $e;
-            $data->product= [];
             $data->brand= [];
             return response()->json($data,"404");
         }

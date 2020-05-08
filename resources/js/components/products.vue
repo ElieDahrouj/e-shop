@@ -59,6 +59,15 @@
             }
         }
     }
+    @media all and (max-width: 769px) {
+        .allProduct {
+            .product {
+                &:hover {
+                    transform: scale(1);
+                }
+            }
+        }
+    }
     @media all and (max-width: 545px) {
         .allProduct {
             grid-template-columns: repeat(auto-fit, 90%);

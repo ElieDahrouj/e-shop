@@ -22,5 +22,5 @@ Route::group(['prefix' => 'auth','namespace'=>'Auth'], function () {
     Route::get('me', 'MeController');
 });
 Route::get('/news/{id}', 'NewsController@show');
-Route::get('/{id}/brand', 'BrandController@show');
+Route::get('/brand/{id}', 'BrandController@show');
 Route::get('/{id}/product', 'ProductController@show');

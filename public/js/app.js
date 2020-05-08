@@ -12118,55 +12118,14 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_publicNav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/publicNav */ "./resources/js/components/publicNav.vue");
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+/* harmony import */ var _components_products__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/products */ "./resources/js/components/products.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -12183,10 +12142,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'brand',
   components: {
-    publicNav: _components_publicNav__WEBPACK_IMPORTED_MODULE_0__["default"]
+    publicNav: _components_publicNav__WEBPACK_IMPORTED_MODULE_0__["default"],
+    productsComponent: _components_products__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])(['getterBrands'])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(['allProductsByBrand'])),
+  beforeMount: function beforeMount() {
+    this.allProductsByBrand(this.$route.params.id);
   }
 });
 
@@ -17462,7 +17429,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".allProduct[data-v-4de840af] {\n  display: grid;\n  justify-content: center;\n  grid-gap: 50px;\n  grid-template-columns: repeat(auto-fit, 250px);\n  margin: 20px 0;\n}\n.allProduct .product[data-v-4de840af] {\n  background-color: #eaeeef;\n  padding: 10px;\n  border-radius: 3px;\n  transition: transform 0.2s;\n}\n.allProduct .product[data-v-4de840af]:hover {\n  transform: scale(1.1);\n}\n.allProduct .product a[data-v-4de840af] {\n  text-decoration: none;\n  color: #041f54;\n}\n.allProduct .product a div:nth-child(1) img[data-v-4de840af] {\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  max-width: 100%;\n  height: auto;\n}\n.allProduct .product a div[data-v-4de840af]:nth-child(2) {\n  display: flex;\n  justify-content: space-between;\n}\n.allProduct .product a div:nth-child(2) p[data-v-4de840af] {\n  margin-top: 10px;\n  margin-bottom: 0;\n}\n@media all and (max-width: 545px) {\n.allProduct[data-v-4de840af] {\n    grid-template-columns: repeat(auto-fit, 90%);\n}\n}", ""]);
+exports.push([module.i, ".allProduct[data-v-4de840af] {\n  display: grid;\n  justify-content: center;\n  grid-gap: 50px;\n  grid-template-columns: repeat(auto-fit, 250px);\n  margin: 20px 0;\n}\n.allProduct .product[data-v-4de840af] {\n  background-color: #eaeeef;\n  padding: 10px;\n  border-radius: 3px;\n  transition: transform 0.2s;\n}\n.allProduct .product[data-v-4de840af]:hover {\n  transform: scale(1.1);\n}\n.allProduct .product a[data-v-4de840af] {\n  text-decoration: none;\n  color: #041f54;\n}\n.allProduct .product a div:nth-child(1) img[data-v-4de840af] {\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  max-width: 100%;\n  height: auto;\n}\n.allProduct .product a div[data-v-4de840af]:nth-child(2) {\n  display: flex;\n  justify-content: space-between;\n}\n.allProduct .product a div:nth-child(2) p[data-v-4de840af] {\n  margin-top: 10px;\n  margin-bottom: 0;\n}\n@media all and (max-width: 769px) {\n.allProduct .product[data-v-4de840af]:hover {\n    transform: scale(1);\n}\n}\n@media all and (max-width: 545px) {\n.allProduct[data-v-4de840af] {\n    grid-template-columns: repeat(auto-fit, 90%);\n}\n}", ""]);
 
 // exports
 
@@ -17500,7 +17467,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".brand[data-v-72f7f84e] {\n  margin-top: 20px;\n}\n.brand div:nth-child(1) img[data-v-72f7f84e] {\n  width: 100%;\n}\n.brand div:nth-child(2) h1[data-v-72f7f84e] {\n  text-align: center;\n  font-weight: bold;\n}\n.brand div:nth-child(2) p[data-v-72f7f84e] {\n  width: 95%;\n  margin: auto;\n}\n@media all and (max-width: 426px) {\n.brand div:nth-child(2) p[data-v-72f7f84e] {\n    text-align: center;\n}\n}", ""]);
+exports.push([module.i, ".brand[data-v-72f7f84e] {\n  margin-top: 20px;\n}\n.brand div:nth-child(1) img[data-v-72f7f84e] {\n  width: 100%;\n}\n.brand div:nth-child(2) h1[data-v-72f7f84e] {\n  text-align: center;\n  font-weight: bold;\n}\n.brand div:nth-child(2) p[data-v-72f7f84e] {\n  width: 95%;\n  margin: auto;\n}\n@media all and (max-width: 426px) {\n.brand[data-v-72f7f84e] {\n    margin-top: 0;\n}\n.brand div:nth-child(2) p[data-v-72f7f84e] {\n    text-align: center;\n}\n}", ""]);
 
 // exports
 
@@ -71755,124 +71722,31 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [_c("publicNav"), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)],
+    [
+      _c("publicNav"),
+      _vm._v(" "),
+      _c("header", { staticClass: "brand" }, [
+        _c("div", [
+          _c("img", { attrs: { src: _vm.getterBrands.banner, alt: "" } })
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("h1", [_vm._v(_vm._s(_vm.getterBrands.name))]),
+          _vm._v(" "),
+          _vm.getterBrands.description
+            ? _c("p", [_vm._v(_vm._s(_vm.getterBrands.description))])
+            : _vm._e()
+        ])
+      ]),
+      _vm._v(" "),
+      _c("productsComponent", {
+        attrs: { allSneakers: _vm.getterBrands.products }
+      })
+    ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("header", { staticClass: "brand" }, [
-      _c("div", [
-        _c("img", {
-          attrs: {
-            src:
-              "https://www.dragonbleu.fr/media/catalog/category/DB_FR_BANNIERE_CATEG_2048x383y_150ko-max_Nike.jpg",
-            alt: ""
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("div", [
-        _c("h1", [_vm._v("Nike")]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "comme la déesse de la victoire\n                est une société américaine créée en 1971 par Philip Knight et Bill Bowerman.\n                Basée à Beaverton dans l'Oregon, elle est spécialisée dans la fabrication d'articles de\n                sport (chaussures, vêtements et matériel de sport).\n            "
-          )
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "allProduct" }, [
-      _c("div", { staticClass: "product" }, [
-        _c("a", { attrs: { href: "" } }, [
-          _c("div", [
-            _c("img", {
-              attrs: {
-                src:
-                  "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/i1-e249e8d9-6502-4ad1-8d90-0782f1f23c5c/chaussure-air-max-2090-pour-Q4hHnH.jpg",
-                alt: ""
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("p", [_vm._v("Nike Zoom 35p ")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("110$")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "product" }, [
-        _c("a", { attrs: { href: "#" } }, [
-          _c("div", [
-            _c("img", {
-              attrs: {
-                src:
-                  "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/16775526-718f-41dd-9106-40b94898b722/chaussure-air-jordan-1-mid-D3DnDx.jpg",
-                alt: ""
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("p", [_vm._v("Nike Zoom 35p ")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("110$")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "product" }, [
-        _c("a", { attrs: { href: "" } }, [
-          _c("div", [
-            _c("img", {
-              attrs: {
-                src:
-                  "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/i1-cb9feeb4-43d3-4263-8fc5-230cbb5c36f0/chaussure-dentrainement-fractionne-haute-intensite-air-zoom-superrep-pour-gSWSxQ.jpg",
-                alt: ""
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("p", [_vm._v("Nike Zoom 35p ")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("110$")])
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "product" }, [
-        _c("a", { attrs: { href: "" } }, [
-          _c("div", [
-            _c("img", {
-              attrs: {
-                src:
-                  "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/ae4c4897-9831-4af0-8d80-54bd27be013e/chaussure-air-jordan-1-low-se-pour-ZJmFq2.jpg",
-                alt: ""
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", [
-            _c("p", [_vm._v("Nike Zoom 35p ")]),
-            _vm._v(" "),
-            _c("p", [_vm._v("110$")])
-          ])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -89439,7 +89313,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_5__["default"]({
     name: 'catalogue',
     component: _pages_Catalogue__WEBPACK_IMPORTED_MODULE_11__["default"]
   }, {
-    path: '/brand',
+    path: '/brand/:id',
     name: 'brand',
     component: _pages_Brand__WEBPACK_IMPORTED_MODULE_12__["default"]
   }, {
@@ -91083,6 +90957,13 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api/catalogue").then(function (response) {
         commit('allProducts', response.data.products);
         commit('allBrands', response.data.brands);
+      });
+    },
+    allProductsByBrand: function allProductsByBrand(_ref7, id) {
+      var commit = _ref7.commit;
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api/brand/" + id).then(function (response) {
+        console.log(response.data);
+        commit('allBrands', response.data.brand);
       });
     }
   },

@@ -69,7 +69,7 @@ const router = new VueRouter({
             component: Catalogue,
         },
         {
-            path: '/brand',
+            path: '/brand/:id',
             name: 'brand',
             component: Brand,
         },
