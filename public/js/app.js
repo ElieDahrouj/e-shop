@@ -17467,7 +17467,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".brand[data-v-72f7f84e] {\n  margin-top: 20px;\n}\n.brand div:nth-child(1) img[data-v-72f7f84e] {\n  width: 100%;\n}\n.brand div:nth-child(2) h1[data-v-72f7f84e] {\n  text-align: center;\n  font-weight: bold;\n}\n.brand div:nth-child(2) p[data-v-72f7f84e] {\n  width: 95%;\n  margin: auto;\n}\n@media all and (max-width: 426px) {\n.brand[data-v-72f7f84e] {\n    margin-top: 0;\n}\n.brand div:nth-child(2) p[data-v-72f7f84e] {\n    text-align: center;\n}\n}", ""]);
+exports.push([module.i, ".brand div:nth-child(1) img[data-v-72f7f84e] {\n  width: 100%;\n}\n.brand div:nth-child(2) h1[data-v-72f7f84e] {\n  text-align: center;\n  font-weight: bold;\n}\n.brand div:nth-child(2) p[data-v-72f7f84e] {\n  width: 95%;\n  margin: auto;\n}\n@media all and (max-width: 426px) {\n.brand div:nth-child(2) p[data-v-72f7f84e] {\n    text-align: center;\n}\n}", ""]);
 
 // exports
 

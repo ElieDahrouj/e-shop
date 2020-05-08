@@ -36,7 +36,6 @@
 </script>
 <style scoped lang="scss">
     .brand{
-        margin-top: 20px;
         div:nth-child(1){
             img{
                 width: 100%;
@@ -56,7 +55,6 @@
 
     @media all and (max-width: 426px) {
         .brand{
-            margin-top: 0;
             div:nth-child(2){
                 p{
                     text-align: center;
