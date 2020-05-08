@@ -72063,7 +72063,9 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("header", { staticClass: "preview" }, [
       _c("div", [
-        _c("img", { attrs: { src: __webpack_require__(/*! ../assets/sport.jpg */ "./resources/js/assets/sport.jpg"), alt: "" } }),
+        _c("img", {
+          attrs: { src: __webpack_require__(/*! ../assets/bannerHome.jpg */ "./resources/js/assets/bannerHome.jpg"), alt: "" }
+        }),
         _vm._v(" "),
         _c("img", { attrs: { src: __webpack_require__(/*! ../assets/mobile.png */ "./resources/js/assets/mobile.png"), alt: "" } })
       ])
@@ -89365,6 +89367,17 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_4___default.a({
 
 /***/ }),
 
+/***/ "./resources/js/assets/bannerHome.jpg":
+/*!********************************************!*\
+  !*** ./resources/js/assets/bannerHome.jpg ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/bannerHome.jpg?a4a97f92d34f6ba139c2608fd36e8aa0";
+
+/***/ }),
+
 /***/ "./resources/js/assets/mobile.png":
 /*!****************************************!*\
   !*** ./resources/js/assets/mobile.png ***!
@@ -89384,17 +89397,6 @@ module.exports = "/images/mobile.png?9dfa38606b31891162b48f914996c787";
 /***/ (function(module, exports) {
 
 module.exports = "/images/shop.jpg?887ec1b009cf9215ccdd8c7efdc28bbc";
-
-/***/ }),
-
-/***/ "./resources/js/assets/sport.jpg":
-/*!***************************************!*\
-  !*** ./resources/js/assets/sport.jpg ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/sport.jpg?685e4826cba8c8f50877bdaa763cc369";
 
 /***/ }),
 

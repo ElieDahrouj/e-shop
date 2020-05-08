@@ -3,7 +3,7 @@
         <publicNav></publicNav>
         <header class="preview">
             <div>
-                <img src="../assets/sport.jpg" alt="">
+                <img src="../assets/bannerHome.jpg" alt="">
                 <img src="../assets/mobile.png" alt="">
             </div>
         </header>
