@@ -5,59 +5,42 @@
             <b>Toutes les marques</b>
         </h1>
         <section class="allMarque">
-            <div class="trend">
-                <a>
+            <div v-for="brand in getterBrands" :key="brand.id" class="trend">
+                <router-link :to="{ name: 'brand', params: { id: brand.id }}">
                     <div class="picture">
-                        <img src="https://fr.trace.tv/wp-content/uploads/sites/2/2015/10/Nike-Logo-Brands-Sport.jpg" alt="">
+                        <img :src="brand.image" alt="">
                     </div>
                     <div class="infos">
-                        <h2>Nike</h2>
-                        <p>Nombre de produit actifs</p>
+                        <h2>{{brand.name}}</h2>
+                        <p>Nombre de produit actifs: {{brand.products.length}}</p>
                     </div>
-                </a>
-            </div>
-            <div class="trend">
-                <a>
-                    <div class="picture">
-                        <img src="https://fr.trace.tv/wp-content/uploads/sites/2/2015/10/Nike-Logo-Brands-Sport.jpg" alt="">
-                    </div>
-                    <div class="infos">
-                        <h2>Adidas</h2>
-                        <p>Nombre de produit actifs</p>
-                    </div>
-                </a>
-            </div>
-            <div class="trend">
-                <a>
-                    <div class="picture">
-                        <img src="https://fr.trace.tv/wp-content/uploads/sites/2/2015/10/Nike-Logo-Brands-Sport.jpg" alt="">
-                    </div>
-                    <div class="infos">
-                        <h2>Reebok</h2>
-                        <p>Nombre de produit actifs</p>
-                    </div>
-                </a>
-            </div>
-            <div class="trend">
-                <a>
-                    <div class="picture">
-                        <img src="https://fr.trace.tv/wp-content/uploads/sites/2/2015/10/Nike-Logo-Brands-Sport.jpg" alt="">
-                    </div>
-                    <div class="infos">
-                        <h2>Calvin Klein</h2>
-                        <p>Nombre de produit actifs</p>
-                    </div>
-                </a>
+                </router-link>
             </div>
         </section>
+        <div class="newSection">
+            <h2>Tous les sneakers</h2>
+        </div>
+        <productsComponent :allSneakers="dataProducts" />
     </div>
 </template>
 <script>
     import publicNav from  '../components/publicNav'
+    import productsComponent from '../components/products'
+    import {mapActions,mapGetters} from 'vuex'
     export default {
         name:'catalogue',
         components:{
-            publicNav
+            publicNav,
+            productsComponent
+        },
+        computed:{
+            ...mapGetters(['dataProducts','getterBrands'])
+        },
+        methods:{
+            ...mapActions(['allProducts'])
+        },
+        beforeMount(){
+            this.allProducts()
         }
     }
 </script>
@@ -74,7 +57,13 @@
         grid-template-columns: repeat(auto-fit, 250px);
     }
     .trend{
-        margin:8px;
+        padding:8px;
+        transition: transform .2s;
+        border-radius:6px;
+        &:hover{
+            transform: scale(1.09);
+            box-shadow: 0 5px 16px 0 RGBA(0,0,0,0.10);
+        }
         a {
             text-decoration: none;
             color: #660000;
@@ -103,7 +92,7 @@
     }
     @media all and (max-width: 426px) {
         .allMarque{
-            grid-template-columns: repeat(auto-fit, 95%);
+            grid-template-columns: repeat(auto-fit, 90%);
         }
     }
 </style>

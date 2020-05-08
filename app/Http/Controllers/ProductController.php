@@ -24,10 +24,13 @@ class ProductController extends Controller
         ];
 
         try{
-            $data->products =Product::orderBy('id','DESC')
+            $data->products =Product::orderBy('release_date','DESC')
                 ->whereDate('release_date', '<=', Carbon::today()->toDateString())
                 ->where('actif',1)->get();
             $data->brands = Brand::all();
+            foreach ($data->brands as $brand){
+                $brand->products;
+            }
             return response()->json($data);
         }
         catch (ModelNotFoundException $e){
