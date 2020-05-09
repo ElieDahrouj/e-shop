@@ -1,7 +1,7 @@
 <template>
     <div>
         <publicNav></publicNav>
-        <header class="brand">
+        <header v-if="Object.keys(getterBrands).length !== 0" class="brand">
             <div>
                 <img :src="getterBrands.banner" alt="">
             </div>
@@ -10,7 +10,10 @@
                 <p v-if="getterBrands.description">{{getterBrands.description}}</p>
             </div>
         </header>
-        <productsComponent :allSneakers="getterBrands.products" />
+        <productsComponent v-if="Object.keys(getterBrands).length !== 0" :allSneakers="getterBrands.products"/>
+        <div v-else class="alert alert-danger mt-5 container"  role="alert">
+            Cette marque n'existe pas, nous sommes désolé !
+        </div>
     </div>
 </template>
 <script>

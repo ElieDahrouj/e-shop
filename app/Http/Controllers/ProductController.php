@@ -35,7 +35,7 @@ class ProductController extends Controller
         }
         catch (ModelNotFoundException $e){
             $data->error = $e;
-            $data->news=[];
+            $data->brands=[];
             $data->products =[];
             return response()->json($data,'404');
         }
@@ -89,6 +89,28 @@ class ProductController extends Controller
         }
     }
 
+    public function searchProduct(Request $request, Product $product)
+    {
+        $data = (object)[
+            'error' => null,
+            'products'=>[]
+        ];
+
+        try{
+            $name = $request->input('search');
+            $data->products =Product::orderBy('release_date','DESC')
+                ->where('actif',1)
+                ->where('name','=',$name)
+                ->whereDate('release_date', '<=', Carbon::today()->toDateString())
+                ->paginate(5);
+            return response()->json($data);
+        }
+        catch (ModelNotFoundException $e){
+            $data->error = $e;
+            $data->products =[];
+            return response()->json($data,'404');
+        }
+    }
     /**
      * Show the form for editing the specified resource.
      *

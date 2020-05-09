@@ -24,3 +24,4 @@ Route::group(['prefix' => 'auth','namespace'=>'Auth'], function () {
 Route::get('/news/{id}', 'NewsController@show');
 Route::get('/brand/{id}', 'BrandController@show');
 Route::get('/{id}/product', 'ProductController@show');
+Route::post('/products/search', 'ProductController@searchProduct');

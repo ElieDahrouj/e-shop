@@ -12141,6 +12141,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 
@@ -71725,23 +71728,38 @@ var render = function() {
     [
       _c("publicNav"),
       _vm._v(" "),
-      _c("header", { staticClass: "brand" }, [
-        _c("div", [
-          _c("img", { attrs: { src: _vm.getterBrands.banner, alt: "" } })
-        ]),
-        _vm._v(" "),
-        _c("div", [
-          _c("h1", [_vm._v(_vm._s(_vm.getterBrands.name))]),
-          _vm._v(" "),
-          _vm.getterBrands.description
-            ? _c("p", [_vm._v(_vm._s(_vm.getterBrands.description))])
-            : _vm._e()
-        ])
-      ]),
+      Object.keys(_vm.getterBrands).length !== 0
+        ? _c("header", { staticClass: "brand" }, [
+            _c("div", [
+              _c("img", { attrs: { src: _vm.getterBrands.banner, alt: "" } })
+            ]),
+            _vm._v(" "),
+            _c("div", [
+              _c("h1", [_vm._v(_vm._s(_vm.getterBrands.name))]),
+              _vm._v(" "),
+              _vm.getterBrands.description
+                ? _c("p", [_vm._v(_vm._s(_vm.getterBrands.description))])
+                : _vm._e()
+            ])
+          ])
+        : _vm._e(),
       _vm._v(" "),
-      _c("productsComponent", {
-        attrs: { allSneakers: _vm.getterBrands.products }
-      })
+      Object.keys(_vm.getterBrands).length !== 0
+        ? _c("productsComponent", {
+            attrs: { allSneakers: _vm.getterBrands.products }
+          })
+        : _c(
+            "div",
+            {
+              staticClass: "alert alert-danger mt-5 container",
+              attrs: { role: "alert" }
+            },
+            [
+              _vm._v(
+                "\n        Cette marque n'existe pas, nous sommes désolé !\n    "
+              )
+            ]
+          )
     ],
     1
   )
