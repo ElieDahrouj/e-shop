@@ -20,7 +20,7 @@
                     </li>
                     <li class="research">
                         <font-awesome-icon class="search" :icon="['fas', 'search']" />
-                        <input type="search" name="search" />
+                        <input v-model="filterProducts" @keyup.enter="researchProducts" id="search" type="text" />
                     </li>
                 </ul>
             </div>
@@ -53,7 +53,7 @@
                     </li>
                     <li class="research">
                         <font-awesome-icon class="search" :icon="['fas', 'search']" />
-                        <input type="search" name="search" />
+                        <input v-model="filterProducts" @keyup.enter="researchProducts" type="search" name="search" />
                     </li>
                 </ul>
             </div>
@@ -61,20 +61,31 @@
     </div>
 </template>
 <script>
+import {mapActions} from 'vuex'
     export default {
         name:'publicNav',
         data(){
             return{
                 status:false,
+                filterProducts : null
             }
         },
         methods:{
+            ...mapActions(['searchProducts']),
             modalMobile(){
                 this.status = true
             },
             leaveModal(){
                 this.status = !this.status
-            }
+            },
+            researchProducts(){
+                const path = "/products/search/"+this.filterProducts
+                if (this.$route.path !== path){
+                    this.$router.replace({name:'filteredProducts', params:{name:this.filterProducts}})
+                }
+                this.searchProducts(this.filterProducts)
+                this.status = false
+            },
         }
     }
 </script>

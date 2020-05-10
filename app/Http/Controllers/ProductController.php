@@ -97,12 +97,12 @@ class ProductController extends Controller
         ];
 
         try{
-            $name = $request->input('search');
+            $params = $request->query('search');
             $data->products =Product::orderBy('release_date','DESC')
                 ->where('actif',1)
-                ->where('name','=',$name)
+                ->where('name' , 'like', '%'.$params.'%')
                 ->whereDate('release_date', '<=', Carbon::today()->toDateString())
-                ->paginate(5);
+                ->paginate(10);
             return response()->json($data);
         }
         catch (ModelNotFoundException $e){

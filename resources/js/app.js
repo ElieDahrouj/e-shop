@@ -9,7 +9,7 @@ Vue.component('app', Index)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faBars, faSearch, faTimes, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faSearch, faTimes, faShoppingCart, faChevronRight, faChevronLeft, faAngleDoubleRight, faAngleDoubleLeft} from "@fortawesome/free-solid-svg-icons";
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from './store'
@@ -25,8 +25,9 @@ import Contact from './pages/Contact'
 import New from './pages/New'
 import News from './pages/News'
 import Payment from './pages/Payment'
+import Search from './pages/Search'
 require('./store/subscriber')
-library.add(faBars,faSearch, faTimes, faShoppingCart)
+library.add(faBars,faSearch, faTimes, faShoppingCart, faChevronRight,faChevronLeft,faAngleDoubleRight, faAngleDoubleLeft)
 Vue.use(VueRouter)
 import moment from 'moment'
 Vue.prototype.$moment = moment
@@ -67,6 +68,11 @@ const router = new VueRouter({
             path: '/catalogue',
             name: 'catalogue',
             component: Catalogue,
+        },
+        {
+            path: '/products/search/:name',
+            name: 'filteredProducts',
+            component: Search,
         },
         {
             path: '/brand/:id',

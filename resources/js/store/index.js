@@ -11,7 +11,8 @@ export default new Vuex.Store({
         arrayProducts: [],
         oneObject:{},
         dateTimeProduct:null,
-        arrayBrands:[]
+        arrayBrands:[],
+        searchData:null
     },
     getters:{
         dataProducts(state){
@@ -28,7 +29,7 @@ export default new Vuex.Store({
         },
         getterBrands(state){
             return state.arrayBrands
-        }
+        },
     },
     mutations:{
         dataHomePage(state,data){
@@ -50,6 +51,9 @@ export default new Vuex.Store({
         allBrands(state,data){
             state.arrayBrands = data
         },
+        searchData(state,data){
+            state.searchData =data
+        }
     },
     actions:{
         configDate({commit},date){
@@ -90,9 +94,23 @@ export default new Vuex.Store({
         allProductsByBrand({commit},id){
             axios.get("/api/brand/"+id)
                 .then(response =>{
-                    console.log(response.data)
                     commit('allBrands',response.data.brand)
                 })
+        },
+        searchProducts({commit},nameData){
+            axios.get("/api/products?search="+nameData)
+                .then(response => {
+                    commit('allProducts',response.data.products.data)
+                    commit('dataOneProduct',response.data.products)
+                    commit('searchData',nameData)
+                })
+        },
+        paginationPage({commit,state},page){
+            axios.get("/api/products?page="+page+"&search="+state.searchData)
+                .then(response => {
+                    commit('allProducts',response.data.products.data)
+                    commit('dataOneProduct',response.data.products)
+                });
         }
     },
     modules:{
