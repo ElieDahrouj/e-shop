@@ -17,24 +17,24 @@
                     <div class="firstField">
                         <div>
                             <label for="name">Nom</label>
-                            <input type="text" id="name" placeholder="Ex: Mika" required>
+                            <input :class='{ "error" : $v.contactForm.firstName.$error }' type="text" v-model.trim="$v.contactForm.firstName.$model" id="name" placeholder="Ex: Mika">
                         </div>
                         <div>
                             <label for="nickname">Prénom</label>
-                            <input type="text" id="nickname" placeholder="Ex: McDonald" required>
+                            <input :class='{ "error" : $v.contactForm.lastName.$error }' type="text" v-model.trim="$v.contactForm.lastName.$model" id="nickname" placeholder="Ex: McDonald">
                         </div>
                     </div>
 
                     <label for="mail">Email</label>
-                    <input type="email" id="mail" placeholder="Ex: mail@gmail.com" required>
+                    <input :class='{ "error" : $v.contactForm.mail.$error }' type="email" v-model.trim="$v.contactForm.mail.$model" id="mail" placeholder="Ex: mail@gmail.com">
 
                     <label for="subject">Objet</label>
-                    <input type="text" id="subject" placeholder="Subject" required>
+                    <input :class='{ "error" : $v.contactForm.subject.$error }' type="text" v-model.trim="$v.contactForm.subject.$model" id="subject" placeholder="Subject">
 
                     <label for="message">Message</label>
-                    <textarea rows="4" required id="message" placeholder="Votre message"></textarea>
+                    <textarea :class='{ "error" : $v.contactForm.message.$error }' rows="4" v-model.trim="$v.contactForm.message.$model" id="message" placeholder="Votre message"></textarea>
                     <div class="btnCustom">
-                        <button class="rounded">Envoyer</button>
+                        <button @click="sendContactForm" class="rounded">Envoyer</button>
                     </div>
                 </div>
             </div>
@@ -48,14 +48,60 @@
 </template>
 <script>
     import publicNav from "../components/publicNav"
+    import { required, email } from 'vuelidate/lib/validators'
     export default {
         name:'contact',
+        data(){
+          return {
+              contactForm:{
+                  firstName:null,
+                  lastName:null,
+                  mail:null,
+                  subject:null,
+                  message:null
+              }
+          }
+        },
+        validations: {
+            contactForm: {
+                firstName:{
+                    required
+                },
+                lastName:{
+                    required
+                },
+                mail:{
+                    required,
+                    email
+                },
+                subject:{
+                    required
+                },
+                message:{
+                    required
+                },
+            }
+        },
         components:{
             publicNav
+        },
+        methods:{
+            sendContactForm(){
+                this.$v.$touch()
+                if (this.$v.$invalid) {
+                    console.log('ok its good for me')
+                }
+                else{
+                    console.log('bad')
+                }
+            }
         }
     }
 </script>
 <style scoped lang="scss">
+    .error{
+        border: 1px solid #b90000 !important;
+    }
     .maps{
         width: 90%;
         margin: auto;

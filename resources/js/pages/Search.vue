@@ -25,7 +25,7 @@
                 </div>
             </div>
         </div>
-        <p v-else class="text-danger text-center display-4">Aucun résultat !</p>
+        <p v-else class="text-danger text-center display-4 mt-4 customSize">Aucun résultat !</p>
     </div>
 </template>
 <script>
@@ -53,6 +53,9 @@
     }
 </script>
 <style scoped lang="scss">
+    .customSize{
+        font-size: 2.5em;
+    }
     .endPage {
         display: flex;
         align-items: center;

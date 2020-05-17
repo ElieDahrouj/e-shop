@@ -28,8 +28,11 @@ import Payment from './pages/Payment'
 import Search from './pages/Search'
 require('./store/subscriber')
 library.add(faBars,faSearch, faTimes, faShoppingCart, faChevronRight,faChevronLeft,faAngleDoubleRight, faAngleDoubleLeft)
+import Vuelidate from 'vuelidate'
+Vue.use(Vuelidate)
 Vue.use(VueRouter)
 import moment from 'moment'
+
 Vue.prototype.$moment = moment
 const router = new VueRouter({
     mode: 'history',

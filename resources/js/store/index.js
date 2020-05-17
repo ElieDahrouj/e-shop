@@ -111,7 +111,8 @@ export default new Vuex.Store({
                     commit('allProducts',response.data.products.data)
                     commit('dataOneProduct',response.data.products)
                 });
-        }
+        },
+        //sendMessageFromContact({commit},object){}
     },
     modules:{
         auth
