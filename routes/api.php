@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/', 'NewsController@home');
+Route::get('/fiveNews', 'NewsController@home');
 Route::get('/news', 'NewsController@index');
 Route::get('/catalogue', 'ProductController@index');
 Route::group(['prefix' => 'auth','namespace'=>'Auth'], function () {

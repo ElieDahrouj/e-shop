@@ -95,20 +95,34 @@ class ProductController extends Controller
             'error' => null,
             'products'=>[]
         ];
-
-        try{
-            $params = $request->query('search');
-            $data->products =Product::orderBy('release_date','DESC')
-                ->where('actif',1)
-                ->where('name' , 'like', '%'.$params.'%')
-                ->whereDate('release_date', '<=', Carbon::today()->toDateString())
-                ->paginate(10);
-            return response()->json($data);
+        if ($request->query('search')) {
+            try {
+                $params = $request->query('search');
+                $data->products = Product::orderBy('release_date', 'DESC')
+                    ->where('actif', 1)
+                    ->where('name', 'like', '%' . $params . '%')
+                    ->whereDate('release_date', '<=', Carbon::today()->toDateString())
+                    ->paginate(10);
+                return response()->json($data);
+            } catch (ModelNotFoundException $e) {
+                $data->error = $e;
+                $data->products = [];
+                return response()->json($data, '404');
+            }
         }
-        catch (ModelNotFoundException $e){
-            $data->error = $e;
-            $data->products =[];
-            return response()->json($data,'404');
+        if ($request->query('sort') && $request->query('max') )
+        {
+            try{
+                $data->products =Product::all()->random(10)
+                    ->where('actif',1)
+                    ->where('release_date', '<=', Carbon::today()->toDateString());
+                return response()->json($data);
+            }
+            catch (ModelNotFoundException $e) {
+                $data->error = $e;
+                $data->products = [];
+                return response()->json($data, '404');
+            }
         }
     }
     /**

@@ -39,7 +39,6 @@ class NewsController extends Controller
         $data = (object)[
             'error' => null,
             'news' => [],
-            'products'=>[]
         ];
 
         try{
@@ -47,15 +46,11 @@ class NewsController extends Controller
                 ->where('actif',1)
                 ->whereDate('release_date', '<=', Carbon::today()->toDateString())
                 ->get();
-            $data->products =Product::all()->random(10)
-                ->where('actif',1)
-                ->where('release_date', '<=', Carbon::today()->toDateString());
             return response()->json($data);
         }
         catch (ModelNotFoundException $e){
             $data->error = $e;
             $data->news=[];
-            $data->products =[];
             return response()->json($data,'404');
         }
     }

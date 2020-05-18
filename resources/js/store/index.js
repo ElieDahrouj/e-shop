@@ -32,10 +32,6 @@ export default new Vuex.Store({
         },
     },
     mutations:{
-        dataHomePage(state,data){
-            state.arrayNews = data.news
-            state.arrayProducts = data.products
-        },
         dataOneProduct(state, data){
             state.oneObject = data
         },
@@ -60,9 +56,15 @@ export default new Vuex.Store({
             commit('dateOneProduct',date)
         },
         homePage({commit}) {
-            axios.get("/api")
+            axios.get("/api/products?sort=random&max=10")
                 .then(response => {
-                    commit('dataHomePage',response.data)
+                    commit('allProducts',response.data.products)
+                })
+                .then(()=>{
+                    axios.get("/api/fiveNews")
+                        .then(response => {
+                            commit('displayAllNews',response.data)
+                        })
                 })
         },
         sneaker({commit, dispatch}, id){

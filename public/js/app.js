@@ -93497,10 +93497,6 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     }
   },
   mutations: {
-    dataHomePage: function dataHomePage(state, data) {
-      state.arrayNews = data.news;
-      state.arrayProducts = data.products;
-    },
     dataOneProduct: function dataOneProduct(state, data) {
       state.oneObject = data;
     },
@@ -93527,8 +93523,12 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     homePage: function homePage(_ref2) {
       var commit = _ref2.commit;
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api").then(function (response) {
-        commit('dataHomePage', response.data);
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api/products?sort=random&max=10").then(function (response) {
+        commit('allProducts', response.data.products);
+      }).then(function () {
+        axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api/fiveNews").then(function (response) {
+          commit('displayAllNews', response.data);
+        });
       });
     },
     sneaker: function sneaker(_ref3, id) {
