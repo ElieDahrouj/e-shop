@@ -71988,7 +71988,9 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", [
-              _c("h1", [_vm._v(_vm._s(_vm.getterBrands.name))]),
+              _c("h1", { staticClass: "mt-1" }, [
+                _vm._v(_vm._s(_vm.getterBrands.name))
+              ]),
               _vm._v(" "),
               _vm.getterBrands.description
                 ? _c("p", [_vm._v(_vm._s(_vm.getterBrands.description))])
@@ -93570,7 +93572,6 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     searchProducts: function searchProducts(_ref8, nameData) {
       var commit = _ref8.commit;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api/products?search=" + nameData).then(function (response) {
-        console.log(response.data);
         commit('allProducts', response.data.products.data);
         commit('dataOneProduct', response.data.products);
         commit('searchData', nameData);

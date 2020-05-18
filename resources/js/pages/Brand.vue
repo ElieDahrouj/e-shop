@@ -6,7 +6,7 @@
                 <img :src="getterBrands.banner" alt="">
             </div>
             <div>
-               <h1>{{getterBrands.name}}</h1>
+               <h1 class="mt-1">{{getterBrands.name}}</h1>
                 <p v-if="getterBrands.description">{{getterBrands.description}}</p>
             </div>
         </header>
