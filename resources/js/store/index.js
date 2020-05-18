@@ -102,6 +102,7 @@ export default new Vuex.Store({
         searchProducts({commit},nameData){
             axios.get("/api/products?search="+nameData)
                 .then(response => {
+                    console.log(response.data)
                     commit('allProducts',response.data.products.data)
                     commit('dataOneProduct',response.data.products)
                     commit('searchData',nameData)

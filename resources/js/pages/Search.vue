@@ -3,7 +3,7 @@
         <publicNav></publicNav>
         <div v-if="dataProducts.length !== 0">
             <productsComponent :allSneakers="dataProducts" />
-            <div class="endPage">
+            <div class="endPage mb-2">
                 <div class="pagination">
                     <button @click="paginationPage(1)"  :disabled="oneDataProduct.current_page === 1">
                         <font-awesome-icon class="search" :icon="['fas', 'angle-double-left']" />

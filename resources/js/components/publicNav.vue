@@ -79,13 +79,16 @@ import {mapActions} from 'vuex'
                 this.status = !this.status
             },
             researchProducts(){
-                const path = "/products/search/"+this.filterProducts
+                const path = "/products/search/"+this.strUcFirst(this.filterProducts)
                 if (this.$route.path !== path){
-                    this.$router.replace({name:'filteredProducts', params:{name:this.filterProducts}})
+                    this.$router.replace({name:'filteredProducts', params:{name:this.strUcFirst(this.filterProducts)}})
                 }
-                this.searchProducts(this.filterProducts)
+                this.searchProducts(this.strUcFirst(this.filterProducts))
                 this.status = false
             },
+            strUcFirst(a){
+                return (a+'').charAt(0).toUpperCase()+a.substr(1);
+            }
         }
     }
 </script>

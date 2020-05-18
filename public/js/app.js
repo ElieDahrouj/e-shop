@@ -12113,19 +12113,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.status = !this.status;
     },
     researchProducts: function researchProducts() {
-      var path = "/products/search/" + this.filterProducts;
+      var path = "/products/search/" + this.strUcFirst(this.filterProducts);
 
       if (this.$route.path !== path) {
         this.$router.replace({
           name: 'filteredProducts',
           params: {
-            name: this.filterProducts
+            name: this.strUcFirst(this.filterProducts)
           }
         });
       }
 
-      this.searchProducts(this.filterProducts);
+      this.searchProducts(this.strUcFirst(this.filterProducts));
       this.status = false;
+    },
+    strUcFirst: function strUcFirst(a) {
+      return (a + '').charAt(0).toUpperCase() + a.substr(1);
     }
   })
 });
@@ -72796,7 +72799,7 @@ var render = function() {
                 attrs: { allSneakers: _vm.dataProducts }
               }),
               _vm._v(" "),
-              _c("div", { staticClass: "endPage" }, [
+              _c("div", { staticClass: "endPage mb-2" }, [
                 _c("div", { staticClass: "pagination" }, [
                   _c(
                     "button",
@@ -93567,6 +93570,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     searchProducts: function searchProducts(_ref8, nameData) {
       var commit = _ref8.commit;
       axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api/products?search=" + nameData).then(function (response) {
+        console.log(response.data);
         commit('allProducts', response.data.products.data);
         commit('dataOneProduct', response.data.products);
         commit('searchData', nameData);
