@@ -12262,6 +12262,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_publicNav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/publicNav */ "./resources/js/components/publicNav.vue");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuelidate/lib/validators */ "./node_modules/vuelidate/lib/validators/index.js");
 /* harmony import */ var vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuelidate_lib_validators__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -12310,12 +12317,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'contact',
   data: function data() {
     return {
+      msg: null,
       contactForm: {
         firstName: null,
         lastName: null,
@@ -12348,17 +12366,36 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     publicNav: _components_publicNav__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
-  methods: {
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapGetters"])(['getterMsg'])),
+  methods: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapActions"])(['sendMessageFromContact']), {
     sendContactForm: function sendContactForm() {
-      this.$v.$touch();
+      this.$v.contactForm.$touch();
 
       if (this.$v.$invalid) {
-        console.log('ok its good for me');
+        this.msg = "Tous les champs sont obligatoire";
       } else {
-        console.log('bad');
+        this.msg = null;
+        this.sendMessageFromContact(this.contactForm);
+        this.contactForm.firstName = null;
+        this.contactForm.lastName = null;
+        this.contactForm.mail = null;
+        this.contactForm.subject = null;
+        this.contactForm.message = null;
+        setTimeout(function () {
+          var name = document.getElementById("name");
+          name.classList.remove("error");
+          var lastname = document.getElementById("nickname");
+          lastname.classList.remove("error");
+          var mail = document.getElementById("mail");
+          mail.classList.remove("error");
+          var subject = document.getElementById("subject");
+          subject.classList.remove("error");
+          var msg = document.getElementById("message");
+          msg.classList.remove("error");
+        }, 0);
       }
     }
-  }
+  })
 });
 
 /***/ }),
@@ -17651,7 +17688,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".error[data-v-01b3a6b2] {\n  border: 1px solid #b90000 !important;\n}\n.maps[data-v-01b3a6b2] {\n  width: 90%;\n  margin: auto;\n  max-width: 1500px;\n}\n.formContact[data-v-01b3a6b2] {\n  max-width: 1500px;\n  width: 90%;\n  display: flex;\n  justify-content: space-between;\n  margin: 20px auto;\n}\n.formContact .backgroundInfo[data-v-01b3a6b2] {\n  background: url(" + escape(__webpack_require__(/*! ../assets/shop.jpg */ "./resources/js/assets/shop.jpg")) + ") no-repeat;\n  width: 500px;\n  background-size: cover;\n}\n.formContact .backgroundInfo div[data-v-01b3a6b2]:nth-child(1) {\n  display: flex;\n  padding: 10px;\n  flex-direction: column;\n  height: 100%;\n  justify-content: space-evenly;\n  align-items: center;\n  background-color: RGBA(56, 74, 181, 0.8);\n  color: whitesmoke;\n}\n.formContact .backgroundInfo div:nth-child(1) p[data-v-01b3a6b2], .formContact .backgroundInfo div:nth-child(1) h3[data-v-01b3a6b2] {\n  text-align: center;\n  margin: 0;\n}\n.formContact .backgroundInfo div:nth-child(1) a[data-v-01b3a6b2] {\n  color: whitesmoke;\n  font-weight: bold;\n}\n.formContact .contact[data-v-01b3a6b2] {\n  margin: 0 10px;\n  width: 40%;\n}\n.formContact .contact .message[data-v-01b3a6b2] {\n  display: flex;\n  flex-direction: column;\n}\n.formContact .contact .message input[data-v-01b3a6b2] {\n  margin-bottom: 10px;\n}\n.formContact .contact .message input[data-v-01b3a6b2], .formContact .contact .message textarea[data-v-01b3a6b2] {\n  border-radius: 3px;\n  border: 1px solid #e5e5e5;\n  padding: 5px;\n  outline: none;\n}\n.formContact .contact .message input[data-v-01b3a6b2]:focus, .formContact .contact .message textarea[data-v-01b3a6b2]:focus {\n  border: 1px solid #333333;\n}\n.formContact .contact .message .firstField[data-v-01b3a6b2] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap;\n}\n.formContact .contact .message .firstField div[data-v-01b3a6b2] {\n  display: flex;\n  flex-direction: column;\n}\n.formContact .contact .message .btnCustom[data-v-01b3a6b2] {\n  margin-top: 10px;\n}\n.formContact .contact .message .btnCustom button[data-v-01b3a6b2] {\n  padding: 8px 20px;\n  color: #376242;\n  background-color: #d4edda;\n  border: 1px solid #cae6d0;\n  outline: none;\n}\n.formContact .contact .message .btnCustom button[data-v-01b3a6b2]:hover {\n  color: #fff;\n  background-color: #218838;\n}\n@media all and (max-width: 985px) {\n.formContact .contact .message .firstField[data-v-01b3a6b2] {\n    display: block;\n}\n}\n@media all and (max-width: 769px) {\n.maps[data-v-01b3a6b2] {\n    width: 100%;\n}\n.formContact[data-v-01b3a6b2] {\n    width: 100%;\n    margin: 0;\n    flex-direction: column;\n    align-items: center;\n}\n.formContact .backgroundInfo[data-v-01b3a6b2] {\n    width: 100%;\n}\n.formContact .backgroundInfo div[data-v-01b3a6b2]:nth-child(1) {\n    height: 320px;\n}\n.formContact .contact[data-v-01b3a6b2] {\n    width: 75%;\n    margin: 20px 0;\n}\n}\n@media all and (max-width: 321px) {\n.backgroundInfo div:nth-child(1) h3[data-v-01b3a6b2] {\n    font-size: 20px;\n}\n}", ""]);
+exports.push([module.i, ".fade-enter-active[data-v-01b3a6b2], .fade-leave-active[data-v-01b3a6b2] {\n  transition: opacity 0.5s;\n}\n.fade-enter[data-v-01b3a6b2], .fade-leave-to[data-v-01b3a6b2] {\n  opacity: 0;\n}\n.error[data-v-01b3a6b2] {\n  border: 1px solid #b90000 !important;\n}\n.maps[data-v-01b3a6b2] {\n  width: 90%;\n  margin: auto;\n  max-width: 1500px;\n}\n.formContact[data-v-01b3a6b2] {\n  max-width: 1500px;\n  width: 90%;\n  display: flex;\n  justify-content: space-between;\n  margin: 20px auto;\n}\n.formContact .backgroundInfo[data-v-01b3a6b2] {\n  background: url(" + escape(__webpack_require__(/*! ../assets/shop.jpg */ "./resources/js/assets/shop.jpg")) + ") no-repeat;\n  width: 500px;\n  height: 510px;\n  background-size: cover;\n}\n.formContact .backgroundInfo div[data-v-01b3a6b2]:nth-child(1) {\n  display: flex;\n  padding: 10px;\n  flex-direction: column;\n  height: 100%;\n  justify-content: space-evenly;\n  align-items: center;\n  background-color: RGBA(56, 74, 181, 0.8);\n  color: whitesmoke;\n}\n.formContact .backgroundInfo div:nth-child(1) p[data-v-01b3a6b2], .formContact .backgroundInfo div:nth-child(1) h3[data-v-01b3a6b2] {\n  text-align: center;\n  margin: 0;\n}\n.formContact .backgroundInfo div:nth-child(1) a[data-v-01b3a6b2] {\n  color: whitesmoke;\n  font-weight: bold;\n}\n.formContact .contact[data-v-01b3a6b2] {\n  margin: 0 10px;\n  width: 40%;\n}\n.formContact .contact .message[data-v-01b3a6b2] {\n  display: flex;\n  flex-direction: column;\n}\n.formContact .contact .message input[data-v-01b3a6b2] {\n  margin-bottom: 10px;\n}\n.formContact .contact .message input[data-v-01b3a6b2], .formContact .contact .message textarea[data-v-01b3a6b2] {\n  border-radius: 3px;\n  border: 1px solid #e5e5e5;\n  padding: 5px;\n  outline: none;\n}\n.formContact .contact .message input[data-v-01b3a6b2]:focus, .formContact .contact .message textarea[data-v-01b3a6b2]:focus {\n  border: 1px solid #333333;\n}\n.formContact .contact .message .firstField[data-v-01b3a6b2] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap;\n}\n.formContact .contact .message .firstField div[data-v-01b3a6b2] {\n  display: flex;\n  flex-direction: column;\n}\n.formContact .contact .message .btnCustom[data-v-01b3a6b2] {\n  margin-top: 10px;\n}\n.formContact .contact .message .btnCustom button[data-v-01b3a6b2] {\n  padding: 8px 20px;\n  color: #376242;\n  background-color: #d4edda;\n  border: 1px solid #cae6d0;\n  outline: none;\n}\n.formContact .contact .message .btnCustom button[data-v-01b3a6b2]:hover {\n  color: #fff;\n  background-color: #218838;\n}\n@media all and (max-width: 985px) {\n.formContact .contact .message .firstField[data-v-01b3a6b2] {\n    display: block;\n}\n}\n@media all and (max-width: 769px) {\n.maps[data-v-01b3a6b2] {\n    width: 100%;\n}\n.formContact[data-v-01b3a6b2] {\n    width: 100%;\n    margin: 0;\n    flex-direction: column;\n    align-items: center;\n}\n.formContact .backgroundInfo[data-v-01b3a6b2] {\n    width: 100%;\n    height: 100%;\n}\n.formContact .backgroundInfo div[data-v-01b3a6b2]:nth-child(1) {\n    height: 320px;\n}\n.formContact .contact[data-v-01b3a6b2] {\n    width: 75%;\n    margin: 20px 0;\n}\n}\n@media all and (max-width: 321px) {\n.backgroundInfo div:nth-child(1) h3[data-v-01b3a6b2] {\n    font-size: 20px;\n}\n}", ""]);
 
 // exports
 
@@ -72138,189 +72175,227 @@ var render = function() {
         _c("div", { staticClass: "contact" }, [
           _vm._m(1),
           _vm._v(" "),
-          _c("div", { staticClass: "message" }, [
-            _c("div", { staticClass: "firstField" }, [
-              _c("div", [
-                _c("label", { attrs: { for: "name" } }, [_vm._v("Nom")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model.trim",
-                      value: _vm.$v.contactForm.firstName.$model,
-                      expression: "$v.contactForm.firstName.$model",
-                      modifiers: { trim: true }
-                    }
-                  ],
-                  class: { error: _vm.$v.contactForm.firstName.$error },
-                  attrs: { type: "text", id: "name", placeholder: "Ex: Mika" },
-                  domProps: { value: _vm.$v.contactForm.firstName.$model },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
+          _c(
+            "div",
+            { staticClass: "message" },
+            [
+              _c("div", { staticClass: "firstField" }, [
+                _c("div", [
+                  _c("label", { attrs: { for: "name" } }, [_vm._v("Nom")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model.trim",
+                        value: _vm.$v.contactForm.firstName.$model,
+                        expression: "$v.contactForm.firstName.$model",
+                        modifiers: { trim: true }
                       }
-                      _vm.$set(
-                        _vm.$v.contactForm.firstName,
-                        "$model",
-                        $event.target.value.trim()
-                      )
+                    ],
+                    class: { error: _vm.$v.contactForm.$error },
+                    attrs: {
+                      type: "text",
+                      id: "name",
+                      placeholder: "Ex: Mika"
                     },
-                    blur: function($event) {
-                      return _vm.$forceUpdate()
+                    domProps: { value: _vm.$v.contactForm.firstName.$model },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.$v.contactForm.firstName,
+                          "$model",
+                          $event.target.value.trim()
+                        )
+                      },
+                      blur: function($event) {
+                        return _vm.$forceUpdate()
+                      }
                     }
-                  }
-                })
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", [
+                  _c("label", { attrs: { for: "nickname" } }, [
+                    _vm._v("Prénom")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model.trim",
+                        value: _vm.$v.contactForm.lastName.$model,
+                        expression: "$v.contactForm.lastName.$model",
+                        modifiers: { trim: true }
+                      }
+                    ],
+                    class: { error: _vm.$v.contactForm.lastName.$error },
+                    attrs: {
+                      type: "text",
+                      id: "nickname",
+                      placeholder: "Ex: McDonald"
+                    },
+                    domProps: { value: _vm.$v.contactForm.lastName.$model },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.$v.contactForm.lastName,
+                          "$model",
+                          $event.target.value.trim()
+                        )
+                      },
+                      blur: function($event) {
+                        return _vm.$forceUpdate()
+                      }
+                    }
+                  })
+                ])
               ]),
               _vm._v(" "),
-              _c("div", [
-                _c("label", { attrs: { for: "nickname" } }, [_vm._v("Prénom")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model.trim",
-                      value: _vm.$v.contactForm.lastName.$model,
-                      expression: "$v.contactForm.lastName.$model",
-                      modifiers: { trim: true }
+              _c("label", { attrs: { for: "mail" } }, [_vm._v("Email")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model.trim",
+                    value: _vm.$v.contactForm.mail.$model,
+                    expression: "$v.contactForm.mail.$model",
+                    modifiers: { trim: true }
+                  }
+                ],
+                class: { error: _vm.$v.contactForm.mail.$error },
+                attrs: {
+                  type: "email",
+                  id: "mail",
+                  placeholder: "Ex: mail@gmail.com"
+                },
+                domProps: { value: _vm.$v.contactForm.mail.$model },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
                     }
-                  ],
-                  class: { error: _vm.$v.contactForm.lastName.$error },
-                  attrs: {
-                    type: "text",
-                    id: "nickname",
-                    placeholder: "Ex: McDonald"
+                    _vm.$set(
+                      _vm.$v.contactForm.mail,
+                      "$model",
+                      $event.target.value.trim()
+                    )
                   },
-                  domProps: { value: _vm.$v.contactForm.lastName.$model },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(
-                        _vm.$v.contactForm.lastName,
-                        "$model",
-                        $event.target.value.trim()
-                      )
-                    },
-                    blur: function($event) {
-                      return _vm.$forceUpdate()
+                  blur: function($event) {
+                    return _vm.$forceUpdate()
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "subject" } }, [_vm._v("Objet")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model.trim",
+                    value: _vm.$v.contactForm.subject.$model,
+                    expression: "$v.contactForm.subject.$model",
+                    modifiers: { trim: true }
+                  }
+                ],
+                class: { error: _vm.$v.contactForm.subject.$error },
+                attrs: {
+                  type: "text",
+                  id: "subject",
+                  placeholder: "Objet du mail"
+                },
+                domProps: { value: _vm.$v.contactForm.subject.$model },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
                     }
+                    _vm.$set(
+                      _vm.$v.contactForm.subject,
+                      "$model",
+                      $event.target.value.trim()
+                    )
+                  },
+                  blur: function($event) {
+                    return _vm.$forceUpdate()
                   }
-                })
+                }
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "message" } }, [_vm._v("Message")]),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model.trim",
+                    value: _vm.$v.contactForm.message.$model,
+                    expression: "$v.contactForm.message.$model",
+                    modifiers: { trim: true }
+                  }
+                ],
+                class: { error: _vm.$v.contactForm.message.$error },
+                attrs: {
+                  rows: "4",
+                  id: "message",
+                  placeholder: "Votre message"
+                },
+                domProps: { value: _vm.$v.contactForm.message.$model },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(
+                      _vm.$v.contactForm.message,
+                      "$model",
+                      $event.target.value.trim()
+                    )
+                  },
+                  blur: function($event) {
+                    return _vm.$forceUpdate()
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("transition", { attrs: { name: "fade" } }, [
+                this.msg
+                  ? _c("span", { staticClass: "text-danger mt-1" }, [
+                      _c("b", [_vm._v(_vm._s(_vm.msg))])
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("transition", { attrs: { name: "fade" } }, [
+                _vm.getterMsg
+                  ? _c("span", { staticClass: "text-success mt-1" }, [
+                      _c("b", [_vm._v(_vm._s(_vm.getterMsg))])
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "btnCustom" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "rounded",
+                    on: { click: _vm.sendContactForm }
+                  },
+                  [_vm._v("Envoyer")]
+                )
               ])
-            ]),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "mail" } }, [_vm._v("Email")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model.trim",
-                  value: _vm.$v.contactForm.mail.$model,
-                  expression: "$v.contactForm.mail.$model",
-                  modifiers: { trim: true }
-                }
-              ],
-              class: { error: _vm.$v.contactForm.mail.$error },
-              attrs: {
-                type: "email",
-                id: "mail",
-                placeholder: "Ex: mail@gmail.com"
-              },
-              domProps: { value: _vm.$v.contactForm.mail.$model },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    _vm.$v.contactForm.mail,
-                    "$model",
-                    $event.target.value.trim()
-                  )
-                },
-                blur: function($event) {
-                  return _vm.$forceUpdate()
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "subject" } }, [_vm._v("Objet")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model.trim",
-                  value: _vm.$v.contactForm.subject.$model,
-                  expression: "$v.contactForm.subject.$model",
-                  modifiers: { trim: true }
-                }
-              ],
-              class: { error: _vm.$v.contactForm.subject.$error },
-              attrs: { type: "text", id: "subject", placeholder: "Subject" },
-              domProps: { value: _vm.$v.contactForm.subject.$model },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    _vm.$v.contactForm.subject,
-                    "$model",
-                    $event.target.value.trim()
-                  )
-                },
-                blur: function($event) {
-                  return _vm.$forceUpdate()
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "message" } }, [_vm._v("Message")]),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model.trim",
-                  value: _vm.$v.contactForm.message.$model,
-                  expression: "$v.contactForm.message.$model",
-                  modifiers: { trim: true }
-                }
-              ],
-              class: { error: _vm.$v.contactForm.message.$error },
-              attrs: { rows: "4", id: "message", placeholder: "Votre message" },
-              domProps: { value: _vm.$v.contactForm.message.$model },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(
-                    _vm.$v.contactForm.message,
-                    "$model",
-                    $event.target.value.trim()
-                  )
-                },
-                blur: function($event) {
-                  return _vm.$forceUpdate()
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "btnCustom" }, [
-              _c(
-                "button",
-                { staticClass: "rounded", on: { click: _vm.sendContactForm } },
-                [_vm._v("Envoyer")]
-              )
-            ])
-          ])
+            ],
+            1
+          )
         ])
       ]),
       _vm._v(" "),
@@ -93482,7 +93557,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     oneObject: {},
     dateTimeProduct: null,
     arrayBrands: [],
-    searchData: null
+    searchData: null,
+    msgContact: null
   },
   getters: {
     dataProducts: function dataProducts(state) {
@@ -93499,6 +93575,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     getterBrands: function getterBrands(state) {
       return state.arrayBrands;
+    },
+    getterMsg: function getterMsg(state) {
+      return state.msgContact;
     }
   },
   mutations: {
@@ -93519,6 +93598,9 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
     },
     searchData: function searchData(state, data) {
       state.searchData = data;
+    },
+    sendMessage: function sendMessage(state, data) {
+      state.msgContact = data;
     }
   },
   actions: {
@@ -93584,8 +93666,22 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__
         commit('allProducts', response.data.products.data);
         commit('dataOneProduct', response.data.products);
       });
-    } //sendMessageFromContact({commit},object){}
-
+    },
+    sendMessageFromContact: function sendMessageFromContact(_ref10, object) {
+      var commit = _ref10.commit;
+      axios__WEBPACK_IMPORTED_MODULE_3___default.a.post("/api/contact", {
+        firstName: object.firstName,
+        lastName: object.lastName,
+        mail: object.mail,
+        subject: object.subject,
+        message: object.message
+      }).then(function (response) {
+        commit('sendMessage', response.data);
+        setTimeout(function () {
+          commit('sendMessage', null);
+        }, 2500);
+      });
+    }
   },
   modules: {
     auth: _auth__WEBPACK_IMPORTED_MODULE_2__["default"]

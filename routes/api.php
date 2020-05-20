@@ -22,6 +22,7 @@ Route::group(['prefix' => 'auth','namespace'=>'Auth'], function () {
     Route::get('me', 'MeController');
 });
 Route::get('/products', 'ProductController@searchProduct');
+Route::post('/contact', 'ContactController@index');
 Route::get('/news/{id}', 'NewsController@show');
 Route::get('/brand/{id}', 'BrandController@show');
 Route::get('/{id}/product', 'ProductController@show');

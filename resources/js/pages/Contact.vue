@@ -17,7 +17,7 @@
                     <div class="firstField">
                         <div>
                             <label for="name">Nom</label>
-                            <input :class='{ "error" : $v.contactForm.firstName.$error }' type="text" v-model.trim="$v.contactForm.firstName.$model" id="name" placeholder="Ex: Mika">
+                            <input :class='{ "error" : $v.contactForm.$error}' type="text" v-model.trim="$v.contactForm.firstName.$model" id="name" placeholder="Ex: Mika">
                         </div>
                         <div>
                             <label for="nickname">Prénom</label>
@@ -29,10 +29,19 @@
                     <input :class='{ "error" : $v.contactForm.mail.$error }' type="email" v-model.trim="$v.contactForm.mail.$model" id="mail" placeholder="Ex: mail@gmail.com">
 
                     <label for="subject">Objet</label>
-                    <input :class='{ "error" : $v.contactForm.subject.$error }' type="text" v-model.trim="$v.contactForm.subject.$model" id="subject" placeholder="Subject">
+                    <input :class='{ "error" : $v.contactForm.subject.$error }' type="text" v-model.trim="$v.contactForm.subject.$model" id="subject" placeholder="Objet du mail">
 
                     <label for="message">Message</label>
                     <textarea :class='{ "error" : $v.contactForm.message.$error }' rows="4" v-model.trim="$v.contactForm.message.$model" id="message" placeholder="Votre message"></textarea>
+
+                    <transition name="fade">
+                        <span class="text-danger mt-1" v-if="this.msg"><b>{{msg}}</b></span>
+                    </transition>
+
+                    <transition name="fade">
+                        <span class="text-success mt-1" v-if="getterMsg"><b>{{getterMsg}}</b></span>
+                    </transition>
+
                     <div class="btnCustom">
                         <button @click="sendContactForm" class="rounded">Envoyer</button>
                     </div>
@@ -49,16 +58,18 @@
 <script>
     import publicNav from "../components/publicNav"
     import { required, email } from 'vuelidate/lib/validators'
+    import {mapActions, mapGetters} from 'vuex'
     export default {
         name:'contact',
         data(){
           return {
+              msg:null,
               contactForm:{
                   firstName:null,
                   lastName:null,
                   mail:null,
                   subject:null,
-                  message:null
+                  message:null,
               }
           }
         },
@@ -85,20 +96,49 @@
         components:{
             publicNav
         },
+        computed:{
+            ...mapGetters(['getterMsg'])
+        },
         methods:{
+            ...mapActions(['sendMessageFromContact']),
             sendContactForm(){
-                this.$v.$touch()
+                this.$v.contactForm.$touch()
                 if (this.$v.$invalid) {
-                    console.log('ok its good for me')
+                    this.msg = "Tous les champs sont obligatoire"
                 }
-                else{
-                    console.log('bad')
+                else {
+                    this.msg = null
+                    this.sendMessageFromContact(this.contactForm)
+
+                    this.contactForm.firstName = null
+                    this.contactForm.lastName = null
+                    this.contactForm.mail = null
+                    this.contactForm.subject = null
+                    this.contactForm.message = null
+                    setTimeout(()=>{
+                        let name = document.getElementById("name");
+                        name.classList.remove("error");
+                        let lastname = document.getElementById("nickname");
+                        lastname.classList.remove("error");
+                        let mail = document.getElementById("mail");
+                        mail.classList.remove("error");
+                        let subject = document.getElementById("subject");
+                        subject.classList.remove("error");
+                        let msg = document.getElementById("message");
+                        msg.classList.remove("error");
+                    },0)
                 }
             }
         }
     }
 </script>
 <style scoped lang="scss">
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .5s;
+    }
+    .fade-enter, .fade-leave-to {
+        opacity: 0;
+    }
     .error{
         border: 1px solid #b90000 !important;
     }
@@ -116,6 +156,7 @@
         .backgroundInfo{
             background: url("../assets/shop.jpg")no-repeat;
             width:500px;
+            height: 510px;
             background-size: cover;
             div:nth-child(1){
                 display: flex;
@@ -203,6 +244,7 @@
             align-items: center;
             .backgroundInfo{
                 width: 100%;
+                height:100%;
                 div:nth-child(1){
                     height: 320px;
                 }
