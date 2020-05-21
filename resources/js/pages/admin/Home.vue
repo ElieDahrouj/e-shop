@@ -8,7 +8,7 @@
                 <div class="card-header"><b>Bienvenue</b></div>
                 <div class="picture"><img src="../../assets/test.png" class="card-img-top" alt="..."></div>
                 <div class="card-body text-center">
-                    <p>Bienvenue sur la page d'administration du site THE HEAVENS</p>
+                    <p>Bienvenue sur la page d'administration du site HEAVENS SHOES</p>
                     <p>
                         Cette partie du site permet de gérer l'ensemble des chaussures, les marques présentes et les news.
                     </p>
