@@ -14,9 +14,9 @@
                     </div>
                 </div>
                 <div class="container custom">
-                    <btnAdmin :className="brand" name="Marques"></btnAdmin>
-                    <btnAdmin :className="sneakers" name="Sneakers"></btnAdmin>
-                    <btnAdmin :className="news" name="News"></btnAdmin>
+                    <btnAdmin :className="brand" name="Marques" :url="brandUrl"></btnAdmin>
+                    <!-- <btnAdmin :className="sneakers" name="Sneakers"></btnAdmin>
+                    <btnAdmin :className="news" name="News"></btnAdmin> -->
                 </div>
             </div>
         </div>
@@ -32,7 +32,8 @@
           return{
               brand:"brand",
               sneakers:"sneakers",
-              news:"btnNews"
+              news:"btnNews",
+              brandUrl:"/managementBrand"
           }
         },
         components:{

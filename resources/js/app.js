@@ -9,13 +9,14 @@ Vue.component('app', Index)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faBars, faSearch, faTimes, faShoppingCart, faChevronRight, faChevronLeft, faAngleDoubleRight, faAngleDoubleLeft} from "@fortawesome/free-solid-svg-icons";
+import { faBars, faSearch, faTimes, faShoppingCart, faChevronRight, faChevronLeft, faAngleDoubleRight, faAngleDoubleLeft, faTrash, faPen} from "@fortawesome/free-solid-svg-icons";
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from './store'
 import HomeAdmin from './pages/admin/Home'
 import Login from './pages/admin/Login'
 import AdminDashboard from './pages/admin/Dashboard'
+import managementBrand from './pages/admin/managementBrand'
 import Home from './pages/Home'
 import Catalogue from './pages/Catalogue'
 import Brand from './pages/Brand'
@@ -27,7 +28,7 @@ import News from './pages/News'
 import Payment from './pages/Payment'
 import Search from './pages/Search'
 require('./store/subscriber')
-library.add(faBars,faSearch, faTimes, faShoppingCart, faChevronRight,faChevronLeft,faAngleDoubleRight, faAngleDoubleLeft)
+library.add(faBars,faSearch, faTimes, faShoppingCart, faChevronRight,faChevronLeft,faAngleDoubleRight, faAngleDoubleLeft, faTrash,faPen)
 import Vuelidate from 'vuelidate'
 Vue.use(Vuelidate)
 Vue.use(VueRouter)
@@ -61,6 +62,11 @@ const router = new VueRouter({
             meta:{
                 requiresAuth : true
             }
+        },
+        {
+            path: '/managementBrand',
+            name: 'admin.brand',
+            component: managementBrand,
         },
         {
             path: '/',

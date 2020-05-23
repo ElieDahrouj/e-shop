@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
-use App\Product;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class BrandController extends Controller
@@ -15,7 +15,20 @@ class BrandController extends Controller
      */
     public function index()
     {
-        //
+        $data = (object)[
+            'error' => null,
+            'brands' => [],
+        ];
+
+        try{
+            $data->brands = Brand::orderBy('id','DESC')->get();
+            return response()->json($data);
+        }
+        catch (ModelNotFoundException $e){
+            $data->error = $e;
+            $data->brands = [];
+            return response()->json($data,'404');
+        }
     }
 
     /**

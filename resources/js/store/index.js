@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import auth from './auth'
+import admin from './admin.js'
 import axios from 'axios'
 import moment from 'moment';
 Vue.use(Vuex)
@@ -133,6 +134,7 @@ export default new Vuex.Store({
         }
     },
     modules:{
-        auth
+        auth,
+        admin
     }
 })

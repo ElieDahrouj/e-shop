@@ -1,0 +1,63 @@
+<template>
+    <div>
+        <header id="header" class="container">
+            <navigation></navigation>
+        </header>
+        <div class="container custom mb-4 mt-4">
+            <div v-for="brand in adminBrand " :key="brand.id" class="card">
+                <img :src="brand.banner" class="card-img-top" alt="...">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <h3>{{brand.name}}</h3>
+                    <p class="card-text">{{brand.description ? brand.description :'Aucune description'}}</p>
+                    <div class="d-flex justify-content-between">
+                        <p class="card-text m-0">
+                            <button class="btn btn-danger" :value="brand.id"><font-awesome-icon class="search" :icon="['fas', 'trash']" /></button>
+                        </p>
+                        <p class="card-text m-0">
+                            <button class="btn btn-light" :value="brand.id"><font-awesome-icon class="search" :icon="['fas', 'pen']" /></button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+    import navigation from '../../components/Navigation'
+    import {mapActions, mapGetters} from 'vuex'
+    export default {
+        name:'managementBrand',
+        components:{
+          navigation,
+        },
+        computed:{
+            ...mapGetters({
+                adminBrand : 'admin/getterArrayBrands'
+            })
+        },
+        methods:{
+            ...mapActions({
+                displayBrand : 'admin/adminBrand'
+            }),
+            brands(){
+                this.displayBrand()
+            }
+        },
+        mounted(){
+            if (!localStorage.getItem('token')){
+                this.$router.replace({name:'admin.home'})
+            }
+            else{
+                this.brands()
+            }
+        }
+    }
+</script>
+<style scoped lang="scss">
+    .custom{
+        display: grid;
+        justify-content: center;
+        grid-gap: 50px;
+        grid-template-columns: repeat(auto-fit, 275px);
+    }
+</style>

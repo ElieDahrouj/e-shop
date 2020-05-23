@@ -1,10 +1,10 @@
 <template>
     <div :class="className">
-        <a href="">
+        <router-link :to="url">
             <div>
                 <p>{{name}}</p>
             </div>
-        </a>
+        </router-link>
     </div>
 </template>
 <script>
@@ -12,7 +12,8 @@
         name:'btnAdmin',
         props:{
             className:String,
-            name:String
+            name:String,
+            url:String
         }
     }
 </script>

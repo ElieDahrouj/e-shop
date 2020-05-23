@@ -9,7 +9,7 @@
                         <font-awesome-icon class="search" :icon="['fas', 'angle-double-left']" />
                     </button>
 
-                    <button @click="previous(oneDataProduct)"  :disabled="oneDataProduct.current_page === oneDataProduct.from">
+                    <button @click="previous(oneDataProduct)"  :disabled="oneDataProduct.current_page === 1">
                         <font-awesome-icon class="search" :icon="['fas', 'chevron-left']" />
                     </button>
 
