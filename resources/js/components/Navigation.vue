@@ -1,22 +1,25 @@
 <template>
-    <ul>
-        <template v-if=authentificated>
-            <li>
-                <b>Utilisateur : </b>{{user.name}}
-            </li>
-            <li>
-                <button class="logOut" @click.prevent="signOutAction">Logout</button>
-            </li>
-        </template>
-        <template v-else>
-            <li>
-                <router-link :to="{name:'admin.home'}">Home</router-link>
-            </li>
-            <li>
-                <router-link :to="{name:'admin.login'}">Login</router-link>
-            </li>
-        </template>
-    </ul>
+
+    <div>
+        <b-navbar type="dark" variant="dark">
+            <b-navbar-nav>
+                <b-nav-item href="#">Home</b-nav-item>
+
+                <!-- Navbar dropdowns -->
+                <b-nav-item-dropdown text="Lang" right>
+                    <b-dropdown-item href="#">EN</b-dropdown-item>
+                    <b-dropdown-item href="#">ES</b-dropdown-item>
+                    <b-dropdown-item href="#">RU</b-dropdown-item>
+                    <b-dropdown-item href="#">FA</b-dropdown-item>
+                </b-nav-item-dropdown>
+
+                <b-nav-item-dropdown text="User" right>
+                    <b-dropdown-item href="#">Account</b-dropdown-item>
+                    <b-dropdown-item href="#">Settings</b-dropdown-item>
+                </b-nav-item-dropdown>
+            </b-navbar-nav>
+        </b-navbar>
+    </div>
 </template>
 
 <script>
