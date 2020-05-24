@@ -21,8 +21,8 @@ Route::group(['prefix' => 'auth','namespace'=>'Auth'], function () {
     Route::post('signin', 'SignInController');
     Route::post('signout', 'SignOutController');
     Route::get('me', 'MeController');
-    Route::get('/adminNews', 'NewsController@newsAdmin');
-    Route::get('/adminProducts', 'ProductController@adminProducts');
+    Route::get('adminNews', 'AdminNewsController@index');
+    Route::get('adminProducts', 'AdminProductsController@index');
 });
 Route::get('/products', 'ProductController@searchProduct');
 Route::post('/contact', 'ContactController@index');

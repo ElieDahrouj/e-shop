@@ -74337,11 +74337,11 @@ var render = function() {
     _c(
       "div",
       { staticClass: "container custom mb-4 mt-4" },
-      _vm._l(_vm.adminNews, function(brand) {
-        return _c("div", { key: brand.id, staticClass: "card" }, [
+      _vm._l(_vm.adminNews, function(news) {
+        return _c("div", { key: news.id, staticClass: "card" }, [
           _c("img", {
             staticClass: "card-img-top",
-            attrs: { src: brand.image, alt: "..." }
+            attrs: { src: news.image, alt: "..." }
           }),
           _vm._v(" "),
           _c(
@@ -74351,14 +74351,14 @@ var render = function() {
                 "card-body d-flex flex-column justify-content-between"
             },
             [
-              _c("h4", [_vm._v(_vm._s(brand.title))]),
+              _c("h4", [_vm._v(_vm._s(news.title))]),
               _vm._v(" "),
-              _c("b", [_vm._v(_vm._s(_vm.changeDate(brand.release_date)))]),
+              _c("b", [_vm._v(_vm._s(_vm.changeDate(news.release_date)))]),
               _vm._v(" "),
-              _c("p", [_c("em", [_vm._v(_vm._s(brand.summary))])]),
+              _c("p", [_c("em", [_vm._v(_vm._s(news.summary))])]),
               _vm._v(" "),
               _c("p", { staticClass: "card-text" }, [
-                _vm._v(_vm._s(brand.content))
+                _vm._v(_vm._s(news.content))
               ]),
               _vm._v(" "),
               _c(
@@ -74370,7 +74370,7 @@ var render = function() {
                       "button",
                       {
                         staticClass: "btn btn-danger",
-                        attrs: { value: brand.id }
+                        attrs: { value: news.id }
                       },
                       [
                         _c("font-awesome-icon", {
@@ -74387,7 +74387,7 @@ var render = function() {
                       "button",
                       {
                         staticClass: "btn btn-light",
-                        attrs: { value: brand.id }
+                        attrs: { value: news.id }
                       },
                       [
                         _c("font-awesome-icon", {
@@ -74441,11 +74441,11 @@ var render = function() {
     _c(
       "div",
       { staticClass: "container custom mb-4 mt-4" },
-      _vm._l(_vm.adminProducts, function(brand) {
-        return _c("div", { key: brand.id, staticClass: "card" }, [
+      _vm._l(_vm.adminProducts, function(products) {
+        return _c("div", { key: products.id, staticClass: "card" }, [
           _c("img", {
             staticClass: "card-img-top",
-            attrs: { src: brand.image, alt: "..." }
+            attrs: { src: products.image, alt: "..." }
           }),
           _vm._v(" "),
           _c(
@@ -74455,22 +74455,22 @@ var render = function() {
                 "card-body d-flex flex-column justify-content-between"
             },
             [
-              _c("h3", [_vm._v(_vm._s(brand.name))]),
+              _c("h3", [_vm._v(_vm._s(products.name))]),
               _vm._v(" "),
               _c("p", { staticClass: "card-text" }, [
-                _vm._v(_vm._s(brand.price) + " €")
+                _vm._v(_vm._s(products.price) + " €")
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "card-text" }, [
-                _vm._v(_vm._s(brand.brand))
+                _vm._v(_vm._s(products.brand))
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "card-text" }, [
-                _vm._v(_vm._s(brand.color))
+                _vm._v(_vm._s(products.color))
               ]),
               _vm._v(" "),
               _c("p", { staticClass: "card-text" }, [
-                _vm._v(_vm._s(brand.description))
+                _vm._v(_vm._s(products.description))
               ]),
               _vm._v(" "),
               _c(
@@ -74482,7 +74482,7 @@ var render = function() {
                       "button",
                       {
                         staticClass: "btn btn-danger",
-                        attrs: { value: brand.id }
+                        attrs: { value: products.id }
                       },
                       [
                         _c("font-awesome-icon", {
@@ -74499,7 +74499,7 @@ var render = function() {
                       "button",
                       {
                         staticClass: "btn btn-light",
-                        attrs: { value: brand.id }
+                        attrs: { value: products.id }
                       },
                       [
                         _c("font-awesome-icon", {
@@ -94732,6 +94732,18 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/brands").then(function (response) {
         console.log(response.data);
         commit('arrayData', response.data.brands);
+      });
+    },
+    adminNews: function adminNews(_ref2) {
+      var commit = _ref2.commit;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/auth/adminNews").then(function (response) {
+        commit('arrayData', response.data.news);
+      });
+    },
+    adminProducts: function adminProducts(_ref3) {
+      var commit = _ref3.commit;
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/auth/adminProducts").then(function (response) {
+        commit('arrayData', response.data.products);
       });
     }
   }

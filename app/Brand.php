@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Carbon\Carbon;
 class Brand extends Model
 {
     protected $fillable = [
@@ -12,6 +12,7 @@ class Brand extends Model
 
     public function products()
     {
-        return $this->hasMany('App\Product');
+        return $this->hasMany('App\Product')->whereDate('release_date', '<=', Carbon::today()->toDateString())
+            ->where('actif',1);
     }
 }

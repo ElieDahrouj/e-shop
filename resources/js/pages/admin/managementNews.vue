@@ -4,19 +4,19 @@
             <navigation></navigation>
         </header>
         <div class="container custom mb-4 mt-4">
-            <div v-for="brand in adminNews " :key="brand.id" class="card">
-                <img :src="brand.image" class="card-img-top" alt="...">
+            <div v-for="news in adminNews " :key="news.id" class="card">
+                <img :src="news.image" class="card-img-top" alt="...">
                 <div class="card-body d-flex flex-column justify-content-between">
-                    <h4>{{brand.title}}</h4>
-                    <b>{{changeDate(brand.release_date)}}</b>
-                    <p><em>{{brand.summary}}</em></p>
-                    <p class="card-text">{{brand.content}}</p>
+                    <h4>{{news.title}}</h4>
+                    <b>{{changeDate(news.release_date)}}</b>
+                    <p><em>{{news.summary}}</em></p>
+                    <p class="card-text">{{news.content}}</p>
                     <div class="d-flex justify-content-between mt-2">
                         <p class="card-text m-0">
-                            <button class="btn btn-danger" :value="brand.id"><font-awesome-icon class="search" :icon="['fas', 'trash']" /></button>
+                            <button class="btn btn-danger" :value="news.id"><font-awesome-icon class="search" :icon="['fas', 'trash']" /></button>
                         </p>
                         <p class="card-text m-0">
-                            <button class="btn btn-light" :value="brand.id"><font-awesome-icon class="search" :icon="['fas', 'pen']" /></button>
+                            <button class="btn btn-light" :value="news.id"><font-awesome-icon class="search" :icon="['fas', 'pen']" /></button>
                         </p>
                     </div>
                 </div>

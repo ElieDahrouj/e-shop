@@ -22,5 +22,17 @@ export default ({
                     commit('arrayData',response.data.brands)
                 })
         },
+        adminNews({commit}){
+            axios.get("/api/auth/adminNews")
+                .then(response =>{
+                    commit('arrayData',response.data.news)
+                })
+        },
+        adminProducts({commit}){
+            axios.get("/api/auth/adminProducts")
+                .then(response =>{
+                    commit('arrayData',response.data.products)
+                })
+        },
     }
 })
