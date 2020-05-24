@@ -2,16 +2,16 @@ import axios from 'axios'
 export default ({
     namespaced:true,
     state:{
-        brands:[]
+        arrayAllData:[]
     },
     getters: {
-        getterArrayBrands(state){
-            return state.brands
+        getterArray(state){
+            return state.arrayAllData
         }
     },
     mutations:{
-        arrayBrand(state,data){
-            return state.brands = data
+        arrayData(state,data){
+            return state.arrayAllData = data
         }
     },
     actions: {
@@ -19,8 +19,8 @@ export default ({
             axios.get("/api/brands")
                 .then(response =>{
                     console.log(response.data)
-                    commit('arrayBrand',response.data.brands)
+                    commit('arrayData',response.data.brands)
                 })
-        }
+        },
     }
 })

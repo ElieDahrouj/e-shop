@@ -62,7 +62,7 @@
                     img{
                         width:100%;
                         border-radius:3px 3px 0 0;
-                        height: 130px;
+                        height: 220px;
                         object-fit: cover;
                     }
                 }

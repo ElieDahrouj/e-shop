@@ -17,6 +17,8 @@ import HomeAdmin from './pages/admin/Home'
 import Login from './pages/admin/Login'
 import AdminDashboard from './pages/admin/Dashboard'
 import managementBrand from './pages/admin/managementBrand'
+import managementSneakers from './pages/admin/managementSneakers'
+import managementNews from './pages/admin/managementNews'
 import Home from './pages/Home'
 import Catalogue from './pages/Catalogue'
 import Brand from './pages/Brand'
@@ -64,9 +66,19 @@ const router = new VueRouter({
             }
         },
         {
-            path: '/managementBrand',
+            path: '/managementBrands',
             name: 'admin.brand',
             component: managementBrand,
+        },
+        {
+            path: '/managementSneakers',
+            name: 'admin.sneaker',
+            component: managementSneakers,
+        },
+        {
+            path: '/managementNews',
+            name: 'admin.new',
+            component: managementNews,
         },
         {
             path: '/',

@@ -4,12 +4,15 @@
             <navigation></navigation>
         </header>
         <div class="container custom mb-4 mt-4">
-            <div v-for="brand in adminBrand " :key="brand.id" class="card">
-                <img :src="brand.banner" class="card-img-top" alt="...">
+            <div v-for="brand in adminProducts " :key="brand.id" class="card">
+                <img :src="brand.image" class="card-img-top" alt="...">
                 <div class="card-body d-flex flex-column justify-content-between">
                     <h3>{{brand.name}}</h3>
-                    <p class="card-text">{{brand.description ? brand.description :'Aucune description'}}</p>
-                    <div class="d-flex justify-content-between">
+                    <p class="card-text">{{brand.price}} €</p>
+                    <p class="card-text">{{brand.brand}}</p>
+                    <p class="card-text">{{brand.color}}</p>
+                    <p class="card-text">{{brand.description}}</p>
+                    <div class="d-flex justify-content-between mt-2">
                         <p class="card-text m-0">
                             <button class="btn btn-danger" :value="brand.id"><font-awesome-icon class="search" :icon="['fas', 'trash']" /></button>
                         </p>
@@ -28,27 +31,24 @@
     export default {
         name:'managementBrand',
         components:{
-          navigation,
+            navigation,
         },
         computed:{
             ...mapGetters({
-                adminBrand : 'admin/getterArray'
+                adminProducts : 'admin/getterArray'
             })
         },
         methods:{
             ...mapActions({
-                displayBrand : 'admin/adminBrand'
+                displayProducts : 'admin/adminProducts'
             }),
-            brands(){
-                this.displayBrand()
-            }
         },
         mounted(){
             if (!localStorage.getItem('token')){
                 this.$router.replace({name:'admin.home'})
             }
             else{
-                this.brands()
+                this.displayProducts()
             }
         }
     }
@@ -68,5 +68,12 @@
             box-shadow: 0 5px 16px 0 RGBA(0, 0, 0, 0.12);
             top: -5px;
         }
+    }
+    .card-text{
+        white-space: nowrap;
+        overflow: hidden;
+        margin: 0;
+        color: #161616;
+        text-overflow: ellipsis;
     }
 </style>
