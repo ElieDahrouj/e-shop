@@ -1,7 +1,7 @@
 <template>
     <b-modal id="bv-modal-sneakersEdition" hide-footer>
         <template v-slot:modal-title>Modification de la paire de sneaker {{getterEditionProduct.name}}</template>
-        <form @submit="formSubmit"> enctype="multipart/form-data">
+        <form @submit="formSubmit" enctype="multipart/form-data">
             <b-form-group id="input-group-2" label-for="input-2">
                 <div class="mt-2">Titre de la paire: <b class="text-danger">*</b></div>
                 <b-form-input id="input-2" v-model="getterEditionProduct.name" required placeholder="Enter name"></b-form-input>
