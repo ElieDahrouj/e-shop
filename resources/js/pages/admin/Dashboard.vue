@@ -1,8 +1,6 @@
 <template>
     <div>
-        <header id="header" class="container">
-            <navigation></navigation>
-        </header>
+        <navigation></navigation>
         <div class="container">
             <div class="card card-default pb-3">
                 <div class="card-header"><em>Admin Dashboard</em></div>

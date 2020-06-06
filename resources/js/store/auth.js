@@ -23,7 +23,7 @@ export default ({
     },
     actions:{
         async login({dispatch}, credentials){
-            await axios.post('http://127.0.0.1:8000/api/auth/signin', credentials)
+            await axios.post('/api/auth/signin', credentials)
                 .then(response =>{
                     return dispatch('attempt',response.data.token)
                 })
@@ -34,7 +34,7 @@ export default ({
             }
             if (state.token !== null) {
                 try {
-                    await axios.get('http://127.0.0.1:8000/api/auth/me')
+                    await axios.get('/api/auth/me')
                         .then(response => {
                             commit('set_user', response.data)
                         })
@@ -46,7 +46,7 @@ export default ({
             }
         },
         signOut({commit}){
-            return axios.post("http://127.0.0.1:8000/api/auth/signout")
+            return axios.post("/api/auth/signout")
                 .then(()=>{
                     commit('set_token', null)
                     commit('set_user', null)

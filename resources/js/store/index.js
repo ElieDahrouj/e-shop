@@ -76,7 +76,7 @@ export default new Vuex.Store({
                 })
         },
         sneaker({commit, dispatch}, id){
-          axios.get("/api/"+id+"/product")
+          axios.get("/api/product/"+id)
               .then(response =>{
                   commit('dataOneProduct',response.data.product)
                   dispatch('configDate',response.data.product.release_date)

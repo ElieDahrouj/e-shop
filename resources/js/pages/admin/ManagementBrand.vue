@@ -1,46 +1,52 @@
 <template>
     <div>
-        <header id="header" class="container">
-            <navigation></navigation>
-        </header>
+        <navigation></navigation>
         <div class="container custom mb-4 mt-4">
             <div v-for="brand in adminBrand " :key="brand.id" class="card">
                 <img :src="brand.banner" class="card-img-top" alt="...">
                 <div class="card-body d-flex flex-column justify-content-between">
                     <h3>{{brand.name}}</h3>
-                    <p class="card-text">{{brand.description ? brand.description :'Aucune description'}}</p>
+                    <p class="card-text">{{brand.description !== 'null'&& brand.description ? brand.description :'Aucune description'}}</p>
                     <div class="d-flex justify-content-between">
                         <p class="card-text m-0">
-                            <button class="btn btn-danger" :value="brand.id"><font-awesome-icon class="search" :icon="['fas', 'trash']" /></button>
+                            <button class="btn btn-danger" @click="deleteBrand(brand.id)"><font-awesome-icon class="search" :icon="['fas', 'trash']" /></button>
                         </p>
                         <p class="card-text m-0">
-                            <button class="btn btn-light" :value="brand.id"><font-awesome-icon class="search" :icon="['fas', 'pen']" /></button>
+                            <button class="btn btn-light" @click="$bvModal.show('bv-modal-brand-edition'); edition(brand.id)"><font-awesome-icon class="search" :icon="['fas', 'pen']" /></button>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
+        <editionModalBrand></editionModalBrand>
     </div>
 </template>
 <script>
     import navigation from '../../components/Navigation'
     import {mapActions, mapGetters} from 'vuex'
+    import editionModalBrand from '../../components/editionModalBrand'
     export default {
         name:'managementBrand',
         components:{
-          navigation,
+            navigation,
+            editionModalBrand
         },
         computed:{
             ...mapGetters({
-                adminBrand : 'admin/getterArray'
+                adminBrand : 'admin/getterArrayBrands',
             })
         },
         methods:{
             ...mapActions({
-                displayBrand : 'admin/adminBrand'
+                displayBrand : 'admin/adminBrand',
+                deleteBrand: 'admin/deleteBrand',
+                getOneBrand : 'admin/getOneBrand',
             }),
             brands(){
                 this.displayBrand()
+            },
+            edition(id){
+                this.getOneBrand(id)
             }
         },
         mounted(){

@@ -1,8 +1,6 @@
 <template>
     <div>
-        <header id="header" class="container">
-            <navigation></navigation>
-        </header>
+        <navigation></navigation>
         <div class="container mt-4" style="max-width: 600px">
             <div class="card card-default">
                 <div class="card-header">Connexion</div>

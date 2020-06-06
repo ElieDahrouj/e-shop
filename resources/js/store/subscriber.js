@@ -1,16 +1,23 @@
 import store from '../store'
 import axios from 'axios'
 store.subscribe((mutation)=>{
-    switch(mutation.type){
-        case 'auth/set_token':
-            if (mutation.payload){
+    if(mutation.type) {
+        if (mutation.type === 'auth/set_token'){
+            if (mutation.payload) {
                 axios.defaults.headers.common['Authorization'] = `Bearer ${mutation.payload}`
                 localStorage.setItem('token', mutation.payload)
             }
-            else{
+            else {
                 axios.defaults.headers.common['Authorization'] = null
                 localStorage.removeItem('token')
+                localStorage.removeItem('user')
             }
-        break
+        }
+        else if(mutation.type === 'auth/set_user'){
+            if (mutation.payload) {
+                if (!localStorage.getItem('user'))
+                localStorage.setItem('user', JSON.stringify(mutation.payload))
+            }
+        }
     }
 })

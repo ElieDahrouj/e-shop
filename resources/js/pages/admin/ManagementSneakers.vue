@@ -1,8 +1,6 @@
 <template>
     <div>
-        <header id="header" class="container">
-            <navigation></navigation>
-        </header>
+        <navigation></navigation>
         <div class="container custom mb-4 mt-4">
             <div v-for="products in adminProducts " :key="products.id" class="card">
                 <img :src="products.image" class="card-img-top" alt="...">
@@ -11,37 +9,46 @@
                     <p class="card-text">{{products.price}} €</p>
                     <p class="card-text">{{products.brand}}</p>
                     <p class="card-text">{{products.color}}</p>
+                    <p class="card-text"><b>Date de sortie:</b> {{products.release_date}}</p>
                     <p class="card-text">{{products.description}}</p>
                     <div class="d-flex justify-content-between mt-2">
                         <p class="card-text m-0">
-                            <button class="btn btn-danger" :value="products.id"><font-awesome-icon class="search" :icon="['fas', 'trash']" /></button>
+                            <button class="btn btn-danger" @click="deleteSneaker(products.id)"><font-awesome-icon class="search" :icon="['fas', 'trash']" /></button>
                         </p>
                         <p class="card-text m-0">
-                            <button class="btn btn-light" :value="products.id"><font-awesome-icon class="search" :icon="['fas', 'pen']" /></button>
+                            <button class="btn btn-light" @click="$bvModal.show('bv-modal-sneakersEdition'); edition(products.id)"><font-awesome-icon class="search" :icon="['fas', 'pen']" /></button>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
+        <editionModalProduct></editionModalProduct>
     </div>
 </template>
 <script>
     import navigation from '../../components/Navigation'
+    import editionModalProduct from '../../components/editionModalProduct'
     import {mapActions, mapGetters} from 'vuex'
     export default {
         name:'managementBrand',
         components:{
             navigation,
+            editionModalProduct
         },
         computed:{
             ...mapGetters({
-                adminProducts : 'admin/getterArray'
+                adminProducts : 'admin/getterArrayProducts'
             })
         },
         methods:{
             ...mapActions({
-                displayProducts : 'admin/adminProducts'
+                displayProducts : 'admin/adminProducts',
+                deleteSneaker :'admin/deleteSneaker',
+                getOneProduct:'admin/getOneProduct'
             }),
+            edition(id){
+                this.getOneProduct(id)
+            }
         },
         mounted(){
             if (!localStorage.getItem('token')){

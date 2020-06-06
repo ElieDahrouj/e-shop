@@ -51,6 +51,9 @@
                 div:nth-child(2) {
                     display: flex;
                     justify-content: space-between;
+                    p:nth-child(1){
+                        width: 172px;
+                    }
                     p {
                         margin-top: 10px;
                         margin-bottom: 0;

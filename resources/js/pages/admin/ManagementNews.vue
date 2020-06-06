@@ -1,8 +1,6 @@
 <template>
     <div>
-        <header id="header" class="container">
-            <navigation></navigation>
-        </header>
+        <navigation></navigation>
         <div class="container custom mb-4 mt-4">
             <div v-for="news in adminNews " :key="news.id" class="card">
                 <img :src="news.image" class="card-img-top" alt="...">
@@ -13,33 +11,38 @@
                     <p class="card-text">{{news.content}}</p>
                     <div class="d-flex justify-content-between mt-2">
                         <p class="card-text m-0">
-                            <button class="btn btn-danger" :value="news.id"><font-awesome-icon class="search" :icon="['fas', 'trash']" /></button>
+                            <button class="btn btn-danger" @click="deleteNew(news.id)"><font-awesome-icon class="search" :icon="['fas', 'trash']" /></button>
                         </p>
                         <p class="card-text m-0">
-                            <button class="btn btn-light" :value="news.id"><font-awesome-icon class="search" :icon="['fas', 'pen']" /></button>
+                            <button class="btn btn-light" @click="$bvModal.show('bv-modal-newsEdition'); getOneNew(news.id)" :value="news.id"><font-awesome-icon class="search" :icon="['fas', 'pen']" /></button>
                         </p>
                     </div>
                 </div>
             </div>
         </div>
+        <editionModalNew></editionModalNew>
     </div>
 </template>
 <script>
     import navigation from '../../components/Navigation'
+    import editionModalNew from '../../components/editionModalNew'
     import {mapActions, mapGetters} from 'vuex'
     export default {
         name:'managementBrand',
         components:{
             navigation,
+            editionModalNew
         },
         computed:{
             ...mapGetters({
-                adminNews : 'admin/getterArray'
+                adminNews : 'admin/getterArrayNews'
             })
         },
         methods:{
             ...mapActions({
-                displayNews : 'admin/adminNews'
+                displayNews : 'admin/adminNews',
+                deleteNew : 'admin/deleteNews',
+                getOneNew: 'admin/getOneNew'
             }),
             changeDate(data){
                 return this.$moment(data).locale('fr').format('L')

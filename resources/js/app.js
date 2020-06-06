@@ -9,7 +9,7 @@ Vue.component('app', Index)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faBars, faSearch, faTimes, faShoppingCart, faChevronRight, faChevronLeft, faAngleDoubleRight, faAngleDoubleLeft, faTrash, faPen} from "@fortawesome/free-solid-svg-icons";
+import { faBars, faSearch, faTimes, faShoppingCart, faChevronRight, faChevronLeft, faAngleDoubleRight, faAngleDoubleLeft, faTrash, faPen, faSignOutAlt, faTimesCircle} from "@fortawesome/free-solid-svg-icons";
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from './store'
@@ -30,12 +30,14 @@ import News from './pages/News'
 import Payment from './pages/Payment'
 import Search from './pages/Search'
 require('./store/subscriber')
-library.add(faBars,faSearch, faTimes, faShoppingCart, faChevronRight,faChevronLeft,faAngleDoubleRight, faAngleDoubleLeft, faTrash,faPen)
+library.add(faBars,faSearch, faTimes, faShoppingCart, faChevronRight,faChevronLeft,faAngleDoubleRight, faAngleDoubleLeft, faTrash,faPen, faSignOutAlt,faTimesCircle)
 import Vuelidate from 'vuelidate'
 Vue.use(Vuelidate)
 Vue.use(VueRouter)
 import moment from 'moment'
-
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+Vue.use(BootstrapVue)
+Vue.use(IconsPlugin)
 Vue.prototype.$moment = moment
 const router = new VueRouter({
     mode: 'history',

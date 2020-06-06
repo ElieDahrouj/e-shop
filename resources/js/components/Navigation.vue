@@ -1,35 +1,101 @@
 <template>
-
     <div>
-        <b-navbar type="dark" variant="dark">
-            <b-navbar-nav>
-                <b-nav-item href="#">Home</b-nav-item>
+        <b-navbar type="dark" variant="dark" class="mb-4">
+            <div class="desktop w-100">
+                <b-navbar-nav  class="d-flex justify-content-between align-items-center p-2 w-100">
+                    <template v-if=authentificated>
+                        <img style="width: 90px" src="../assets/test2.png" alt="">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <b-nav-item><router-link class="link" :to="{name:'admin.dashboard'}">Accueil</router-link></b-nav-item>
+                            <b-nav-item-dropdown text="Ajouter" right>
+                                <b-dropdown-item @click="$bvModal.show('bv-modal-brand')">Une marque</b-dropdown-item>
+                                <b-dropdown-item @click="$bvModal.show('bv-modal-news')">Une Actualité</b-dropdown-item>
+                                <b-dropdown-item @click="$bvModal.show('bv-modal-sneakers')">Une Paire de chaussure</b-dropdown-item>
+                            </b-nav-item-dropdown>
 
-                <!-- Navbar dropdowns -->
-                <b-nav-item-dropdown text="Lang" right>
-                    <b-dropdown-item href="#">EN</b-dropdown-item>
-                    <b-dropdown-item href="#">ES</b-dropdown-item>
-                    <b-dropdown-item href="#">RU</b-dropdown-item>
-                    <b-dropdown-item href="#">FA</b-dropdown-item>
-                </b-nav-item-dropdown>
+                            <b-avatar class="ml-1"></b-avatar>
+                            <b-nav-item-dropdown :text="user.name" right>
+                                <b-dropdown-item>
+                                    <button class="logOut text-danger" @click.prevent="signOutAction">Se deconnecter <font-awesome-icon class="search" :icon="['fas', 'sign-out-alt']" /></button>
+                                </b-dropdown-item>
+                            </b-nav-item-dropdown>
+                        </div>
+                    </template>
 
-                <b-nav-item-dropdown text="User" right>
-                    <b-dropdown-item href="#">Account</b-dropdown-item>
-                    <b-dropdown-item href="#">Settings</b-dropdown-item>
-                </b-nav-item-dropdown>
-            </b-navbar-nav>
+                    <template v-else>
+                        <b-nav-item><router-link class="link" :to="{name:'admin.home'}">Home</router-link></b-nav-item>
+                        <b-nav-item><router-link class="link" :to="{name:'admin.login'}">Login</router-link></b-nav-item>
+                    </template>
+                </b-navbar-nav>
+            </div>
+            <template v-if="authentificated">
+                <div class="mobile">
+                    <template v-if="authentificated">
+                        <b-navbar-nav  class="d-flex justify-content-end align-items-center w-100 mr-2">
+                            <b-avatar class="ml-1"></b-avatar>
+                            <b-nav-item-dropdown :text="user.name" right>
+                                <b-dropdown-item>
+                                    <button class="logOut text-danger" @click.prevent="signOutAction">Se deconnecter <font-awesome-icon class="search" :icon="['fas', 'sign-out-alt']" /></button>
+                                </b-dropdown-item>
+                            </b-nav-item-dropdown>
+                        </b-navbar-nav>
+                    </template>
+
+                    <b-button v-b-toggle.sidebar-right>
+                        <font-awesome-icon class="search" :icon="['fas', 'bars']" />
+                    </b-button>
+
+                    <b-sidebar id="sidebar-right" title="Administration" right shadow backdrop>
+                        <div class="img">
+                            <img src="../assets/test.png" alt="">
+                        </div>
+                        <div class="px-3 py-2">
+                            <template v-if="authentificated">
+                                <div class="mt-2">
+                                    <router-link :to="{name:'admin.dashboard'}">
+                                        <button class="btn btn-dark">Accueil</button>
+                                    </router-link>
+                                </div>
+                                <div class="mt-2"><button @click="$bvModal.show('bv-modal-brand')" class="btn border btn-light">Ajouter une marque</button></div>
+                                <div class="mt-2"><button @click="$bvModal.show('bv-modal-news')" class="btn btn-dark">Ajouter une actualité</button></div>
+                                <div class="mt-2"><button @click="$bvModal.show('bv-modal-sneakers')" class="btn btn-light border">Ajouter une chausssure</button></div>
+                            </template>
+                        </div>
+                    </b-sidebar>
+                </div>
+            </template>
+
+            <template v-else>
+                <div class="mobile">
+                    <b-navbar-nav  class="d-flex justify-content-between align-items-center w-100">
+                        <b-nav-item><router-link class="link" :to="{name:'admin.home'}">Home</router-link></b-nav-item>
+                        <b-nav-item><router-link class="link" :to="{name:'admin.login'}">Login</router-link></b-nav-item>
+                    </b-navbar-nav>
+                </div>
+            </template>
         </b-navbar>
+        <modalBrand></modalBrand>
+        <modalNew></modalNew>
+        <modalSneaker></modalSneaker>
     </div>
 </template>
 
 <script>
     import { mapGetters, mapActions } from 'vuex'
+    import modalBrand from '../components/modalBrandAdmin'
+    import modalNew from '../components/modalNewsAdmin'
+    import modalSneaker from '../components/modalSneakersAdmin'
     export default {
         computed:{
             ...mapGetters({
                 authentificated:'auth/authentificated',
                 user: 'auth/user'
             })
+        },
+        components:{
+            modalBrand,
+            modalNew,
+            modalSneaker
         },
         methods:{
             ...mapActions({
@@ -44,39 +110,51 @@
     }
 </script>
 <style scoped lang="scss">
-ul{
-    padding: 0;
-    display: flex;
-    list-style: none;
-    margin: 10px 0;
-    align-items: center;
-    justify-content: center;
-    li{
-        a{
-            text-decoration : none;
-            color:black;
-            padding-bottom: 8px;
-            &:hover{
-                border-bottom: 1px solid darkblue;
-            }
+    .link{
+        color: rgba(255, 255, 255, 0.5);
+        text-decoration:none;
+        &:hover{
+            color: rgba(255, 255, 255, 0.75);
         }
-    }
-    & li:nth-child(2){
-        margin-left: 20px;
     }
     .logOut{
         border-radius: 3px;
-        border: 1px solid #c73f4c;
-        background-color: #dc3546;
-        color: whitesmoke;
+        border: none;
+        background-color: transparent;
         padding: 3px;
         outline:none;
         transition: 0.3s;
-        &:hover{
-            background-color:#f7d7da;
-            color: #7d3f46;
-            border: 1px solid #f7d7da;
+    }
+    .mobile{
+        display: none;
+    }
+    .desktop{
+        display: block;
+    }
+    .img{
+        margin-top:10px;
+        width:100%;
+        text-align:center;
+        img{
+            width:130px;
         }
     }
-}
+    @media all and (max-width: 769px){
+        a{
+            font-size:20px;
+            color: black;
+            text-decoration:none;
+            &:hover{
+                color: gray;
+            }
+        }
+        .mobile{
+            display: flex;
+            justify-content: flex-end;
+            width:100%;
+        }
+        .desktop{
+            display: none;
+        }
+    }
 </style>
