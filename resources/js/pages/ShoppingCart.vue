@@ -31,7 +31,7 @@
                     </div>
                 </transition>
             </div>
-            <div v-else class="alert alert-info mb-0 mt-5">
+            <div v-else class="alert alert-info mb-0 mt-5 zindex">
                 Aucun produit n'est présent dans votre panier
             </div>
             <div class="totalShipping">
@@ -76,9 +76,9 @@
                 modifyQuantity:'cart/modifyQuantity'
             }),
             deleteProduct(id){
-                this.getterCart.basket.forEach(book => {
-                    if (book.id === id) {
-                        this.getterCart.basket.splice(this.getterCart.basket.indexOf(book), 1)
+                this.getterCart.basket.forEach(element => {
+                    if (element.id === id) {
+                        this.getterCart.basket.splice(this.getterCart.basket.indexOf(element), 1)
                         localStorage.setItem('basketful',JSON.stringify(this.getterCart))
                         this.getCart()
                     }
@@ -86,8 +86,7 @@
                         localStorage.removeItem('basketful')
                         setTimeout(() =>{
                             this.getCart()
-                        },600)
-
+                        },800)
                     }
                 })
             },
@@ -112,6 +111,9 @@
     }
     .fade-enter, .fade-leave-to {
         opacity: 0;
+    }
+    .zindex{
+        z-index: -1;
     }
     h4{
         width:90%;

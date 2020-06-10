@@ -220,6 +220,7 @@
                 padding:10px;
                 border-radius:3px;
                 color:whitesmoke;
+                outline: none;
             }
             ul{
                 margin-top:5px;
