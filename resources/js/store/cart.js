@@ -1,0 +1,67 @@
+import moment from "moment";
+moment.locale('fr');
+export default ({
+    namespaced:true,
+    state:{
+        displayArray:'',
+        arrayLength:null,
+        totalPrice:0
+    },
+    getters: {
+        getterCart(state){
+            return state.displayArray
+        },
+        getterCartLength(state){
+            return state.arrayLength
+        },
+        getterTotalPrice(state){
+            return state.totalPrice
+        }
+    },
+    mutations:{
+        displayCart(state,data){
+            return state.displayArray = data
+        },
+        lengthArray(state,data){
+            if (data !==null)
+            return state.arrayLength = data.basket.length
+        },
+        changeQuantity(state,data){
+            let cart = JSON.parse(localStorage.getItem("basketful"))
+            cart.basket.forEach(element =>{
+                if (element.id === data.id){
+                    element.quantity += data.newQuantity
+                }
+            })
+            localStorage.setItem("basketful",JSON.stringify(cart))
+        },
+        calculPrice(state,data){
+            state.totalPrice = 0
+            data.basket.forEach(element =>{
+                return state.totalPrice += (element.product.price * element.quantity)
+            })
+        }
+    },
+    actions: {
+        getCart({commit}){
+            if (localStorage.getItem("basketful")) {
+                if (localStorage.getItem("basketful").basket !== 0){
+                    commit('displayCart',JSON.parse(localStorage.getItem("basketful")))
+                    commit('lengthArray',JSON.parse(localStorage.getItem("basketful")))
+                    commit('calculPrice',JSON.parse(localStorage.getItem("basketful")))
+                }
+            }
+            else{
+                commit('displayCart',"")
+                commit('lengthArray',null)
+            }
+        },
+        modifyQuantity({commit},object) {
+            if (localStorage.getItem("basketful")) {
+                if (localStorage.getItem("basketful").basket !== 0){
+                    commit('changeQuantity',object)
+                }
+            }
+        }
+    }
+})

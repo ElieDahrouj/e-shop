@@ -65,8 +65,7 @@ class BrandController extends Controller
             'brand' =>[]
         ];
         try{
-            $data->brand = Brand::findOrFail($id);
-            $data->brand->products;
+            $data->brand = Brand::with('products')->findOrFail($id);
             return response()->json($data);
         }
         catch (\Exception $e){
@@ -76,6 +75,22 @@ class BrandController extends Controller
         }
     }
 
+    public function showOne(Brand $brand, $id)
+    {
+        $data = (object)[
+            'error' => null,
+            'brand' =>[]
+        ];
+        try{
+            $data->brand = Brand::findOrFail($id);
+            return response()->json($data);
+        }
+        catch (\Exception $e){
+            $data->error = $e;
+            $data->brand= [];
+            return response()->json($data,"404");
+        }
+    }
     /**
      * Show the form for editing the specified resource.
      *

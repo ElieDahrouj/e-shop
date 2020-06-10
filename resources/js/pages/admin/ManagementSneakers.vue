@@ -9,6 +9,7 @@
                     <p class="card-text">{{products.price}} €</p>
                     <p class="card-text">{{products.brand}}</p>
                     <p class="card-text">{{products.color}}</p>
+                    <p class="card-text"><b>Etat de publication: </b>{{products.actif===1 ? 'Oui':'Non'}}</p>
                     <p class="card-text"><b>Date de sortie:</b> {{products.release_date}}</p>
                     <p class="card-text">{{products.description}}</p>
                     <div class="d-flex justify-content-between mt-2">

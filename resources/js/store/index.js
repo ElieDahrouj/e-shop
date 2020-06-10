@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import auth from './auth'
 import admin from './admin.js'
+import cart from './cart.js'
 import axios from 'axios'
 import moment from 'moment';
 Vue.use(Vuex)
@@ -102,7 +103,7 @@ export default new Vuex.Store({
                 })
         },
         allProductsByBrand({commit},id){
-            axios.get("/api/brand/"+id)
+            axios.get("/api/brands/"+id+"/products")
                 .then(response =>{
                     commit('allBrands',response.data.brand)
                 })
@@ -135,6 +136,7 @@ export default new Vuex.Store({
     },
     modules:{
         auth,
-        admin
+        admin,
+        cart
     }
 })

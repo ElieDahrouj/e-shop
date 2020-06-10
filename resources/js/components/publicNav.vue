@@ -16,7 +16,9 @@
                         <router-link :to="{name:'contact'}">Contact</router-link>
                     </li>
                     <li>
-                        <router-link :to="{name:'shoppingCart'}">Panier</router-link>
+                        <router-link :to="{name:'shoppingCart'}">
+                            <font-awesome-icon :icon="['fas', 'shopping-cart']" /> {{getterCartLength !==0 ? getterCartLength : ''}}
+                        </router-link>
                     </li>
                     <li class="research">
                         <font-awesome-icon class="search" :icon="['fas', 'search']" />
@@ -25,8 +27,11 @@
                 </ul>
             </div>
         </nav>
-        <nav @click="modalMobile" class="mobile">
+        <nav class="mobile">
             <div>
+                <router-link class="text-dark custom" :to="{name:'shoppingCart'}"><font-awesome-icon :icon="['fas', 'shopping-cart']"/> {{getterCartLength !==0 ? getterCartLength : ''}}</router-link>
+            </div>
+            <div @click="modalMobile">
                 <font-awesome-icon :icon="['fas', 'bars']" />
             </div>
         </nav>
@@ -48,9 +53,6 @@
                     <li>
                         <router-link :to="{name:'contact'}">Contact</router-link>
                     </li>
-                    <li>
-                        <router-link :to="{name:'shoppingCart'}">Panier</router-link>
-                    </li>
                     <li class="research">
                         <font-awesome-icon class="search" :icon="['fas', 'search']" />
                         <input v-model="filterProducts" @keyup.enter="researchProducts" type="search" name="search" />
@@ -61,7 +63,7 @@
     </div>
 </template>
 <script>
-import {mapActions} from 'vuex'
+import {mapActions , mapGetters} from 'vuex'
     export default {
         name:'publicNav',
         data(){
@@ -70,8 +72,16 @@ import {mapActions} from 'vuex'
                 filterProducts : null
             }
         },
+        computed:{
+            ...mapGetters({
+                getterCartLength:'cart/getterCartLength'
+            })
+        },
         methods:{
             ...mapActions(['searchProducts']),
+            ...mapActions({
+                getCart:'cart/getCart'
+            }),
             modalMobile(){
                 this.status = true
             },
@@ -89,10 +99,16 @@ import {mapActions} from 'vuex'
             strUcFirst(a){
                 return (a+'').charAt(0).toUpperCase()+a.substr(1);
             }
+        },
+        mounted(){
+          this.getCart()
         }
     }
 </script>
 <style scoped lang="scss">
+    .custom{
+        text-decoration: none;
+    }
     .mobile{
         display: none;
         div{

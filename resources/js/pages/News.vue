@@ -113,6 +113,7 @@
                     border: 1px solid whitesmoke;
                     font-weight: bold;
                     color: white;
+                    outline: none;
                     &:hover{
                         background-color: whitesmoke;
                         color:rgb(0,138,164) ;

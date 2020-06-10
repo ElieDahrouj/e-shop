@@ -44,5 +44,6 @@ Route::group(['prefix' => 'auth','namespace'=>'Auth'], function () {
     Route::post('updateProduct/{id}', 'AdminProductsController@update');
 });
 Route::get('/news/{id}', 'NewsController@show');
-Route::get('/brand/{id}', 'BrandController@show');
+Route::get('/brands/{id}', 'BrandController@showOne');
+Route::get('/brands/{id}/products', 'BrandController@show');
 Route::get('/product/{id}', 'ProductController@show');
