@@ -4,32 +4,30 @@
         <h4><b>Panier</b></h4>
         <section class="shoppingCart">
             <div v-if="this.getterCart" class="cart">
-                <transition name="fade">
-                    <div v-for="(cartProduct,index) in getterCart.basket" :key="index" class="product">
-                        <div class="picture">
-                            <img :src="cartProduct.product.image" alt="">
+                <div v-for="(cartProduct,index) in getterCart.basket" :key="index" class="product">
+                    <div class="picture">
+                        <img :src="cartProduct.product.image" alt="">
+                    </div>
+                    <div class="infoProduct">
+                        <div class="firstName">
+                            <p> <router-link :to="{ name: 'sneaker', params: { id: cartProduct.product.id }}">{{cartProduct.product.name}} </router-link></p>
+                            <p><b>Prix : </b>{{cartProduct.product.price}} €</p>
                         </div>
-                        <div class="infoProduct">
-                            <div class="firstName">
-                                <p> <router-link :to="{ name: 'sneaker', params: { id: cartProduct.product.id }}">{{cartProduct.product.name}} </router-link></p>
-                                <p><b>Prix : </b>{{cartProduct.product.price}} €</p>
+                        <p><b>Coloris : </b> {{cartProduct.product.color}}</p>
+                        <p><b>Taille : </b> {{cartProduct.size}} EU</p>
+                        <p><b>Quantité actuelle : </b> {{cartProduct.quantity}}</p>
+                        <div class="secondName w-100 d-flex justify-content-between align-items-end">
+                            <div class="d-flex flex-column align-items-start">
+                                <label for="quandtity">Quantité désirée</label>
+                                <select @change="changeQuantity(cartProduct.id)" v-model="newQuantity" id="quandtity">
+                                    <option value="null" disabled>Choisissez</option>
+                                    <option v-for="i in 10" :value="i" :key="i">{{i}}</option>
+                                </select>
                             </div>
-                            <p><b>Coloris : </b> {{cartProduct.product.color}}</p>
-                            <p><b>Taille : </b> {{cartProduct.size}} EU</p>
-                            <p><b>Quantité actuelle : </b> {{cartProduct.quantity}}</p>
-                            <div class="secondName w-100 d-flex justify-content-between align-items-end">
-                                <div class="d-flex flex-column align-items-start">
-                                    <label for="quandtity">Quantité désirée</label>
-                                    <select @change="changeQuantity(cartProduct.id)" v-model="newQuantity" id="quandtity">
-                                        <option value="null" disabled>Choisissez</option>
-                                        <option v-for="i in 10" :value="i" :key="i">{{i}}</option>
-                                    </select>
-                                </div>
-                                <button @click="deleteProduct(cartProduct.id)">Supprimer</button>
-                            </div>
+                            <button @click="deleteProduct(cartProduct.id)">Supprimer</button>
                         </div>
                     </div>
-                </transition>
+                </div>
             </div>
             <div v-else class="alert alert-info mb-0 mt-5 zindex">
                 Aucun produit n'est présent dans votre panier
@@ -45,7 +43,9 @@
                         <p><b>Total</b></p>
                         <p>{{getterTotalPrice}} €</p>
                     </div>
-                    <button v-if="this.getterCart.length !== 0">Passer la commande</button>
+                    <router-link v-if="this.getterCart.length !== 0" :to="{name:'payment', params: { id:  this.idPayment}}">
+                        <button @click="generateId">Passer la commande</button>
+                    </router-link>
                 </div>
             </div>
         </section>
@@ -61,7 +61,8 @@
         },
         data(){
             return{
-                newQuantity:null
+                newQuantity:null,
+                idPayment:null
             }
         },
         computed:{
@@ -86,7 +87,7 @@
                         localStorage.removeItem('basketful')
                         setTimeout(() =>{
                             this.getCart()
-                        },800)
+                        },300)
                     }
                 })
             },
@@ -98,6 +99,9 @@
                 this.modifyQuantity(obj)
                 this.getCart()
                 this.newQuantity = null
+            },
+            generateId(){
+                this.idPayment = Math.random().toString(36).substr(2, 9)
             }
         },
         beforeMount(){
@@ -218,13 +222,18 @@
                     }
                 }
                 button {
-                    border-radius: 5px;
-                    background-color: #f3c962;
-                    padding: 7px;
+                    border-radius: 6px;
+                    padding: 12px 10px;
+                    background-size: 200%;
+                    background-image: linear-gradient(to left,#011e7a,#0652DD,#011e7a);
                     width:100%;
+                    border :none;
                     outline:none;
-                    border: 1px solid #9a8757;
-                    color: #382806;
+                    color: #fff;
+                    transition: 0.6s;
+                    &:hover{
+                        background-position: right;
+                    }
                 }
             }
         }
@@ -232,6 +241,10 @@
     @media all and (max-width: 769px) {
         h4{
             width: 95%;
+        }
+        .zindex{
+            text-align: center;
+            width: 100%;
         }
         .shoppingCart{
             flex-direction: column-reverse;
@@ -253,6 +266,15 @@
                     button{
                         width: unset;
                     }
+                }
+            }
+        }
+    }
+    @media all and (max-width: 426px){
+        .totalShipping{
+            .recap{
+                button{
+                    width: 100% !important;
                 }
             }
         }

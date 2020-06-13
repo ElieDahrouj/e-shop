@@ -128,7 +128,7 @@ const router = new VueRouter({
             component: News,
         },
         {
-            path: '/payment',
+            path: '/payment/:id',
             name: 'payment',
             component: Payment,
         },

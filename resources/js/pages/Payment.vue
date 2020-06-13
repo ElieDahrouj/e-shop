@@ -1,7 +1,7 @@
 <template>
     <div>
         <publicNav></publicNav>
-        <section class="payement">
+        <section v-if="this.getterCart.length !== 0" class="payement">
             <div class="fullField">
                 <div class="shipping">
                     <h3>1. Shipping</h3>
@@ -9,17 +9,17 @@
                 </div>
                 <form class="firstInformations">
                     <div class="firstField">
-                        <input class="field" type="text" placeholder="Nom">
-                        <input class="field" type="text" placeholder="Prénom">
+                        <input v-model.trim="$v.orderForm.infoCustomer.firstname.$model" class="field" type="text" placeholder="Nom">
+                        <input v-model.trim="$v.orderForm.infoCustomer.lastName.$model" class="field" type="text" placeholder="Prénom">
                     </div>
-                    <input class="address" type="text" placeholder="Adresse">
+                    <input v-model.trim="$v.orderForm.infoCustomer.address.$model" class="address" type="text" placeholder="Adresse">
                     <div class="secondField">
-                        <input class="field" type="text" placeholder="Code Postal">
-                        <input class="field" type="text" placeholder="Ville">
+                        <input v-model.trim="$v.orderForm.infoCustomer.postcode.$model" class="field" type="text" placeholder="Code Postal">
+                        <input v-model.trim="$v.orderForm.infoCustomer.city.$model" class="field" type="text" placeholder="Ville">
                     </div>
                     <div class="thirdField">
-                        <input class="field" type="email" placeholder="E-mail">
-                        <input class="field" type="tel" placeholder="Numéro de téléphone">
+                        <input v-model.trim="$v.orderForm.infoCustomer.mail.$model" class="field" type="email" placeholder="E-mail">
+                        <input v-model.trim="$v.orderForm.infoCustomer.phoneNumber.$model" class="field" type="tel" placeholder="Numéro de téléphone">
                     </div>
                     <div class="validInformations">
                         <button >Continuer</button>
@@ -35,15 +35,25 @@
                     <div class="informationsCB">
                         <div class="numberCart">
                             <label for="cart">Numéro de carte</label>
-                            <input id="cart" type="tel" maxlength="11" placeholder="Numéro de la carte">
+                            <input v-model.trim="$v.orderForm.infoCBcart.cartNumber.$model" id="cart" type="tel" maxlength="11" placeholder="Numéro de la carte">
                         </div>
                         <div class="expireDate">
-                            <label for="expireDate">Date d'expiration</label>
-                            <input id="expireDate" type="tel" maxlength="4" placeholder="MM/YY">
+                            <label for="month">Mois</label>
+                            <select v-model.trim="$v.orderForm.infoCBcart.month.$model" id="month">
+                                <option value="null" disabled>Mois</option>
+                                <option v-for="i in 12" :value="i" :key="i">{{i}}</option>
+                            </select>
+                        </div>
+                        <div class="expireDate">
+                            <label for="year">Année</label>
+                            <select v-model.trim="$v.orderForm.infoCBcart.year.$model" id="year">
+                                <option value="null" disabled>Année</option>
+                                <option v-for="i in 2040" v-if="i >= 2020" :value="i" :key="i">{{i}}</option>
+                            </select>
                         </div>
                         <div class="secureCode">
                             <label for="secureCode">Code de sécurité</label>
-                            <input type="tel" id="secureCode" maxlength="3" placeholder="XXX">
+                            <input v-model.trim="$v.orderForm.infoCBcart.cartCVC.$model" type="tel" id="secureCode" maxlength="3" placeholder="XXX">
                         </div>
                     </div>
                     <div class="validCommand">
@@ -56,11 +66,85 @@
 </template>
 <script>
     import publicNav from '../components/publicNav'
+    import {mapActions, mapGetters} from "vuex"
+    import { required, email, minLength  } from 'vuelidate/lib/validators'
     export default {
         name:'payment',
         components:{
             publicNav
-        }
+        },
+        data(){
+          return{
+              orderForm:{
+                  infoCustomer:{
+                      firstname:null,
+                      lastName:null,
+                      address:null,
+                      postcode:null,
+                      city:null,
+                      mail:null,
+                      phoneNumber:null
+                  },
+                  infoCBcart:{
+                      cartNumber:null,
+                      month:null,
+                      year:null,
+                      cartCVC:null
+                  }
+              }
+          }
+        },
+        validations: {
+            orderForm: {
+                infoCustomer:{
+                    firstname:{
+                        required
+                    },
+                    lastName:{
+                        required
+                    },
+                    address:{
+                        required
+                    },
+                    postcode:{
+                        required,
+                        minLength:minLength(5)
+                    },
+                    city:{
+                        required
+                    },
+                    mail:{
+                        required,
+                        email
+                    },
+                    phoneNumber:{
+                        required,
+                        minLength:minLength(10)
+                    }
+                },
+                infoCBcart:{
+                    cartNumber:{
+                        required,
+                        minLength:minLength(16)
+                    },
+                    month:{
+                        required,
+                    },
+                    year:{
+                        required,
+                    },
+                    cartCVC:{
+                        required,
+                        minLength:minLength(3)
+                    }
+                }
+            }
+        },
+        computed:{
+            ...mapGetters({
+                getterCart:'cart/getterCart',
+            })
+        },
     }
 </script>
 <style scoped lang="scss">
@@ -116,7 +200,7 @@
                     display: flex;
                     justify-content: space-between;
                 }
-                input {
+                input{
                     @include colorInput;
                     &.field {
                         width: 48%;
@@ -153,9 +237,9 @@
                         label {
                             width: 90%;
                         }
-                        input {
+                        input,select {
                             @include colorInput;
-                            width: 90%;
+                            width: 100%;
                         }
                     }
                 }
@@ -164,6 +248,28 @@
                     padding:10px;
                     button{
                         @include finalBtn;
+                    }
+                }
+            }
+        }
+    }
+    @media all and (max-width: 816px){
+        .payement{
+            .fullField{
+                .informationAboutPayement {
+                    .informationsCB {
+                        align-items: flex-start;
+                        flex-direction: column;
+                        .numberCart, .expireDate, .secureCode {
+                            align-items: flex-start;
+                            width: 100%;
+                            input, select {
+                                width: 100%;
+                            }
+                            label {
+                                width: 100%;
+                            }
+                        }
                     }
                 }
             }
@@ -186,20 +292,6 @@
                     }
                 }
                 .informationAboutPayement {
-                    .informationsCB {
-                        align-items: flex-start;
-                        flex-direction: column;
-                        .numberCart, .expireDate, .secureCode {
-                            align-items: flex-start;
-                            width: 100%;
-                            input {
-                                width: 100%;
-                            }
-                            label {
-                                width: 100%;
-                            }
-                        }
-                    }
                     .validCommand{
                         padding: 0;
                         button{

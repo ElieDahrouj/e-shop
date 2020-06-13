@@ -142,14 +142,14 @@ import {mapActions , mapGetters} from 'vuex'
                 li{
                     margin: 0 10px;
                     position: relative;
-                    padding-bottom: 5px;
+                    padding: 5px 0;
                     a{
                         color: #07060b;
                         text-decoration: none;
                     }
                     .search{
                         position: absolute;
-                        top: 5px;
+                        top: 10px;
                         left: 5px;
                     }
                     input{
@@ -157,11 +157,30 @@ import {mapActions , mapGetters} from 'vuex'
                         padding-left: 25px;
                         border-radius: 3px;
                     }
-                    &:hover{
-                        &:not(:last-child){
-                            border-bottom: 1px solid red;
-                        }
-                    }
+                }
+                li a::before,
+                li a::after{
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 2px;
+                    background-color: crimson;
+                    left: 0;
+                    transform: scaleX(0);
+                    transition: all .5s;
+                }
+                li a::before{
+                    top: 0;
+                    transform-origin: left;
+                }
+
+                li a::after{
+                    bottom: 0;
+                    transform-origin: right;
+                }
+                li a:hover::before,
+                li a:hover::after{
+                    transform: scaleX(1);
                 }
             }
         }
