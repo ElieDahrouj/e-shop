@@ -270,7 +270,42 @@
                     text-align:right;
                     padding:10px;
                     button{
-                        @include finalBtn;
+                        position: relative;
+                        padding: 8px 20px;
+                        font-size: 16px;
+                        border-radius: 6px;
+                        color: currentColor;
+                        background: transparent;
+                        border: 2px solid #218838;
+                        outline: none;
+                        cursor: pointer;
+                        overflow: hidden;
+                        transition: 0.6s;
+
+                        &::before {
+                            position: absolute;
+                            content: "";
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background: linear-gradient(
+                                            120deg,
+                                            transparent,
+                                            #218838,
+                                            transparent
+                            );
+                            transform: translateX(-100%);
+                            transition: 0.6s;
+                        }
+
+                        &:hover {
+                            box-shadow: 0 0 4px 0 #218838;
+                        }
+
+                        &:hover::before {
+                            transform: translateX(100%);
+                        }
                     }
                 }
             }
