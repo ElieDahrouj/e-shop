@@ -152,8 +152,10 @@
         },
         methods:{
             confirmInfoCustomer(){
+                const zipcode = /\d{5}/g;
+                const phone = /\d{10}/g;
                 this.$v.infoCustomer.$touch()
-                if (this.$v.infoCustomer.$invalid) {
+                if (this.$v.infoCustomer.$invalid || this.infoCustomer.postcode.match(zipcode) === null || this.infoCustomer.phoneNumber.match(phone) === null) {
                     this.msg = "Erreur les informations sont mal renseignés"
                 }
                 else{

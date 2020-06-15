@@ -142,7 +142,6 @@ import {mapActions , mapGetters} from 'vuex'
                 li{
                     margin: 0 10px;
                     position: relative;
-                    padding: 5px 0;
                     a{
                         color: #07060b;
                         text-decoration: none;
