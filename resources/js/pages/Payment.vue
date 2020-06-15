@@ -40,7 +40,7 @@
                         <div class="informationsCB">
                             <div class="numberCart">
                                 <label for="cart">Numéro de carte</label>
-                                <input v-model.trim="$v.infoCBcart.cartNumber.$model" id="cart" type="tel" maxlength="11" placeholder="Numéro de la carte">
+                                <input v-model.trim="$v.infoCBcart.cartNumber.$model" id="cart" type="tel" maxlength="16" placeholder="Numéro de la carte">
                             </div>
                             <div class="expireDate">
                                 <label for="month">Mois</label>
@@ -61,8 +61,11 @@
                                 <input v-model.trim="$v.infoCBcart.cartCVC.$model" type="tel" id="secureCode" maxlength="3" placeholder="XXX">
                             </div>
                         </div>
+
+                        <p class="text-danger mb-3" v-if="this.msgCart"><b>{{msgCart}}</b></p>
+
                         <div class="validCommand">
-                            <button>Valider la commande</button>
+                            <button @click.prevent="confirmInfoCbcart">Valider la commande</button>
                         </div>
                     </form>
                 </transition>
@@ -97,6 +100,7 @@
                   cartCVC:null
               },
               msg:null,
+              msgCart:null,
               statusInfoCustomer:false,
               statusInfoCbCart:false
           }
@@ -167,6 +171,21 @@
             displayInfoCustomer(){
                 this.statusInfoCustomer = false
                 this.statusInfoCbCart = false
+            },
+            confirmInfoCbcart(){
+                const cvc = /\d{3}/g;
+                const years = /\d{4}/g;
+                const months = /\d{1,2}/g;
+                const numberCart = /\d{16}/g;
+                let inputMonth = document.querySelector("#month").value
+                let inputYear = document.querySelector("#year").value
+                this.$v.infoCBcart.$touch()
+                if (this.$v.infoCBcart.$invalid || inputYear.match(years) === null || inputMonth.match(months) === null || this.infoCBcart.cartNumber.match(numberCart) === null || this.infoCBcart.cartCVC.match(cvc) === null) {
+                    this.msgCart = "Erreur les informations bancaires sont mal renseignés"
+                }
+                else{
+                    this.msgCart = null
+                }
             }
         }
     }
