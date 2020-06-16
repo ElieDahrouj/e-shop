@@ -1,11 +1,12 @@
 import moment from "moment";
+import axios from "axios"
 moment.locale('fr');
 export default ({
     namespaced:true,
     state:{
         displayArray:'',
         arrayLength:null,
-        totalPrice:0
+        totalPrice:0,
     },
     getters: {
         getterCart(state){
@@ -40,7 +41,7 @@ export default ({
             data.basket.forEach(element =>{
                 return state.totalPrice += (element.product.price * element.quantity)
             })
-        }
+        },
     },
     actions: {
         getCart({commit}){
@@ -62,6 +63,14 @@ export default ({
                     commit('changeQuantity',object)
                 }
             }
-        }
+        },
+        confirmOrder({commit},info){
+            axios.post("/api/order",{first_name:info.infoCustomer.firstname,last_name:info.infoCustomer.lastName,address:info.infoCustomer.address,
+                zipcode:info.infoCustomer.postcode,city:info.infoCustomer.city,email:info.infoCustomer.mail,phone_number:info.infoCustomer.phoneNumber,basketful:JSON.parse(localStorage.getItem("basketful")),
+                cvc:info.infoCBcart.cartCVC,month:info.infoCBcart.month,year:info.infoCBcart.year,cartNumber:info.infoCBcart.cartNumber})
+                .then(() =>{
+                    console.log("confirm")
+                })
+        },
     }
 })

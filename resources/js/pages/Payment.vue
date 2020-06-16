@@ -10,17 +10,17 @@
                 <transition name="fadeHeight">
                     <form v-if="!statusInfoCustomer" class="firstInformations">
                         <div class="firstField">
-                            <input v-model.trim="$v.infoCustomer.firstname.$model" class="field" type="text" placeholder="Nom">
-                            <input v-model.trim="$v.infoCustomer.lastName.$model" class="field" type="text" placeholder="Prénom">
+                            <input v-model.trim="$v.orderForm.infoCustomer.firstname.$model" class="field" type="text" placeholder="Nom">
+                            <input v-model.trim="$v.orderForm.infoCustomer.lastName.$model" class="field" type="text" placeholder="Prénom">
                         </div>
-                        <input v-model.trim="$v.infoCustomer.address.$model" class="address" type="text" placeholder="Adresse">
+                        <input v-model.trim="$v.orderForm.infoCustomer.address.$model" class="address" type="text" placeholder="Adresse">
                         <div class="secondField">
-                            <input v-model.trim="$v.infoCustomer.postcode.$model" class="field" type="tel" maxlength="5" placeholder="Code Postal">
-                            <input v-model.trim="$v.infoCustomer.city.$model" class="field" type="text" placeholder="Ville">
+                            <input v-model.trim="$v.orderForm.infoCustomer.postcode.$model" class="field" type="tel" maxlength="5" placeholder="Code Postal">
+                            <input v-model.trim="$v.orderForm.infoCustomer.city.$model" class="field" type="text" placeholder="Ville">
                         </div>
                         <div class="thirdField">
-                            <input v-model.trim="$v.infoCustomer.mail.$model" class="field" type="email" placeholder="E-mail">
-                            <input v-model.trim="$v.infoCustomer.phoneNumber.$model" class="field" type="tel" maxlength="10"  placeholder="Numéro de téléphone">
+                            <input v-model.trim="$v.orderForm.infoCustomer.mail.$model" class="field" type="email" placeholder="E-mail">
+                            <input v-model.trim="$v.orderForm.infoCustomer.phoneNumber.$model" class="field" type="tel" maxlength="10"  placeholder="Numéro de téléphone">
                         </div>
 
                         <p class="text-danger mb-3" v-if="this.msg"><b>{{msg}}</b></p>
@@ -40,25 +40,25 @@
                         <div class="informationsCB">
                             <div class="numberCart">
                                 <label for="cart">Numéro de carte</label>
-                                <input v-model.trim="$v.infoCBcart.cartNumber.$model" id="cart" type="tel" maxlength="16" placeholder="Numéro de la carte">
+                                <input v-model.trim="$v.orderForm.infoCBcart.cartNumber.$model" id="cart" type="tel" maxlength="16" placeholder="Numéro de la carte">
                             </div>
                             <div class="expireDate">
                                 <label for="month">Mois</label>
-                                <select v-model.trim="$v.infoCBcart.month.$model" id="month">
+                                <select v-model.trim="$v.orderForm.infoCBcart.month.$model" id="month">
                                     <option value="null" disabled>Mois</option>
                                     <option v-for="i in 12" :value="i" :key="i">{{i}}</option>
                                 </select>
                             </div>
                             <div class="expireDate">
                                 <label for="year">Année</label>
-                                <select v-model.trim="$v.infoCBcart.year.$model" id="year">
+                                <select v-model.trim="$v.orderForm.infoCBcart.year.$model" id="year">
                                     <option value="null" disabled>Année</option>
                                     <option v-for="i in 2040" v-if="i >= 2020" :value="i" :key="i">{{i}}</option>
                                 </select>
                             </div>
                             <div class="secureCode">
                                 <label for="secureCode">Code de sécurité</label>
-                                <input v-model.trim="$v.infoCBcart.cartCVC.$model" type="tel" id="secureCode" maxlength="3" placeholder="XXX">
+                                <input v-model.trim="$v.orderForm.infoCBcart.cartCVC.$model" type="tel" id="secureCode" maxlength="3" placeholder="XXX">
                             </div>
                         </div>
 
@@ -84,20 +84,22 @@
         },
         data(){
           return{
-              infoCustomer:{
-                  firstname:null,
-                  lastName:null,
-                  address:null,
-                  postcode:null,
-                  city:null,
-                  mail:null,
-                  phoneNumber:null
-              },
-              infoCBcart:{
-                  cartNumber:null,
-                  month:null,
-                  year:null,
-                  cartCVC:null
+              orderForm:{
+                  infoCustomer:{
+                      firstname:null,
+                      lastName:null,
+                      address:null,
+                      postcode:null,
+                      city:null,
+                      mail:null,
+                      phoneNumber:null
+                  },
+                  infoCBcart:{
+                      cartNumber:null,
+                      month:null,
+                      year:null,
+                      cartCVC:null
+                  },
               },
               msg:null,
               msgCart:null,
@@ -106,46 +108,48 @@
           }
         },
         validations: {
-            infoCustomer:{
-                firstname:{
-                    required
+            orderForm:{
+                infoCustomer:{
+                    firstname:{
+                        required
+                    },
+                    lastName:{
+                        required
+                    },
+                    address:{
+                        required
+                    },
+                    postcode:{
+                        required,
+                        minLength:minLength(5)
+                    },
+                    city:{
+                        required
+                    },
+                    mail:{
+                        required,
+                        email
+                    },
+                    phoneNumber:{
+                        required,
+                        minLength:minLength(10)
+                    }
                 },
-                lastName:{
-                    required
-                },
-                address:{
-                    required
-                },
-                postcode:{
-                    required,
-                    minLength:minLength(5)
-                },
-                city:{
-                    required
-                },
-                mail:{
-                    required,
-                    email
-                },
-                phoneNumber:{
-                    required,
-                    minLength:minLength(10)
-                }
-            },
-            infoCBcart:{
-                cartNumber:{
-                    required,
-                    minLength:minLength(16)
-                },
-                month:{
-                    required,
-                },
-                year:{
-                    required,
-                },
-                cartCVC:{
-                    required,
-                    minLength:minLength(3)
+                infoCBcart:{
+                    cartNumber:{
+                        required,
+                        minLength:minLength(16)
+                    },
+                    month:{
+                        required,
+                    },
+                    year:{
+                        required,
+                    },
+                    cartCVC:{
+                        required,
+                        minLength:minLength(3)
+                    }
                 }
             }
         },
@@ -158,8 +162,8 @@
             confirmInfoCustomer(){
                 const zipcode = /\d{5}/g;
                 const phone = /\d{10}/g;
-                this.$v.infoCustomer.$touch()
-                if (this.$v.infoCustomer.$invalid || this.infoCustomer.postcode.match(zipcode) === null || this.infoCustomer.phoneNumber.match(phone) === null) {
+                this.$v.orderForm.infoCustomer.$touch()
+                if (this.$v.orderForm.infoCustomer.$invalid || this.orderForm.infoCustomer.postcode.match(zipcode) === null || this.orderForm.infoCustomer.phoneNumber.match(phone) === null) {
                     this.msg = "Erreur les informations sont mal renseignés"
                 }
                 else{
@@ -179,14 +183,20 @@
                 const numberCart = /\d{16}/g;
                 let inputMonth = document.querySelector("#month").value
                 let inputYear = document.querySelector("#year").value
-                this.$v.infoCBcart.$touch()
-                if (this.$v.infoCBcart.$invalid || inputYear.match(years) === null || inputMonth.match(months) === null || this.infoCBcart.cartNumber.match(numberCart) === null || this.infoCBcart.cartCVC.match(cvc) === null) {
+                this.$v.orderForm.infoCBcart.$touch()
+                if (this.$v.orderForm.infoCBcart.$invalid || inputYear.match(years) === null || inputMonth.match(months) === null || this.orderForm.infoCBcart.cartNumber.match(numberCart) === null || this.orderForm.infoCBcart.cartCVC.match(cvc) === null) {
                     this.msgCart = "Erreur les informations bancaires sont mal renseignés"
                 }
                 else{
                     this.msgCart = null
+                    this.confirmOrder(this.orderForm)
+                    localStorage.setItem('infoCustomer',JSON.stringify(this.orderForm.infoCustomer))
+                    this.$router.replace({name:'order', params:{id:JSON.parse(localStorage.getItem('basketful')).token}})
                 }
-            }
+            },
+            ...mapActions({
+                confirmOrder:"cart/confirmOrder"
+            })
         }
     }
 </script>

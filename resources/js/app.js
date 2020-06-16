@@ -9,7 +9,7 @@ Vue.component('app', Index)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faBars, faSearch, faTimes, faShoppingCart, faChevronRight, faChevronLeft, faAngleDoubleRight, faAngleDoubleLeft, faTrash, faPen, faSignOutAlt, faTimesCircle, faCheckCircle} from "@fortawesome/free-solid-svg-icons";
+import { faBars, faSearch, faTimes, faShoppingCart, faChevronRight, faChevronLeft, faAngleDoubleRight, faAngleDoubleLeft, faTrash, faPen, faSignOutAlt, faTimesCircle, faCheckCircle,faShippingFast, faMobileAlt, faMapMarkerAlt, faStoreAlt,faReceipt} from "@fortawesome/free-solid-svg-icons";
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import store from './store'
@@ -29,8 +29,9 @@ import New from './pages/New'
 import News from './pages/News'
 import Payment from './pages/Payment'
 import Search from './pages/Search'
+import Order from './pages/Order'
 require('./store/subscriber')
-library.add(faBars,faSearch, faTimes, faShoppingCart, faChevronRight,faChevronLeft,faAngleDoubleRight, faAngleDoubleLeft, faTrash,faPen, faSignOutAlt,faTimesCircle,faCheckCircle)
+library.add(faBars,faSearch, faTimes, faShoppingCart, faChevronRight,faChevronLeft,faAngleDoubleRight, faAngleDoubleLeft, faTrash,faPen, faSignOutAlt,faTimesCircle,faCheckCircle,faShippingFast,faMobileAlt,faMapMarkerAlt, faStoreAlt,faReceipt)
 import Vuelidate from 'vuelidate'
 Vue.use(Vuelidate)
 Vue.use(VueRouter)
@@ -131,6 +132,11 @@ const router = new VueRouter({
             path: '/payment/:id',
             name: 'payment',
             component: Payment,
+        },
+        {
+            path: '/order/:id',
+            name: 'order',
+            component: Order,
         },
     ],
 

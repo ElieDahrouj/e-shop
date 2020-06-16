@@ -19,6 +19,7 @@ Route::get('/catalogue', 'ProductController@index');
 Route::get('/brands', 'BrandController@index');
 Route::get('/products', 'ProductController@searchProduct');
 Route::post('/contact', 'ContactController@index');
+Route::post('/order', 'OrderController@index');
 Route::group(['prefix' => 'auth','namespace'=>'Auth'], function () {
     Route::post('signin', 'SignInController');
     Route::post('signout', 'SignOutController');

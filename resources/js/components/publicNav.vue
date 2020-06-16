@@ -148,7 +148,7 @@ import {mapActions , mapGetters} from 'vuex'
                     }
                     .search{
                         position: absolute;
-                        top: 10px;
+                        top: 5px;
                         left: 5px;
                     }
                     input{
