@@ -77,3 +77,18 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Installation
+1. Clone the repository
+2. Installer back dependencies with **`composer install`**
+3. Install front dependencies with **`npm i`**
+4. Copy file .env.example in .env and add following informations in this differents environment variable:
+**Database credentials** (DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, DB_PASSWORD, DB_CONNECTION by default it's mysql (but you can change) and
+Application url (APP_URL).
+**Configuration Mailtrap** (MAIL_USERNAME, MAIL_PASSWORD, MAIL_FROM_ADDRESS and MAIL_ENCRYPTION).
+**Configuration Cloudinary** (CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET, CLOUDINARY_URL, CLOUDINARY_CLOUD_NAME).
+5. Generate application key with **`php artisan key:generate`**
+6. Generate JWT key with **`php artisan jwt:secret`**
+7. Launch migrations with **`php artisan migrate --seed`**.
+8. Build front with **`npm run dev`**
+9. If you did'nt set a virtual host, launch application with the **`php artisan serve`** command. By default, application will be served at **`http://127.0.0.1:8000`**

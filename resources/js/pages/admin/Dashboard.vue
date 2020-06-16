@@ -2,7 +2,7 @@
     <div>
         <navigation></navigation>
         <div class="container">
-            <div class="card card-default pb-3">
+            <div class="card card-default pb-3 mb-3">
                 <div class="card-header"><em>Admin Dashboard</em></div>
 
                 <div class="card-body d-flex justify-content-between align-items-center flex-wrap">
