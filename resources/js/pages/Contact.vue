@@ -42,6 +42,10 @@
                         <span class="text-success mt-1" v-if="getterMsg"><b>{{getterMsg}}</b></span>
                     </transition>
 
+                    <div v-if="getterloaderContact" class="d-flex align-items-center my-2">
+                        <b-spinner variant="info" label="Spinning"></b-spinner><span class="ml-2 text-info"><b>En attente d'envoie</b></span>
+                    </div>
+
                     <div class="btnCustom">
                         <button @click="sendContactForm" class="rounded">Envoyer</button>
                     </div>
@@ -97,13 +101,13 @@
             publicNav
         },
         computed:{
-            ...mapGetters(['getterMsg'])
+            ...mapGetters(['getterMsg','getterloaderContact'])
         },
         methods:{
             ...mapActions(['sendMessageFromContact']),
             sendContactForm(){
                 this.$v.contactForm.$touch()
-                if (this.$v.$invalid) {
+                if (this.$v.contactForm.$invalid) {
                     this.msg = "Tous les champs sont obligatoire"
                 }
                 else {

@@ -20,7 +20,7 @@
             </div>
 
             <div class="mt-2">Selectionner une image: <b class="text-danger">*</b> <span class="text-info" v-if="newForm.image">{{ newForm.image.name }}</span></div>
-            <b-form-file v-model="newForm.image" placeholder="Choose a file or drop it here..."></b-form-file>
+            <b-form-file v-model="newForm.image" class="nameOfFile" placeholder="Choose a file or drop it here..."></b-form-file>
 
             <div class="mt-2">Publiée ou non <b class="text-danger">*</b> </div>
             <div>

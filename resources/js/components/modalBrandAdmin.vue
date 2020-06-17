@@ -8,10 +8,10 @@
             </b-form-group>
 
             <div class="mt-2">Selectionner une bannière: <b class="text-danger">*</b> <span class="text-info" v-if="brandForm.banner">{{brandForm.banner.name}}</span></div>
-            <b-form-file v-model="brandForm.banner" placeholder="Choose a file or drop it here..."></b-form-file>
+            <b-form-file v-model="brandForm.banner" class="nameOfFile" placeholder="Choose a file or drop it here..."></b-form-file>
 
             <div class="mt-2">Selectionner une icône: <b class="text-danger">*</b> <span class="text-info" v-if="brandForm.icone">{{ brandForm.icone.name }}</span></div>
-            <b-form-file v-model="brandForm.icone" placeholder="Choose a file or drop it here..."></b-form-file>
+            <b-form-file v-model="brandForm.icone" class="nameOfFile" placeholder="Choose a file or drop it here..."></b-form-file>
 
             <b-form-textarea class="mt-3" id="textarea" v-model="brandForm.description" placeholder="Enter description..." rows="3" max-rows="6"></b-form-textarea>
 

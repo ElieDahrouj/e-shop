@@ -19,4 +19,9 @@
         max-height: 0;
         overflow:hidden;
     }
+    .nameOfFile{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 </style>

@@ -8,13 +8,13 @@
                 </b-form-group>
 
                 <div class="mt-2">Changer la bannière: <b class="text-danger">*</b> <span class="text-info" v-if="editForm.banner">{{editForm.banner.name}}</span></div>
-                <b-form-file v-model="editForm.banner" placeholder="Choose a file or drop it here..."></b-form-file>
+                <b-form-file v-model="editForm.banner" class="nameOfFile" placeholder="Choose a file or drop it here..."></b-form-file>
 
                 <div class="mt-2 text-info font-weight-bold">Bannière actuelle:</div>
                 <img class="w-100" :src="getterEditionBrand.banner" alt="">
 
                 <div class="mt-2">Changer d'icône: <b class="text-danger">*</b> <span class="text-info" v-if="editForm.icone">{{editForm.icone.name }}</span></div>
-                <b-form-file v-model="editForm.icone" placeholder="Choose a file or drop it here..."></b-form-file>
+                <b-form-file v-model="editForm.icone" class="nameOfFile" placeholder="Choose a file or drop it here..."></b-form-file>
 
                 <div class="mt-2 text-info font-weight-bold">Icône actuelle:</div>
                 <img class="widthCustom" :src="getterEditionBrand.image" alt="">

@@ -15,7 +15,8 @@ export default new Vuex.Store({
         dateTimeProduct:null,
         arrayBrands:[],
         searchData:null,
-        msgContact:null
+        msgContact:null,
+        statusLoaderContact:false
     },
     getters:{
         dataProducts(state){
@@ -35,6 +36,9 @@ export default new Vuex.Store({
         },
         getterMsg(state){
             return state.msgContact
+        },
+        getterloaderContact(state){
+            return state.statusLoaderContact
         }
     },
     mutations:{
@@ -58,6 +62,9 @@ export default new Vuex.Store({
         },
         sendMessage(state,data){
             state.msgContact = data
+        },
+        loaderContact(state,data){
+            state.statusLoaderContact = data
         }
     },
     actions:{
@@ -124,9 +131,11 @@ export default new Vuex.Store({
                 });
         },
         sendMessageFromContact({commit},object){
+            commit('loaderContact', true)
             axios.post("/api/contact",{firstName:object.firstName, lastName : object.lastName,
                 mail:object.mail, subject:object.subject, message:object.message} )
                 .then(response =>{
+                    commit('loaderContact', false)
                     commit('sendMessage',response.data)
                     setTimeout(()=>{
                         commit('sendMessage',null)
