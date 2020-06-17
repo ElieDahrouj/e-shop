@@ -64,12 +64,11 @@
                 </p>
             </transition>
 
-            <transition name="fade">
-                <div v-if="Statusloader" class="d-flex justify-content-start align-items-center">
-                    <div class="loader"></div><p class="textCustom ml-2 m-0 my-2">En attente de l'ajout</p>
-                </div>
-            </transition>
-            <b-button class="mt-2" type="submit" variant="success">Modifier</b-button>
+            <div v-if="getterLoaderProduct" class="d-flex justify-content-start align-items-center">
+                <div class="loader"></div><p class="textCustom ml-2 m-0 my-2">En attente de l'ajout</p>
+            </div>
+
+            <b-button class="mt-3" type="submit" variant="success">Modifier</b-button>
         </form>
     </b-modal>
 </template>
@@ -85,14 +84,14 @@
                     brandSelected: null
                 },
                 lenghtTab : null,
-                Statusloader:false,
             }
         },
         computed:{
             ...mapGetters({
                 alertMsg: 'admin/getterMsg',
                 getterEditionProduct : 'admin/getterEditionProduct',
-                brands :  'admin/getterBrandsSelect'
+                brands :  'admin/getterBrandsSelect',
+                getterLoaderProduct:'admin/getterLoaderProduct'
             })
         },
         methods:{
@@ -138,11 +137,6 @@
                 });
 
                 this.updateOneProduct(config)
-                this.Statusloader = true
-
-                setTimeout(() => {
-                    this.Statusloader = false
-                },500)
 
                 setTimeout(() => {
                     if (this.alertMsg) {

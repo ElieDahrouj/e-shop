@@ -29,6 +29,10 @@
         </nav>
         <nav class="mobile">
             <div>
+                <font-awesome-icon @click="openResearchBar" class="researchMobile" :icon="['fas', 'search']" />
+                <input autocomplete="off" v-model="filterProducts" @keyup.enter="researchProducts" type="search" name="search" />
+            </div>
+            <div>
                 <router-link class="text-dark custom" :to="{name:'shoppingCart'}"><font-awesome-icon :icon="['fas', 'shopping-cart']"/> {{getterCartLength !==0 ? getterCartLength : ''}}</router-link>
             </div>
             <div @click="modalMobile">
@@ -53,10 +57,6 @@
                     <li>
                         <router-link :to="{name:'contact'}">Contact</router-link>
                     </li>
-                    <li class="research">
-                        <font-awesome-icon class="search" :icon="['fas', 'search']" />
-                        <input v-model="filterProducts" @keyup.enter="researchProducts" type="search" name="search" />
-                    </li>
                 </ul>
             </div>
         </transition>
@@ -69,7 +69,8 @@ import {mapActions , mapGetters} from 'vuex'
         data(){
             return{
                 status:false,
-                filterProducts : null
+                filterProducts : null,
+                statusSearch:false
             }
         },
         computed:{
@@ -98,6 +99,17 @@ import {mapActions , mapGetters} from 'vuex'
             },
             strUcFirst(a){
                 return (a+'').charAt(0).toUpperCase()+a.substr(1);
+            },
+            openResearchBar(){
+                this.statusSearch = !this.statusSearch
+                let inputSearch = document.querySelector('input[name=search]')
+                let iconeSearch = document.querySelector('.researchMobile')
+                inputSearch.classList.add("openResearch")
+                iconeSearch.classList.add("stabilisationIcone")
+                if (this.statusSearch === false){
+                    inputSearch.classList.remove("openResearch")
+                    iconeSearch.classList.remove("stabilisationIcone")
+                }
             }
         },
         mounted(){
@@ -111,7 +123,31 @@ import {mapActions , mapGetters} from 'vuex'
     }
     .mobile{
         display: none;
-        div{
+        div:nth-child(1){
+            position:relative;
+            .researchMobile{
+                position: absolute;
+                font-size: 25px;
+                color:#343a40;
+            }
+            .stabilisationIcone{
+                padding-bottom:5px
+            }
+            .openResearch{
+                width: 200px;
+                padding-left: 35px;
+                border-bottom: 1px solid #343a40;
+            }
+            input{
+                padding-left: 30px;
+                outline: none;
+                background-color: transparent;
+                border: none;
+                width: 0;
+                transition: width 0.5s ease;
+            }
+        }
+        div:nth-child(2),div:nth-child(3){
             margin: 10px;
             font-size: 25px
         }
@@ -251,8 +287,7 @@ import {mapActions , mapGetters} from 'vuex'
     .slide-fade-leave-active {
         transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
     }
-    .slide-fade-enter, .slide-fade-leave-to
-        /* .slide-fade-leave-active below version 2.1.8 */ {
+    .slide-fade-enter, .slide-fade-leave-to {
         transform: translateX(10px);
         opacity: 0;
     }

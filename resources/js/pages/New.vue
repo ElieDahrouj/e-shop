@@ -3,7 +3,9 @@
         <publicNav></publicNav>
         <section v-if="Object.keys(oneDataProduct).length !== 0" class="new">
             <h1><b>{{oneDataProduct.title}}</b></h1>
-            <img :src="oneDataProduct.image" alt="">
+            <div>
+                <img :src="oneDataProduct.image" alt="">
+            </div>
             <p><em>Publié {{configDateTime(oneDataProduct.release_date)}} par {{oneDataProduct.user.name}}</em></p>
             <p><em>{{oneDataProduct.summary}}</em></p>
             <p>{{oneDataProduct.content}}</p>
@@ -42,20 +44,15 @@
         h1{
             text-align:center;
         }
-        img{
-            margin-bottom: 5px;
-            padding: 0 150px;
-            width: 100%;
+        div{
+            text-align:center;
+            img{
+                margin-bottom: 5px;
+                max-width: 100%;
+            }
         }
         p{
             text-align: justify;
-        }
-    }
-    @media all and (max-width: 769px) {
-        .new{
-            img{
-                padding: 0;
-            }
         }
     }
 </style>

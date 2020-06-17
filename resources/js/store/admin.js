@@ -11,7 +11,8 @@ export default ({
         msg:null,
         objectBrand:"",
         objectNew:"",
-        objectProduct:""
+        objectProduct:"",
+        loaderSneaker:false
     },
     getters: {
         getterArrayBrands(state){
@@ -37,6 +38,9 @@ export default ({
         },
         getterEditionProduct(state){
             return state.objectProduct
+        },
+        getterLoaderProduct(state){
+            return state.loaderSneaker
         }
     },
     mutations:{
@@ -67,6 +71,9 @@ export default ({
         },
         editionProduct(state,data){
             return state.objectProduct = data
+        },
+        loaderProduct(state,data){
+            return state.loaderSneaker = data
         }
     },
     actions: {
@@ -192,8 +199,10 @@ export default ({
                 })
         },
         updateOneProduct({commit,dispatch},configData){
+            commit('loaderProduct',true)
             axios.request(configData)
                 .then(response => {
+                    commit('loaderProduct',false)
                     dispatch('adminProducts')
                     commit('msgToAlert',response.data)
                     commit('editionProduct',response.data.product)
