@@ -7,16 +7,16 @@
             <div>
                 <ul>
                     <li>
-                        <router-link :to="{ name: 'catalogue'}">Catalogue</router-link>
+                        <router-link class="d-block py-1" :to="{ name: 'catalogue'}">Catalogue</router-link>
                     </li>
                     <li>
-                        <router-link :to="{name:'news'}">News</router-link>
+                        <router-link class="d-block py-1" :to="{name:'news'}">News</router-link>
                     </li>
                     <li>
-                        <router-link :to="{name:'contact'}">Contact</router-link>
+                        <router-link class="d-block py-1" :to="{name:'contact'}">Contact</router-link>
                     </li>
                     <li>
-                        <router-link :to="{name:'shoppingCart'}">
+                        <router-link class="d-block py-1" :to="{name:'shoppingCart'}">
                             <font-awesome-icon :icon="['fas', 'shopping-cart']" /> {{getterCartLength !==0 ? getterCartLength : ''}}
                         </router-link>
                     </li>
@@ -175,6 +175,7 @@ import {mapActions , mapGetters} from 'vuex'
                 display: flex;
                 margin: 0;
                 justify-content: flex-start;
+                align-items: center;
                 li{
                     margin: 0 10px;
                     position: relative;
