@@ -41,6 +41,10 @@
                 </p>
             </transition>
 
+            <div v-if="getterLoaderUpdateNew" class="d-flex justify-content-start align-items-center">
+                <div class="loader"></div><p class="textCustom ml-2 m-0 my-2">Mise à jour en cours</p>
+            </div>
+
             <b-button class="mt-3" type="submit" variant="success">Modifier</b-button>
         </form>
     </b-modal>
@@ -60,6 +64,7 @@
             ...mapGetters({
                 getterEditionNew:"admin/getterEditionNew",
                 alertMsg: 'admin/getterMsg',
+                getterLoaderUpdateNew:'admin/getterLoaderUpdateNew'
             })
         },
         methods:{
@@ -68,7 +73,7 @@
             }),
             formSubmit(e) {
                 e.preventDefault();
-                //let obj ={}
+
                 let myHeaders = new Headers();
                 myHeaders.append("Content-Type", "multipart/form-data");
 
@@ -82,27 +87,6 @@
                 if (this.newForm.image !== null){
                     formData.append('newImage', this.newForm.image);
                 }
-
-                /*if (this.newForm.image !== null)
-                {
-                    obj = {
-                        "title":this.getterEditionNew.title,
-                        "description":this.getterEditionNew.content,
-                        "summary": this.getterEditionNew.summary,
-                        "release_date":this.getterEditionNew.release_date,
-                        "actif":this.getterEditionNew.actif,
-                        "newImage":formData,
-                    }
-                }
-                else {
-                    obj = {
-                        "title":this.getterEditionNew.title,
-                        "description":this.getterEditionNew.content,
-                        "summary": this.getterEditionNew.summary,
-                        "release_date":this.getterEditionNew.release_date,
-                        "actif":this.getterEditionNew.actif,
-                    }
-                }*/
 
                 const config = Object.assign({
                     method:'post',

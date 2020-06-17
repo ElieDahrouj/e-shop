@@ -54,11 +54,10 @@
                 </p>
             </transition>
 
-            <transition name="fade">
-                <div v-if="Statusloader" class="d-flex justify-content-start align-items-center">
-                    <div class="loader"></div><p class="textCustom ml-2 m-0 my-2">En attente de l'ajout</p>
-                </div>
-            </transition>
+            <div v-if="getterCreateLoaderProduct" class="d-flex justify-content-start align-items-center">
+                <div class="loader"></div><p class="textCustom ml-2 m-0 my-2">En attente d'ajout</p>
+            </div>
+
             <b-button class="mt-2" type="submit" variant="success">Ajouter</b-button>
         </form>
     </b-modal>
@@ -81,13 +80,13 @@
                     moreImages:[]
                 },
                 lenghtTab : null,
-                Statusloader:false,
             }
         },
         computed:{
             ...mapGetters({
                 alertMsg: 'admin/getterMsg',
-                brands :  'admin/getterBrandsSelect'
+                brands :  'admin/getterBrandsSelect',
+                getterCreateLoaderProduct:'admin/getterCreateLoaderProduct'
             })
         },
         methods:{
@@ -121,11 +120,6 @@
                 }
 
                 this.createSneakers(formData,config)
-                this.Statusloader = true
-
-                setTimeout(() => {
-                    this.Statusloader = false
-                },500)
 
                 setTimeout(() => {
                     if (this.alertMsg) {
@@ -146,7 +140,6 @@
             },
             processFile(event) {
                 let selectedFiles = event.target.files
-                this.newForm.moreImages = []
                 for (let i = 0; i < selectedFiles.length; i++)
                 {
                     this.newForm.moreImages.push(selectedFiles[i])

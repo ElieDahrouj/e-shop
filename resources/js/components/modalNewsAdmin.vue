@@ -36,6 +36,11 @@
                     <span class="text-success" v-if="alertMsg.type === 1">{{alertMsg.msg}}</span>
                 </p>
             </transition>
+
+            <div v-if="getterCreateLoaderNew" class="d-flex justify-content-start align-items-center">
+                <div class="loader"></div><p class="textCustom ml-2 m-0 my-2">En attente d'ajout</p>
+            </div>
+
             <b-button class="mt-3" type="submit" variant="success">Ajouter</b-button>
         </form>
     </b-modal>
@@ -60,6 +65,7 @@
         computed:{
             ...mapGetters({
                 alertMsg: 'admin/getterMsg',
+                getterCreateLoaderNew:'admin/getterCreateLoaderNew'
             })
         },
         methods:{

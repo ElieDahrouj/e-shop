@@ -12,7 +12,12 @@ export default ({
         objectBrand:"",
         objectNew:"",
         objectProduct:"",
-        loaderSneaker:false
+        loaderSneaker:false,
+        loaderUpdateNew:false,
+        loaderUpdateBrand:false,
+        createProduct:false,
+        createNew:false,
+        createNewBrand:false
     },
     getters: {
         getterArrayBrands(state){
@@ -41,6 +46,21 @@ export default ({
         },
         getterLoaderProduct(state){
             return state.loaderSneaker
+        },
+        getterLoaderUpdateNew(state){
+            return state.loaderUpdateNew
+        },
+        getterLoaderUpdateBrand(state){
+            return state.loaderUpdateBrand
+        },
+        getterCreateLoaderProduct(state){
+            return state.createProduct
+        },
+        getterCreateLoaderNew(state){
+            return state.createNew
+        },
+        getterCreateLoaderBrand(state){
+            return state.createNewBrand
         }
     },
     mutations:{
@@ -74,6 +94,21 @@ export default ({
         },
         loaderProduct(state,data){
             return state.loaderSneaker = data
+        },
+        loaderNew(state,data){
+            return state.loaderUpdateNew = data
+        },
+        loaderBrand(state,data){
+          return state.loaderUpdateBrand = data
+        },
+        loaderCreateProduct(state,data){
+            return state.createProduct = data
+        },
+        loaderCreateNew(state,data){
+            return state.createNew = data
+        },
+        loaderCreateBrand(state,data){
+            return state.createNewBrand = data
         }
     },
     actions: {
@@ -96,8 +131,10 @@ export default ({
                 })
         },
         createBrand({commit,dispatch},object,config){
+            commit('loaderCreateBrand',true)
             axios.post('/api/auth/createBrand',object,config)
                 .then( response => {
+                    commit('loaderCreateBrand',false)
                     commit('msgToAlert',response.data)
                     dispatch('adminBrand')
                     setTimeout(() =>{
@@ -106,8 +143,10 @@ export default ({
                 })
         },
         createNews({commit,dispatch},object,config){
+            commit('loaderCreateNew',true)
             axios.post('/api/auth/createNews',object,config)
                 .then( response => {
+                    commit('loaderCreateNew',false)
                     commit('msgToAlert',response.data)
                     dispatch('adminNews')
                     setTimeout(() =>{
@@ -115,9 +154,11 @@ export default ({
                     },3500)
                 })
         },
-        async createSneaker({commit,dispatch},object,config){
-            await axios.post('/api/auth/createSneakers',object,config)
+        createSneaker({commit,dispatch},object,config){
+            commit('loaderCreateProduct',true)
+            axios.post('/api/auth/createSneakers',object,config)
                 .then( response => {
+                    commit('loaderCreateProduct',false)
                     commit('msgToAlert',response.data)
                     dispatch('adminProducts')
                     setTimeout(() =>{
@@ -177,8 +218,10 @@ export default ({
                 })
         },
         updateNew({commit,dispatch},configData){
+            commit('loaderNew',true)
             axios.request(configData)
                 .then(response =>{
+                    commit('loaderNew',false)
                     dispatch('adminNews')
                     commit('msgToAlert',response.data)
                     commit('editionNew',response.data.new)
@@ -188,8 +231,10 @@ export default ({
                 })
         },
         updateOneBrand({commit,dispatch},configData){
+            commit('loaderBrand',true)
             axios.request(configData)
                 .then(response => {
+                    commit('loaderBrand',false)
                     dispatch('adminBrand')
                     commit('msgToAlert',response.data)
                     commit('editionBrand',response.data.brand)

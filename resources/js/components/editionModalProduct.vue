@@ -1,7 +1,7 @@
 <template>
     <b-modal id="bv-modal-sneakersEdition" hide-footer>
         <template v-slot:modal-title>Modification de la paire de sneaker {{getterEditionProduct.name}}</template>
-        <form @submit="formSubmit" enctype="multipart/form-data">
+        <div>
             <b-form-group id="input-group-2" label-for="input-2">
                 <div class="mt-2">Titre de la paire: <b class="text-danger">*</b></div>
                 <b-form-input id="input-2" v-model="getterEditionProduct.name" required placeholder="Enter name"></b-form-input>
@@ -65,11 +65,11 @@
             </transition>
 
             <div v-if="getterLoaderProduct" class="d-flex justify-content-start align-items-center">
-                <div class="loader"></div><p class="textCustom ml-2 m-0 my-2">En attente de l'ajout</p>
+                <div class="loader"></div><p class="textCustom ml-2 m-0 my-2">Mise à jour en cours</p>
             </div>
 
-            <b-button class="mt-3" type="submit" variant="success">Modifier</b-button>
-        </form>
+            <b-button class="mt-3" @click="formSubmit" variant="success">Modifier</b-button>
+        </div>
     </b-modal>
 </template>
 <script>
