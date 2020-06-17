@@ -16,6 +16,9 @@
                         </p>
                     </div>
                 </div>
+                <div v-if="getterDeleteLoaderBrand && getterIdBrandLoader === brand.id" class="DeleteCart d-flex justify-content-center align-items-center w-100 h-100 position-absolute">
+                    <div class="loaderDelete"></div>
+                </div>
             </div>
         </div>
         <editionModalBrand></editionModalBrand>
@@ -34,6 +37,8 @@
         computed:{
             ...mapGetters({
                 adminBrand : 'admin/getterArrayBrands',
+                getterDeleteLoaderBrand:'admin/getterDeleteLoaderBrand',
+                getterIdBrandLoader:'admin/getterIdBrandLoader'
             })
         },
         methods:{

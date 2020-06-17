@@ -17,7 +17,13 @@ export default ({
         loaderUpdateBrand:false,
         createProduct:false,
         createNew:false,
-        createNewBrand:false
+        createNewBrand:false,
+        loaderDeleteProduct:false,
+        idProductDelete:null,
+        loaderDeleteNew:false,
+        idNewDelete:null,
+        loaderDeleteBrand:false,
+        idBrandDelete:null
     },
     getters: {
         getterArrayBrands(state){
@@ -61,6 +67,24 @@ export default ({
         },
         getterCreateLoaderBrand(state){
             return state.createNewBrand
+        },
+        getterDeleteLoaderProduct(state){
+            return state.loaderDeleteProduct
+        },
+        getterIdProductLoader(state){
+            return state.idProductDelete
+        },
+        getterDeleteLoaderNew(state){
+            return state.loaderDeleteNew
+        },
+        getterIdNewLoader(state){
+            return state.idNewDelete
+        },
+        getterDeleteLoaderBrand(state){
+            return state.loaderDeleteBrand
+        },
+        getterIdBrandLoader(state){
+            return state.idBrandDelete
         }
     },
     mutations:{
@@ -109,6 +133,24 @@ export default ({
         },
         loaderCreateBrand(state,data){
             return state.createNewBrand = data
+        },
+        deleteProductLoader(state,data){
+            return state.loaderDeleteProduct = data
+        },
+        idDeleteProductLoader(state,data){
+            return state.idProductDelete = data
+        },
+        deleteNewLoader(state,data){
+            return state.loaderDeleteNew = data
+        },
+        idDeleteNewLoader(state,data){
+            return state.idNewDelete = data
+        },
+        deleteBrandLoader(state,data){
+            return state.loaderDeleteBrand = data
+        },
+        idDeleteBrandLoader(state,data){
+            return state.idBrandDelete = data
         }
     },
     actions: {
@@ -173,23 +215,35 @@ export default ({
                 })
         },
         deleteNews({commit,dispatch},object){
+            commit('deleteNewLoader', true)
+            commit('idDeleteNewLoader', object)
             axios.delete('/api/auth/deleteNews/'+object)
                 .then( response => {
                     commit('msgToAlert',response.data)
+                    commit('deleteProductLoader', false)
+                    commit('idDeleteProductLoader', null)
                     dispatch('adminNews')
                 })
         },
         deleteBrand({commit,dispatch},object){
+            commit('deleteBrandLoader', true)
+            commit('idDeleteBrandLoader', object)
             axios.delete('/api/auth/deleteBrand/'+object)
                 .then( response => {
                     commit('msgToAlert',response.data)
+                    commit('deleteBrandLoader', false)
+                    commit('idDeleteBrandLoader', null)
                     dispatch('adminBrand')
                 })
         },
         deleteSneaker({commit,dispatch},object){
+            commit('deleteProductLoader', true)
+            commit('idDeleteProductLoader', object)
             axios.delete('/api/auth/deleteSneaker/'+object)
                 .then( response => {
                     commit('msgToAlert',response.data)
+                    commit('deleteProductLoader', false)
+                    commit('idDeleteProductLoader', null)
                     dispatch('adminProducts')
                 })
         },

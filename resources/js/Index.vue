@@ -33,8 +33,23 @@
         height: 20px;
         animation: spin 2s linear infinite;
     }
+    .loaderDelete {
+        border: 10px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 10px solid orange;
+        border-bottom: 10px solid orange;
+        width: 100px;
+        height: 100px;
+        animation: spin 2s linear infinite;
+    }
+    .DeleteCart{
+        background-color:rgba(88, 89, 91, 0.5);
+    }
     @keyframes spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
+    }
+    .textCustom{
+        color:orange;
     }
 </style>

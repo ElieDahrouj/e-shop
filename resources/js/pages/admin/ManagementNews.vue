@@ -18,6 +18,9 @@
                         </p>
                     </div>
                 </div>
+                <div v-if="getterDeleteLoaderNew && getterIdNewLoader === news.id" class="DeleteCart d-flex justify-content-center align-items-center w-100 h-100 position-absolute">
+                    <div class="loaderDelete"></div>
+                </div>
             </div>
         </div>
         <editionModalNew></editionModalNew>
@@ -35,7 +38,9 @@
         },
         computed:{
             ...mapGetters({
-                adminNews : 'admin/getterArrayNews'
+                adminNews : 'admin/getterArrayNews',
+                getterDeleteLoaderNew:'admin/getterDeleteLoaderNew',
+                getterIdNewLoader:'admin/getterIdNewLoader'
             })
         },
         methods:{

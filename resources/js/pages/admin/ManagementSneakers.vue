@@ -21,6 +21,9 @@
                         </p>
                     </div>
                 </div>
+                <div v-if="getterDeleteLoaderProduct && getterIdProductLoader === products.id" class="DeleteCart d-flex justify-content-center align-items-center w-100 h-100 position-absolute">
+                    <div class="loaderDelete"></div>
+                </div>
             </div>
         </div>
         <editionModalProduct></editionModalProduct>
@@ -38,7 +41,9 @@
         },
         computed:{
             ...mapGetters({
-                adminProducts : 'admin/getterArrayProducts'
+                adminProducts : 'admin/getterArrayProducts',
+                getterDeleteLoaderProduct:'admin/getterDeleteLoaderProduct',
+                getterIdProductLoader:'admin/getterIdProductLoader'
             })
         },
         methods:{
