@@ -36,7 +36,10 @@
             <div class="imageSecond">
                 <div class="my-2 mx-2" v-for="imageSecond in getterEditionProduct.images">
                     <button @click="deleteSecondaryPicture(imageSecond.id)"><font-awesome-icon class="search" :icon="['fas', 'times-circle']"/></button>
-                    <img class="p-3" :src="imageSecond.image" alt="">
+                    <img :src="imageSecond.image" alt="">
+                    <div v-if="getterDeleteLoaderPicture && getterIdPictureLoader === imageSecond.id " class="DeleteCart positionTop d-flex justify-content-center align-items-center w-100 h-100 position-absolute">
+                        <b-spinner variant="warning" label="Spinning"></b-spinner>
+                    </div>
                 </div>
             </div>
 
@@ -91,7 +94,9 @@
                 alertMsg: 'admin/getterMsg',
                 getterEditionProduct : 'admin/getterEditionProduct',
                 brands :  'admin/getterBrandsSelect',
-                getterLoaderProduct:'admin/getterLoaderProduct'
+                getterLoaderProduct:'admin/getterLoaderProduct',
+                getterDeleteLoaderPicture:'admin/getterDeleteLoaderPicture',
+                getterIdPictureLoader:'admin/getterIdPictureLoader'
             })
         },
         methods:{
@@ -159,33 +164,14 @@
     }
 </script>
 <style lang="scss" scoped>
+    .positionTop{
+        top:0;
+    }
     .fade-enter-active, .fade-leave-active {
         transition: opacity .5s;
     }
     .fade-enter, .fade-leave-to {
         opacity: 0;
-    }
-    .loader {
-        border: 5px solid #f3f3f3;
-        border-radius: 50%;
-        border-top: 5px solid orange;
-        border-bottom: 5px solid orange;
-        width: 20px;
-        height: 20px;
-        -webkit-animation: spin 2s linear infinite;
-        animation: spin 2s linear infinite;
-    }
-    @-webkit-keyframes spin {
-        0% { -webkit-transform: rotate(0deg); }
-        100% { -webkit-transform: rotate(360deg); }
-    }
-
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-    .textCustom{
-        color:orange;
     }
     .imageSecond{
         display: flex;
@@ -205,9 +191,15 @@
                 outline: none;
             }
             img{
+                max-width: 100%;
+            }
+        }
+    }
+    @media all and (max-width: 426px){
+        .imageSecond{
+            div{
                 width: 100%;
             }
         }
-
     }
 </style>

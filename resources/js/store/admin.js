@@ -23,7 +23,9 @@ export default ({
         loaderDeleteNew:false,
         idNewDelete:null,
         loaderDeleteBrand:false,
-        idBrandDelete:null
+        idBrandDelete:null,
+        loaderDeletePicture:false,
+        idPictureDelete:null
     },
     getters: {
         getterArrayBrands(state){
@@ -85,6 +87,12 @@ export default ({
         },
         getterIdBrandLoader(state){
             return state.idBrandDelete
+        },
+        getterDeleteLoaderPicture(state){
+            return state.loaderDeletePicture
+        },
+        getterIdPictureLoader(state){
+            return state.idPictureDelete
         }
     },
     mutations:{
@@ -151,6 +159,12 @@ export default ({
         },
         idDeleteBrandLoader(state,data){
             return state.idBrandDelete = data
+        },
+        deletePictureLoader(state,data){
+            return state.loaderDeletePicture = data
+        },
+        idDeletePictureLoader(state,data){
+            return state.idPictureDelete = data
         }
     },
     actions: {
@@ -248,9 +262,13 @@ export default ({
                 })
         },
         deleteSecondaryPicture({commit},object){
+            commit('deletePictureLoader', true)
+            commit('idDeletePictureLoader', object)
             axios.delete('/api/auth/deleteSecondaryPicture/'+object)
                 .then(response =>{
                     commit('editionProduct',response.data.product)
+                    commit('deletePictureLoader', false)
+                    commit('idDeletePictureLoader', null)
                 })
         },
         getOneBrand({commit},object){
