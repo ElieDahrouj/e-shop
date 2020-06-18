@@ -68,6 +68,7 @@
             text-decoration: none;
             color: #660000;
             .picture {
+                width: 40px;
                 img {
                     max-width: 100%;
                 }

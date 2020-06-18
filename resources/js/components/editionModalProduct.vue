@@ -28,7 +28,7 @@
             <div class="mt-2">Selectionner une image: <b class="text-danger">*</b> <span class="text-info" v-if="newForm.image">{{ newForm.image.name }}</span></div>
             <b-form-file v-model="newForm.image" class="nameOfFile" placeholder="Choose a file or drop it here..."></b-form-file>
             <div class="mt-2 text-info font-weight-bold">Image actuelle:</div>
-            <img class="w-100" :src="getterEditionProduct.image" alt="">
+            <img class="maxWidth" :src="getterEditionProduct.image" alt="">
 
             <div class="mt-2">Ajouter des images secondaires: <b class="text-danger">*</b> <span class="text-info" v-if="newForm.moreImages.length !==0">{{ lenghtTab }} {{lenghtTab > 1 ? 'images insérés' : 'image inséré'}}</span></div>
             <b-form-file @change="processFile($event)" multiple ref="file-input" class="nameOfFile" placeholder="Choose a file or drop it here..."></b-form-file>
@@ -164,6 +164,9 @@
     }
 </script>
 <style lang="scss" scoped>
+    .maxWidth{
+        max-width: 100%;
+    }
     .positionTop{
         top:0;
     }
