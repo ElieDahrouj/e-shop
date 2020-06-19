@@ -70,8 +70,10 @@
             <div v-if="getterLoaderProduct" class="d-flex justify-content-start align-items-center">
                 <div class="loader"></div><p class="textCustom ml-2 m-0 my-2">Mise à jour en cours</p>
             </div>
-
-            <b-button class="mt-3" @click="formSubmit" variant="success">Modifier</b-button>
+            <div class="d-flex justify-content-between">
+                <b-button class="mt-3" @click="formSubmit" variant="success">Modifier</b-button>
+                <b-button class="mt-3" @click="resetFileField" variant="dark">Reset</b-button>
+            </div>
         </div>
     </b-modal>
 </template>
@@ -142,15 +144,11 @@
                 });
 
                 this.updateOneProduct(config)
-
-                setTimeout(() => {
-                    if (this.alertMsg) {
-                        if (this.alertMsg.type === 1) {
-                            this.newForm.moreImages = []
-                            this.$refs['file-input'].reset()
-                        }
-                    }
-                },6000)
+            },
+            resetFileField(){
+                this.newForm.moreImages = []
+                this.newForm.image = null
+                this.$refs['file-input'].reset()
             },
             processFile(event) {
                 let selectedFiles = event.target.files

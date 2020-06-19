@@ -1,8 +1,7 @@
 <template>
     <b-modal id="bv-modal-newsEdition" hide-footer>
         <template v-slot:modal-title>Modification d'une actualité</template>
-        <form @submit="formSubmit" enctype="multipart/form-data" name="fileinfo">
-
+        <div>
             <b-form-group id="input-group-2" label-for="input-2">
                 <div class="mt-2">Nom de l'actualité:</div>
                 <b-form-input id="input-2" v-model="getterEditionNew.title" required placeholder="Enter title"></b-form-input>
@@ -44,9 +43,11 @@
             <div v-if="getterLoaderUpdateNew" class="d-flex justify-content-start align-items-center">
                 <div class="loader"></div><p class="textCustom ml-2 m-0 my-2">Mise à jour en cours</p>
             </div>
-
-            <b-button class="mt-3" type="submit" variant="success">Modifier</b-button>
-        </form>
+            <div class="d-flex justify-content-between">
+                <b-button class="mt-3" @click="formSubmit" variant="success">Modifier</b-button>
+                <b-button class="mt-3" @click="resetFileField" variant="dark">Reset</b-button>
+            </div>
+        </div>
     </b-modal>
 </template>
 <script>
@@ -95,13 +96,9 @@
                     headers: myHeaders
                 });
                 this.updateNew(config)
-                setTimeout(() =>{
-                    if (this.alertMsg.type){
-                        if (this.alertMsg.type === 1) {
-                            this.newForm.image = null
-                        }
-                    }
-                },2500)
+            },
+            resetFileField(){
+                this.newForm.image = null
             },
         }
     }

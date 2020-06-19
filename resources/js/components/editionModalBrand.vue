@@ -1,7 +1,7 @@
 <template>
         <b-modal id="bv-modal-brand-edition" hide-footer>
             <template v-slot:modal-title>Modification de la marque {{getterEditionBrand.name}}</template>
-            <form @submit="formSubmit">
+            <div>
                 <b-form-group id="input-group-2" label-for="input-2">
                     <div class="mt-2">Nom de la marque:</div>
                     <b-form-input id="input-2" v-model="getterEditionBrand.name" required placeholder="Enter new name"></b-form-input>
@@ -32,8 +32,11 @@
                 <div v-if="getterLoaderUpdateBrand" class="d-flex justify-content-start align-items-center">
                     <div class="loader"></div><p class="textCustom ml-2 m-0 my-2">Mise à jour en cours</p>
                 </div>
-                <b-button class="mt-3" type="submit" variant="success">Modifier</b-button>
-            </form>
+                <div class="d-flex justify-content-between">
+                    <b-button class="mt-3" @click="formSubmit" variant="success">Modifier</b-button>
+                    <b-button class="mt-3" @click="resetFileField" variant="dark">Reset</b-button>
+                </div>
+            </div>
         </b-modal>
 </template>
 <script>
@@ -81,14 +84,10 @@
                     headers: myHeaders
                 });
                 this.updateOneBrand(config)
-                setTimeout(() =>{
-                    if (this.alertMsg.type) {
-                        if (this.alertMsg.type === 1) {
-                            this.editForm.icone = null
-                            this.editForm.banner = null
-                        }
-                    }
-                },3500)
+            },
+            resetFileField(){
+                this.editForm.icone = null
+                this.editForm.banner = null
             },
         }
     }
