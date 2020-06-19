@@ -49,16 +49,6 @@ class AdminProductsController extends Controller
             'moreImages'=>'required',
         ]);
         if (!$validator->fails()) {
-            $allowed_extensions = ['jpg', 'jpeg', 'png'];
-            foreach ($request->moreImages as $checkMimes) {
-                $my_file_extension = $checkMimes->getClientOriginalExtension();
-                if (!in_array($my_file_extension, $allowed_extensions)) {
-                    return response()->json([
-                        'msg' => 'Erreur lors du traitement des données. Format accepté: jpeg,png,jpg',
-                        'type' => 0
-                    ]);
-                }
-            }
             $image_name = $request->image->getRealPath();
             Cloudder::upload($image_name, null, ['folder' => 'heavens-shoes/products']);
             $cloudinary_brand = Cloudder::getResult();
