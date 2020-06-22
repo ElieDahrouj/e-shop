@@ -15,17 +15,16 @@
                         </div>
                         <p><b>Coloris : </b> {{cartProduct.product.color}}</p>
                         <p><b>Taille : </b> {{cartProduct.size}} EU</p>
-                        <p><b>Quantité actuelle : </b> {{cartProduct.quantity}}</p>
-                        <div class="secondName w-100 d-flex justify-content-between align-items-end">
-                            <div class="d-flex flex-column align-items-start">
-                                <label for="quandtity">Quantité désirée</label>
+                        <div class="d-flex align-items-start justify-content-start">
+                            <p><b>Quantité actuelle : </b> {{cartProduct.quantity}}</p>
+                            <div class="secondName">
                                 <select @change="changeQuantity(cartProduct.id)" v-model="newQuantity" id="quandtity">
-                                    <option value="null" disabled>Choisissez</option>
+                                    <option value="null" disabled></option>
                                     <option v-for="i in 10" :value="i" :key="i">{{i}}</option>
                                 </select>
                             </div>
-                            <button @click="deleteProduct(cartProduct.id)">Supprimer</button>
                         </div>
+                        <button @click="deleteProduct(cartProduct.id)">Supprimer</button>
                     </div>
                 </div>
             </div>
@@ -174,25 +173,24 @@
                             margin:5px 0;
                         }
                         select{
-                            padding:5px ;
-                            border:1px solid #e8e8e8 !important;
+                            border:none;
                             border-radius:3px;
-                            background-color: white;
+                            background-color: transparent;
                             outline: none;
-                            margin-right: 5px;
+                            width:25px;
                         }
-                        button{
-                            margin-top:10px;
-                            border-radius: 3px;
-                            background-color: white;
-                            color: #b90000;
-                            padding:5px;
-                            outline: none;
-                            border: 1px solid #b90000;
-                            &:hover{
-                                background-color: #b90000;
-                                color: white;
-                            }
+                    }
+                    button{
+                        margin-top:10px;
+                        border-radius: 3px;
+                        background-color: white;
+                        color: #b90000;
+                        padding:5px;
+                        outline: none;
+                        border: 1px solid #b90000;
+                        &:hover{
+                            background-color: #b90000;
+                            color: white;
                         }
                     }
                 }
