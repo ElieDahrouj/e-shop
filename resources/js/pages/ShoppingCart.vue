@@ -42,8 +42,8 @@
                         <p><b>Total</b></p>
                         <p>{{getterTotalPrice}} €</p>
                     </div>
-                    <router-link v-if="this.getterCart.length !== 0" :to="{name:'payment', params: { id:  this.idPayment}}">
-                        <button @click="generateId">Passer la commande</button>
+                    <router-link v-if="this.getterCart.length !== 0" :to="{name:'payment', params: { id:this.idPayment}}">
+                        <button>Passer la commande</button>
                     </router-link>
                 </div>
             </div>
@@ -100,11 +100,12 @@
                 this.newQuantity = null
             },
             generateId(){
-                this.idPayment = Math.random().toString(36).substr(2, 9)
+                return this.idPayment = Math.random().toString(36).substr(2, 9)
             }
         },
         beforeMount(){
             this.getCart()
+            this.generateId()
         }
     }
 </script>
@@ -142,7 +143,7 @@
                 margin-top: 10px;
                 align-items: center;
                 .picture {
-                    max-width:350px;
+                    max-width:190px;
                     img {
                         object-fit: cover;
                         max-width: 100%;

@@ -70,6 +70,7 @@ export default ({
                 cvc:info.infoCBcart.cartCVC,month:info.infoCBcart.month,year:info.infoCBcart.year,cartNumber:info.infoCBcart.cartNumber})
                 .then(() =>{
                     console.log("confirm")
+                    state.totalPrice = 0
                     return state.arrayLength = 0
                 })
         },
