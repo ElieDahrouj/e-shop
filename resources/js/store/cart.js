@@ -64,12 +64,13 @@ export default ({
                 }
             }
         },
-        confirmOrder({commit},info){
-            axios.post("/api/order",{first_name:info.infoCustomer.firstname,last_name:info.infoCustomer.lastName,address:info.infoCustomer.address,
+        async confirmOrder({commit,state},info){
+            await axios.post("/api/order",{first_name:info.infoCustomer.firstname,last_name:info.infoCustomer.lastName,address:info.infoCustomer.address,
                 zipcode:info.infoCustomer.postcode,city:info.infoCustomer.city,email:info.infoCustomer.mail,phone_number:info.infoCustomer.phoneNumber,basketful:JSON.parse(localStorage.getItem("basketful")),
                 cvc:info.infoCBcart.cartCVC,month:info.infoCBcart.month,year:info.infoCBcart.year,cartNumber:info.infoCBcart.cartNumber})
                 .then(() =>{
                     console.log("confirm")
+                    return state.arrayLength = 0
                 })
         },
     }

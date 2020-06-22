@@ -2,18 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NotificationCustomer;
 use App\Order;
 use Illuminate\Http\Request;
 use App\Customer;
 use App\Orders_products;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
+use App\Message;
+use App\Mail\NotificationAdmin;
 class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request, Customer $customer ,Order $order, Orders_products $orders_products )
+    public function index(Request $request, Customer $customer ,Order $order, Orders_products $orders_products, Message $message)
     {
+        set_time_limit(0);
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
@@ -36,6 +41,15 @@ class OrderController extends Controller
         $customer->city= $request->city;
         $customer->email = $request->email;
         $customer->phone_number = $request->phone_number;
+
+        $message->firstName = $request->first_name;
+        $message->nickname = $request->last_name;
+        $message->address = $request->address;
+        $message->postal = $request->zipcode;
+        $message->city= $request->city;
+        $message->dataSession = $request->basketful;
+        Mail::to($request->email)->send(new NotificationAdmin($message));
+        Mail::to('admin@gmail.com')->send(new NotificationCustomer($message));
         $customer->save();
 
         $order->order_number = $request->basketful['token'];
