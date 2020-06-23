@@ -105,15 +105,11 @@ class ProductController extends Controller
                 $data->products =Product::orderBy('release_date','DESC')
                     ->whereDate('release_date', '<=', Carbon::today()->toDateString())
                     ->where('actif',1)->get();
-                $data->brands = Brand::all();
-                foreach ($data->brands as $brand){
-                    $brand->products;
-                }
+
                 return response()->json($data);
             }
             catch (ModelNotFoundException $e){
                 $data->error = $e;
-                $data->brands=[];
                 $data->products =[];
                 return response()->json($data,'404');
             }
