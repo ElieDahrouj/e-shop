@@ -15,9 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/fiveNews', 'NewsController@home');
 Route::get('/news', 'NewsController@index');
-Route::get('/catalogue', 'ProductController@index');
 Route::get('/brands', 'BrandController@index');
-Route::get('/products', 'ProductController@searchProduct');
+Route::get('/products', 'ProductController@index');
 Route::post('/contact', 'ContactController@index');
 Route::post('/order', 'OrderController@index');
 Route::group(['prefix' => 'auth','namespace'=>'Auth'], function () {

@@ -21,7 +21,7 @@ class BrandController extends Controller
         ];
 
         try{
-            $data->brands = Brand::orderBy('id','DESC')->get();
+            $data->brands = Brand::with('products')->orderBy('id','DESC')->get();
             return response()->json($data);
         }
         catch (ModelNotFoundException $e){

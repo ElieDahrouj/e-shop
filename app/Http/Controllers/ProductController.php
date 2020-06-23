@@ -15,31 +15,6 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $data = (object)[
-            'error' => null,
-            'products' => [],
-            'brands'=>[]
-        ];
-
-        try{
-            $data->products =Product::orderBy('release_date','DESC')
-                ->whereDate('release_date', '<=', Carbon::today()->toDateString())
-                ->where('actif',1)->get();
-            $data->brands = Brand::all();
-            foreach ($data->brands as $brand){
-                $brand->products;
-            }
-            return response()->json($data);
-        }
-        catch (ModelNotFoundException $e){
-            $data->error = $e;
-            $data->brands=[];
-            $data->products =[];
-            return response()->json($data,'404');
-        }
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -89,7 +64,7 @@ class ProductController extends Controller
         }
     }
 
-    public function searchProduct(Request $request, Product $product)
+    public function index(Request $request, Product $product)
     {
         $data = (object)[
             'error' => null,
@@ -122,6 +97,25 @@ class ProductController extends Controller
                 $data->error = $e;
                 $data->products = [];
                 return response()->json($data, '404');
+            }
+        }
+        if (!$request->query('sort') && !$request->query('max') && !$request->query('search')){
+
+            try{
+                $data->products =Product::orderBy('release_date','DESC')
+                    ->whereDate('release_date', '<=', Carbon::today()->toDateString())
+                    ->where('actif',1)->get();
+                $data->brands = Brand::all();
+                foreach ($data->brands as $brand){
+                    $brand->products;
+                }
+                return response()->json($data);
+            }
+            catch (ModelNotFoundException $e){
+                $data->error = $e;
+                $data->brands=[];
+                $data->products =[];
+                return response()->json($data,'404');
             }
         }
     }

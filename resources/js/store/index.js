@@ -103,10 +103,16 @@ export default new Vuex.Store({
                 })
         },
         allProducts({commit}){
-            axios.get("/api/catalogue")
+            axios.get("/api/products")
                 .then(response =>{
                     commit('allProducts',response.data.products)
                     commit('allBrands',response.data.brands)
+                })
+                .then(()=>{
+                    axios.get("/api/brands")
+                        .then(response => {
+                            commit('allBrands',response.data.brands)
+                        })
                 })
         },
         allProductsByBrand({commit},id){
