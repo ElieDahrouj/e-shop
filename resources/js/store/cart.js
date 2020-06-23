@@ -7,6 +7,7 @@ export default ({
         displayArray:'',
         arrayLength:null,
         totalPrice:0,
+        orderPrice:0
     },
     getters: {
         getterCart(state){
@@ -17,6 +18,9 @@ export default ({
         },
         getterTotalPrice(state){
             return state.totalPrice
+        },
+        getterOrderPrice(state){
+            return state.orderPrice
         }
     },
     mutations:{
@@ -31,14 +35,17 @@ export default ({
             let cart = JSON.parse(localStorage.getItem("basketful"))
             cart.basket.forEach(element =>{
                 if (element.id === data.id){
-                    element.quantity += data.newQuantity
+                    element.quantity = 0
+                    element.quantity = data.newQuantity
                 }
             })
             localStorage.setItem("basketful",JSON.stringify(cart))
         },
         calculPrice(state,data){
             state.totalPrice = 0
+            state.orderPrice = 0
             data.basket.forEach(element =>{
+                state.orderPrice += (element.product.price * element.quantity)
                 return state.totalPrice += (element.product.price * element.quantity)
             })
         },
@@ -69,7 +76,6 @@ export default ({
                 zipcode:info.infoCustomer.postcode,city:info.infoCustomer.city,email:info.infoCustomer.mail,phone_number:info.infoCustomer.phoneNumber,basketful:JSON.parse(localStorage.getItem("basketful")),
                 cvc:info.infoCBcart.cartCVC,month:info.infoCBcart.month,year:info.infoCBcart.year,cartNumber:info.infoCBcart.cartNumber})
                 .then(() =>{
-                    console.log("confirm")
                     state.totalPrice = 0
                     return state.arrayLength = 0
                 })

@@ -14,7 +14,7 @@
                     <p class="mb-0 text-center font-weight-bold">{{displayProduct.token}}</p>
                     <p class="text-center">Numéro de commande</p>
                     <p class="mb-0 text-center"><font-awesome-icon :icon="['fas', 'receipt']" /></p>
-                    <p class="mb-0 text-center">Total <b>{{getterTotalPrice}}</b> €</p>
+                    <p class="mb-0 text-center">Total <b>{{getterOrderPrice}}</b> €</p>
                 </div>
                 <div>
                     <h3 class="font-weight-bold">Adresse de facturation</h3>
@@ -56,7 +56,7 @@
         },
         computed:{
             ...mapGetters({
-                getterTotalPrice:'cart/getterTotalPrice'
+                getterOrderPrice:'cart/getterOrderPrice'
             })
         },
         data(){
