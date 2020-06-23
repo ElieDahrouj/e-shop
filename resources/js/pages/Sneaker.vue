@@ -127,7 +127,7 @@
                         })
                         localStorage.setItem('basketful', JSON.stringify(basketful))
 
-                        if (!this.check) {
+                        if (this.check !== true) {
                             let infoCart = {
                                 id:Date.now(),
                                 size: this.size,
@@ -146,13 +146,6 @@
 
                             return localStorage.setItem('basketful', JSON.stringify(basketful))
                         }
-                        this.result.status = 1
-                        this.result.msg = "Produit ajouté au panier"
-                        setTimeout(() => {
-                            this.result.status = null
-                            this.result.msg = null
-                            this.getCart()
-                        },1500)
                     }
                 }
                 else{
