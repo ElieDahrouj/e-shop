@@ -186,9 +186,9 @@ export default ({
                     commit('arrayDataProducts',response.data.products)
                 })
         },
-        createBrand({commit,dispatch},object,config){
+        async createBrand({commit,dispatch},object,config){
             commit('loaderCreateBrand',true)
-            axios.post('/api/auth/createBrand',object,config)
+            await axios.post('/api/auth/createBrand',object,config)
                 .then( response => {
                     commit('loaderCreateBrand',false)
                     commit('msgToAlert',response.data)

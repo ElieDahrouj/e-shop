@@ -26,10 +26,7 @@
                 <div class="loader"></div><p class="textCustom ml-2 m-0 my-2">En attente d'ajout</p>
             </div>
 
-            <div class="d-flex justify-content-between">
-                <b-button class="mt-2" type="submit" variant="success">Ajouter</b-button>
-                <b-button class="mt-2" @click="resetBrandField" variant="dark">Reset</b-button>
-            </div>
+            <b-button class="mt-2" type="submit" variant="success">Ajouter</b-button>
         </form>
     </b-modal>
 </template>
@@ -57,7 +54,7 @@
             ...mapActions({
                 createBrand : 'admin/createBrand'
             }),
-            formSubmit(e) {
+            async formSubmit(e) {
                 e.preventDefault();
 
                 const config = {
@@ -72,15 +69,17 @@
                 if (this.brandForm.description != null){
                     formData.append('description', this.brandForm.description);
                 }
-                this.createBrand(formData,config)
-            },
-            resetBrandField(){
-                this.brandForm.brandName = null
-                this.brandForm.icone = null
-                this.brandForm.banner = null
-                if (this.brandForm.description) {
-                    this.brandForm.description = null
-                }
+                await this.createBrand(formData,config)
+                    .then(()=>{
+                        setTimeout(()=>{
+                            this.brandForm.brandName = null
+                            this.brandForm.icone = null
+                            this.brandForm.banner = null
+                            if (this.brandForm.description) {
+                                this.brandForm.description = null
+                            }
+                        },1500)
+                    })
             },
         }
     }
