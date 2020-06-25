@@ -90,12 +90,14 @@ import {mapActions , mapGetters} from 'vuex'
                 this.status = !this.status
             },
             researchProducts(){
-                const path = "/products/search/"+this.strUcFirst(this.filterProducts)
-                if (this.$route.path !== path){
-                    this.$router.replace({name:'filteredProducts', params:{name:this.strUcFirst(this.filterProducts)}})
+                if (this.filterProducts !== null){
+                    const path = "/products/search/"+this.strUcFirst(this.filterProducts)
+                    if (this.$route.path !== path){
+                        this.$router.replace({name:'filteredProducts', params:{name:this.strUcFirst(this.filterProducts)}})
+                    }
+                    this.searchProducts(this.strUcFirst(this.filterProducts))
+                    this.filterProducts = null
                 }
-                this.searchProducts(this.strUcFirst(this.filterProducts))
-                this.status = false
             },
             strUcFirst(a){
                 return (a+'').charAt(0).toUpperCase()+a.substr(1);
