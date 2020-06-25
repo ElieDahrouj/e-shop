@@ -27,8 +27,8 @@
             </div>
 
             <div class="d-flex justify-content-between">
-                <b-button class="mt-3" type="submit" variant="success">Ajouter</b-button>
-                <b-button class="mt-3" @click="resetBrandField" variant="dark">Reset</b-button>
+                <b-button class="mt-2" type="submit" variant="success">Ajouter</b-button>
+                <b-button class="mt-2" @click="resetBrandField" variant="dark">Reset</b-button>
             </div>
         </form>
     </b-modal>
