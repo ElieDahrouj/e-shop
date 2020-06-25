@@ -26,7 +26,10 @@
                 <div class="loader"></div><p class="textCustom ml-2 m-0 my-2">En attente d'ajout</p>
             </div>
 
-            <b-button class="mt-3" type="submit" variant="success">Ajouter</b-button>
+            <div class="d-flex justify-content-between">
+                <b-button class="mt-3" type="submit" variant="success">Ajouter</b-button>
+                <b-button class="mt-3" @click="resetBrandField" variant="dark">Reset</b-button>
+            </div>
         </form>
     </b-modal>
 </template>
@@ -70,19 +73,15 @@
                     formData.append('description', this.brandForm.description);
                 }
                 this.createBrand(formData,config)
-                setTimeout(() =>{
-                    if (this.alertMsg.type) {
-                        if (this.alertMsg.type === 1) {
-                            this.brandForm.brandName = null
-                            this.brandForm.icone = null
-                            this.brandForm.banner = null
-                            if (this.brandForm.description) {
-                                this.brandForm.description = null
-                            }
-                        }
-                    }
-                },6000)
-            }
+            },
+            resetBrandField(){
+                this.brandForm.brandName = null
+                this.brandForm.icone = null
+                this.brandForm.banner = null
+                if (this.brandForm.description) {
+                    this.brandForm.description = null
+                }
+            },
         }
     }
 </script>

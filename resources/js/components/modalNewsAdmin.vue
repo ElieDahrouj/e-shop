@@ -41,7 +41,10 @@
                 <div class="loader"></div><p class="textCustom ml-2 m-0 my-2">En attente d'ajout</p>
             </div>
 
-            <b-button class="mt-3" type="submit" variant="success">Ajouter</b-button>
+            <div class="d-flex justify-content-between">
+                <b-button class="mt-3" type="submit" variant="success">Ajouter</b-button>
+                <b-button class="mt-3" @click="resetNewField" variant="dark">Reset</b-button>
+            </div>
         </form>
     </b-modal>
 </template>
@@ -89,20 +92,15 @@
                 formData.append('release_date', this.newForm.releaseDate);
                 formData.append('user_id', user.id);
                 this.createNews(formData,config)
-
-                setTimeout(() =>{
-                    if (this.alertMsg.type){
-                        if (this.alertMsg.type === 1) {
-                            this.newForm.image = null
-                            this.newForm.title = null
-                            this.newForm.sommaire = null
-                            this.newForm.description = null
-                            this.newForm.releaseDate = null
-                            this.newForm.actif = null
-                        }
-                    }
-                },2500)
-            }
+            },
+            resetNewField(){
+                this.newForm.image = null
+                this.newForm.title = null
+                this.newForm.sommaire = null
+                this.newForm.description = null
+                this.newForm.releaseDate = null
+                this.newForm.actif = null
+            },
         }
     }
 </script>
