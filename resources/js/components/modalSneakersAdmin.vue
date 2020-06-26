@@ -57,10 +57,8 @@
             <div v-if="getterCreateLoaderProduct" class="d-flex justify-content-start align-items-center">
                 <div class="loader"></div><p class="textCustom ml-2 m-0 my-2">En attente d'ajout</p>
             </div>
-            <div class="d-flex justify-content-between">
-                <b-button class="mt-2" type="submit" variant="success">Ajouter</b-button>
-                <b-button class="mt-2" @click="resetProductField" variant="dark">Reset</b-button>
-            </div>
+
+            <b-button class="mt-2" type="submit" variant="success">Ajouter</b-button>
         </form>
     </b-modal>
 </template>
@@ -96,7 +94,7 @@
                 createSneakers : 'admin/createSneaker',
                 brandsDisplay: 'admin/displayBrandInSelect'
             }),
-            formSubmit(e) {
+            async formSubmit(e) {
                 e.preventDefault();
 
                 const config = {
@@ -121,19 +119,21 @@
                     formData.append('moreImages[]', this.newForm.moreImages[i]);
                 }
 
-                this.createSneakers(formData,config)
-            },
-            resetProductField(){
-                this.newForm.image = null
-                this.newForm.title = null
-                this.newForm.price = null
-                this.newForm.color = null
-                this.newForm.description = null
-                this.newForm.releaseDate = null
-                this.newForm.actif = null
-                this.newForm.brandSelected = null
-                this.newForm.moreImages = []
-                this.$refs['file-input'].reset()
+                await this.createSneakers(formData,config)
+                    .then(() =>{
+                        setTimeout(() =>{
+                            this.newForm.image = null
+                            this.newForm.title = null
+                            this.newForm.price = null
+                            this.newForm.color = null
+                            this.newForm.description = null
+                            this.newForm.releaseDate = null
+                            this.newForm.actif = null
+                            this.newForm.brandSelected = null
+                            this.newForm.moreImages = []
+                            this.$refs['file-input'].reset()
+                        },1400)
+                    })
             },
             processFile(event) {
                 let selectedFiles = event.target.files

@@ -30,8 +30,11 @@
             <div class="mt-2 text-info font-weight-bold">Image actuelle:</div>
             <img class="maxWidth" :src="getterEditionProduct.image" alt="">
 
-            <div class="mt-2">Ajouter des images secondaires: <b class="text-danger">*</b> <span class="text-info" v-if="newForm.moreImages.length !==0">{{ lenghtTab }} {{lenghtTab > 1 ? 'images insérés' : 'image inséré'}}</span></div>
-            <b-form-file @change="processFile($event)" multiple ref="file-input" class="nameOfFile" placeholder="Choose a file or drop it here..."></b-form-file>
+            <div class="mt-2">Ajouter des images secondaires: <b class="text-danger">*</b> <span class="text-info" v-if="newForm.moreImages.length !==0"> {{lenghtTab}} {{lenghtTab > 1 ? 'images insérés' : 'image inséré'}}</span></div>
+            <div class="d-flex justify-content-between">
+                <b-form-file @change="processFile($event)" multiple ref="file-input" class="nameOfFile" placeholder="Choose a file or drop it here..."></b-form-file>
+                <b-button class="ml-2" @click="resetFileField" variant="dark">Reset</b-button>
+            </div>
             <div class="mt-2 text-info font-weight-bold">Images Secondaire actuelle:</div>
             <div class="imageSecond">
                 <div class="my-2 mx-2" v-for="imageSecond in getterEditionProduct.images">
@@ -70,10 +73,7 @@
             <div v-if="getterLoaderProduct" class="d-flex justify-content-start align-items-center">
                 <div class="loader"></div><p class="textCustom ml-2 m-0 my-2">Mise à jour en cours</p>
             </div>
-            <div class="d-flex justify-content-between">
-                <b-button class="mt-3" @click="formSubmit" variant="success">Modifier</b-button>
-                <b-button class="mt-3" @click="resetFileField" variant="dark">Reset</b-button>
-            </div>
+            <b-button class="mt-3" @click="formSubmit" variant="success">Modifier</b-button>
         </div>
     </b-modal>
 </template>
@@ -107,7 +107,7 @@
                 brandsDisplay: 'admin/displayBrandInSelect',
                 deleteSecondaryPicture:'admin/deleteSecondaryPicture'
             }),
-            formSubmit(e) {
+            async formSubmit(e) {
                 e.preventDefault();
 
                 let myHeaders = new Headers();
@@ -143,12 +143,18 @@
                     headers: myHeaders
                 });
 
-                this.updateOneProduct(config)
+                await this.updateOneProduct(config)
+                    .then(()=>{
+                        setTimeout(()=>{
+                            this.newForm.moreImages = []
+                            this.newForm.image = null
+                            this.$refs['file-input'].reset()
+                        },1500)
+                    })
             },
             resetFileField(){
-                this.newForm.moreImages = []
-                this.newForm.image = null
                 this.$refs['file-input'].reset()
+                this.newForm.moreImages = []
             },
             processFile(event) {
                 let selectedFiles = event.target.files

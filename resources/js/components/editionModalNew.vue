@@ -21,7 +21,10 @@
             </div>
 
             <div class="mt-2">Selectionner une image: <b class="text-danger">*</b> <span class="text-info" v-if="newForm.image">{{ newForm.image.name }}</span></div>
-            <b-form-file v-model="newForm.image" class="nameOfFile" placeholder="Choose a file or drop it here..."></b-form-file>
+            <div class="d-flex justify-content-between">
+                <b-form-file v-model="newForm.image" class="nameOfFile" placeholder="Choose a file or drop it here..."></b-form-file>
+                <b-button class="ml-2" @click="resetFileField" variant="dark">Reset</b-button>
+            </div>
             <div class="mt-2 text-info font-weight-bold">Image actuelle:</div>
             <img class="w-100" :src="getterEditionNew.image" alt="">
 
@@ -43,10 +46,7 @@
             <div v-if="getterLoaderUpdateNew" class="d-flex justify-content-start align-items-center">
                 <div class="loader"></div><p class="textCustom ml-2 m-0 my-2">Mise à jour en cours</p>
             </div>
-            <div class="d-flex justify-content-between">
-                <b-button class="mt-3" @click="formSubmit" variant="success">Modifier</b-button>
-                <b-button class="mt-3" @click="resetFileField" variant="dark">Reset</b-button>
-            </div>
+            <b-button class="mt-3" @click="formSubmit" variant="success">Modifier</b-button>
         </div>
     </b-modal>
 </template>
@@ -72,7 +72,7 @@
             ...mapActions({
                 updateNew : 'admin/updateNew'
             }),
-            formSubmit(e) {
+            async formSubmit(e) {
                 e.preventDefault();
 
                 let myHeaders = new Headers();
@@ -95,7 +95,12 @@
                     data: formData,
                     headers: myHeaders
                 });
-                this.updateNew(config)
+                await this.updateNew(config)
+                    .then(()=>{
+                        setTimeout(()=>{
+                            this.newForm.image = null
+                        },1200)
+                    })
             },
             resetFileField(){
                 this.newForm.image = null

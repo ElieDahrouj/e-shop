@@ -198,9 +198,9 @@ export default ({
                     },3500)
                 })
         },
-        createNews({commit,dispatch},object,config){
+        async createNews({commit,dispatch},object,config){
             commit('loaderCreateNew',true)
-            axios.post('/api/auth/createNews',object,config)
+            await axios.post('/api/auth/createNews',object,config)
                 .then( response => {
                     commit('loaderCreateNew',false)
                     commit('msgToAlert',response.data)
@@ -210,9 +210,9 @@ export default ({
                     },3500)
                 })
         },
-        createSneaker({commit,dispatch},object,config){
+        async createSneaker({commit,dispatch},object,config){
             commit('loaderCreateProduct',true)
-            axios.post('/api/auth/createSneakers',object,config)
+            await axios.post('/api/auth/createSneakers',object,config)
                 .then( response => {
                     commit('loaderCreateProduct',false)
                     commit('msgToAlert',response.data)
@@ -289,9 +289,9 @@ export default ({
                     commit('editionProduct',response.data)
                 })
         },
-        updateNew({commit,dispatch},configData){
+        async updateNew({commit,dispatch},configData){
             commit('loaderNew',true)
-            axios.request(configData)
+            await axios.request(configData)
                 .then(response =>{
                     commit('loaderNew',false)
                     dispatch('adminNews')
@@ -302,9 +302,9 @@ export default ({
                     },3500)
                 })
         },
-        updateOneBrand({commit,dispatch},configData){
+        async updateOneBrand({commit,dispatch},configData){
             commit('loaderBrand',true)
-            axios.request(configData)
+            await axios.request(configData)
                 .then(response => {
                     commit('loaderBrand',false)
                     dispatch('adminBrand')
@@ -315,9 +315,9 @@ export default ({
                     },3500)
                 })
         },
-        updateOneProduct({commit,dispatch},configData){
+        async updateOneProduct({commit,dispatch},configData){
             commit('loaderProduct',true)
-            axios.request(configData)
+            await axios.request(configData)
                 .then(response => {
                     commit('loaderProduct',false)
                     dispatch('adminProducts')

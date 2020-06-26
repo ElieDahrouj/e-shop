@@ -8,14 +8,18 @@
                 </b-form-group>
 
                 <div class="mt-2">Changer la bannière: <b class="text-danger">*</b> <span class="text-info" v-if="editForm.banner">{{editForm.banner.name}}</span></div>
-                <b-form-file v-model="editForm.banner" class="nameOfFile" placeholder="Choose a file or drop it here..."></b-form-file>
-
+                <div class="d-flex justify-content-between">
+                    <b-form-file v-model="editForm.banner" class="nameOfFile" placeholder="Choose a file or drop it here..."></b-form-file>
+                    <b-button class="ml-2" @click="resetBanner" variant="dark">Reset</b-button>
+                </div>
                 <div class="mt-2 text-info font-weight-bold">Bannière actuelle:</div>
                 <img class="w-100" :src="getterEditionBrand.banner" alt="">
 
                 <div class="mt-2">Changer d'icône: <b class="text-danger">*</b> <span class="text-info" v-if="editForm.icone">{{editForm.icone.name }}</span></div>
-                <b-form-file v-model="editForm.icone" class="nameOfFile" placeholder="Choose a file or drop it here..."></b-form-file>
-
+                <div class="d-flex justify-content-between">
+                    <b-form-file v-model="editForm.icone" class="nameOfFile" placeholder="Choose a file or drop it here..."></b-form-file>
+                    <b-button class="ml-2" @click="resetIcone" variant="dark">Reset</b-button>
+                </div>
                 <div class="mt-2 text-info font-weight-bold">Icône actuelle:</div>
                 <img class="widthCustom" :src="getterEditionBrand.image" alt="">
 
@@ -32,10 +36,7 @@
                 <div v-if="getterLoaderUpdateBrand" class="d-flex justify-content-start align-items-center">
                     <div class="loader"></div><p class="textCustom ml-2 m-0 my-2">Mise à jour en cours</p>
                 </div>
-                <div class="d-flex justify-content-between">
-                    <b-button class="mt-3" @click="formSubmit" variant="success">Modifier</b-button>
-                    <b-button class="mt-3" @click="resetFileField" variant="dark">Reset</b-button>
-                </div>
+                <b-button class="mt-3" @click="formSubmit" variant="success">Modifier</b-button>
             </div>
         </b-modal>
 </template>
@@ -62,7 +63,7 @@
             ...mapActions({
                 updateOneBrand : 'admin/updateOneBrand'
             }),
-            formSubmit(e) {
+            async formSubmit(e) {
                 e.preventDefault();
                 let myHeaders = new Headers();
                 myHeaders.append("Content-Type", "multipart/form-data");
@@ -83,10 +84,16 @@
                     data: formData,
                     headers: myHeaders
                 });
-                this.updateOneBrand(config)
+                await this.updateOneBrand(config)
+                    .then(()=>{
+                        this.editForm.icone = null
+                        this.editForm.banner = null
+                    })
             },
-            resetFileField(){
+            resetIcone(){
                 this.editForm.icone = null
+            },
+            resetBanner(){
                 this.editForm.banner = null
             },
         }

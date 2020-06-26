@@ -40,11 +40,7 @@
             <div v-if="getterCreateLoaderNew" class="d-flex justify-content-start align-items-center">
                 <div class="loader"></div><p class="textCustom ml-2 m-0 my-2">En attente d'ajout</p>
             </div>
-
-            <div class="d-flex justify-content-between">
-                <b-button class="mt-2" type="submit" variant="success">Ajouter</b-button>
-                <b-button class="mt-2" @click="resetNewField" variant="dark">Reset</b-button>
-            </div>
+            <b-button class="mt-2" type="submit" variant="success">Ajouter</b-button>
         </form>
     </b-modal>
 </template>
@@ -75,7 +71,7 @@
             ...mapActions({
                 createNews : 'admin/createNews'
             }),
-            formSubmit(e) {
+            async formSubmit(e) {
                 e.preventDefault();
 
                 const config = {
@@ -91,15 +87,17 @@
                 formData.append('actif', this.newForm.actif);
                 formData.append('release_date', this.newForm.releaseDate);
                 formData.append('user_id', user.id);
-                this.createNews(formData,config)
-            },
-            resetNewField(){
-                this.newForm.image = null
-                this.newForm.title = null
-                this.newForm.sommaire = null
-                this.newForm.description = null
-                this.newForm.releaseDate = null
-                this.newForm.actif = null
+                await this.createNews(formData,config)
+                    .then(()=>{
+                        setTimeout(() =>{
+                            this.newForm.image = null
+                            this.newForm.title = null
+                            this.newForm.sommaire = null
+                            this.newForm.description = null
+                            this.newForm.releaseDate = null
+                            this.newForm.actif = null
+                        },1400)
+                    })
             },
         }
     }
